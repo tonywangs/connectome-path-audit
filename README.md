@@ -74,8 +74,29 @@ Actual recorded evidence is in [results/verification.json](results/verification.
 
 Wiring paths do not establish signal propagation, causal influence, engineered dynamics, or consciousness. The tool does not simulate neuronal activity or offer physiological or clinical validation.
 
-Resource ceilings are explicit and can only be lowered. Any input error, exhausted limit, serialization failure, or caught cancellation fails the whole audit, rather than fabricating “no path” findings. See [limits and failure semantics](docs/contract.md#limits-and-failure-semantics). The CLI and report make no external requests. Report files contain the supplied IDs, labels, and provenance; handle them according to the sensitivity of your inputs.
+Resource ceilings are explicit and can only be lowered. Any input error, exhausted baseline limit, serialization failure, or caught cancellation fails the whole audit, rather than fabricating “no path” findings. See [limits and failure semantics](docs/contract.md#limits-and-failure-semantics). The CLI and report make no external requests. Report files contain the supplied IDs, labels, and provenance; handle them according to the sensitivity of your inputs.
 
 FlyWire Codex already provides pathway exploration. This project's scope is a reproducible offline threshold audit, with no novelty claim. See [existing work and semantic differences](docs/existing-work.md).
 
 Code and synthetic fixtures: [MIT license](LICENSE).
+
+## Audit individual connection failures
+
+Add `--single-edge-failure` to any existing audit command:
+
+```sh
+PYTHONPATH=src python3 -m connectome_audit examples/connections.csv \
+  --nodes examples/nodes.csv --provenance examples/provenance.json \
+  --source sensor --target motor --target isolated --target sensor --target absent \
+  --thresholds 1,5,6,9,10 --single-edge-failure --output /tmp/connection-failures
+```
+
+Open the [synthetic failure report](results/edge-failure-example/report.html), select a query and threshold, then inspect candidate removals and paginated alternative paths. At threshold 5, redundant routes preserve sensor → motor after either baseline edge is removed. At threshold 6, all three edges of its remaining route are individually critical. At threshold 10, the query is initially unreachable, distinct from removal-induced disconnection.
+
+Each trial removes an **entire aggregated directed edge**, not one synapse or CSV row. Any individually critical edge must lie on the baseline witness; removing an edge outside it leaves that witness intact. Alternatives include replayable node sequences and synapse counts. Self-loops cannot be critical; a present self-query retains its zero-hop path.
+
+The extension is versioned `connectome-single-edge-failure/v1`. `--max-candidate-removals` (10,000) and `--max-removal-operations` (2,000,000) bound work across all queries and thresholds. Exhausting either produces explicit unresolved candidates and a **partial** analysis, including in the HTML. The outer completion marker certifies a finished bundle; inspect the extension status before treating the critical-edge list as exhaustive. Runtime, total-work, witness and output limits still abort the bundle. See the [full contract](docs/contract.md#optional-connectome-single-edge-failurev1).
+
+Criticality is specific to this source, target, threshold and supplied graph. Edge removal is a graph operation, not a validated neuronal intervention or a measure of biological importance. Missing connections can change every conclusion.
+
+The same single verification command above covers this extension, including 300 additional seeded graphs checked by removing every retained edge in an independent NetworkX reference. Current evidence is in [edge-failure-verification.json](results/edge-failure-verification.json); the original reachability evidence and example remain historical artifacts.

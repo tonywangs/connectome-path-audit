@@ -54,7 +54,7 @@ Each finding contains `source`, `target`, `threshold`, `status`, `hops`, `path`,
 | `no_path_in_supplied_graph` | Both endpoints exist and exhaustive BFS found no path at this threshold. `hops`/`bottleneck` are null; paths/counts empty. |
 | `missing_node` | One or both endpoints are absent from the entire supplied node set; `missing_ids` identifies them. No reachability claim; `hops`/`bottleneck` null, paths/counts empty. |
 
-For a present self-query, status is reachable, `hops=0`, `path=[source]`, counts empty, bottleneck null. A missing self-query remains unresolved. Null hops alone is not a status. There is no incomplete-status finding: the CLI fails without committing a report if the entire computation cannot finish.
+For a present self-query, status is reachable, `hops=0`, `path=[source]`, counts empty, bottleneck null. A missing self-query remains unresolved. Null hops alone is not a status. Baseline findings are never partial: the CLI fails without committing a report if baseline computation cannot finish. The optional removal extension has separate partial outcomes described below.
 
 Threshold summaries distinguish retained/removed aggregated edges (including loops), reachable pairs, no-path pairs, and missing-ID pairs. Increasing the threshold cannot create reachability or shorten a path; witnesses can change when edges disappear.
 
@@ -82,3 +82,41 @@ Exit code 0 means a completed bundle; 2 means invalid input, I/O/serialization e
 A force kill or power loss can leave an uncommitted directory; require the completion marker and verify its hashes before consuming a bundle. Directory metadata is not fsynced, so this is not a power-loss-durable transaction. Output should be on a local filesystem with an existing parent directory; concurrent adversarial mutation of that directory is outside the contract. An existing stale output must be inspected/removed or a different output path selected by the caller; no automatic replacement occurs.
 
 The self-contained HTML disables network/resource loads with a restrictive Content Security Policy, uses text nodes for input-derived content, and paginates query/witness tables. It is not a general HTML editor. JavaScript is required for interactivity; without it, the notice directs the reader to the adjacent complete JSON.
+
+## Optional `connectome-single-edge-failure/v1`
+
+`--single-edge-failure` adds a versioned `single_edge_failure` object at the document level and a same-named object on each baseline finding. Baseline findings, threshold comparisons, ordering, and the input contract retain their meanings. The document object records the removal unit, candidate strategy, analysis completeness, total attempted removals, and counted removal traversal work. Input hashes, provenance, limits and settings remain in the enclosing document. No network or additional data source is used.
+
+For a reachable source–target query at threshold t, an edge is **critical** if deleting that entire retained aggregated directed pair makes the target unreachable from the source. Each trial starts from the original thresholded graph; failures are not cumulative. Synapse counts are not capacities. Deleting one duplicate CSV row or decrementing a count is a different operation and is not implemented. Reciprocal edges are distinct.
+
+Every critical edge belongs to the deterministic baseline witness: if an edge is outside that path, deleting it leaves the path intact. Testing each edge on the witness therefore identifies **all** individually critical edges when the candidate analysis is complete. `untested_noncritical_edges` counts other retained edges, including self-loops; the unchanged baseline is a reusable witness for their removals. This is not enumeration of all minimum cuts, nor analysis of combinations of failures. A present self-query has an empty candidate list, zero critical edges, and a zero-hop path preserved under every edge removal. A self-loop cannot be individually critical under these reachability semantics.
+
+Per-query fields include `candidate_count`, ordered `candidates`, `critical_edges`, `untested_noncritical_edges`, and status:
+
+| Query status | Meaning |
+| --- | --- |
+| `complete` | Every candidate classified; confirmed critical list is exhaustive. |
+| `partial` | At least one candidate unresolved; confirmed critical list is a lower bound, never an exhaustive claim. |
+| `initially_unreachable` | Baseline already has no path; no removal-induced disconnection is claimed. |
+| `missing_node` | Baseline endpoints missing; no removal analysis. |
+
+Candidates follow baseline path order. Each stores `edge: [from,to]`, original aggregate `synapses`, `status`, `reason`, `path`, `edge_counts`, `search_complete`, and `visited_nodes`:
+
+| Candidate status | Evidence |
+| --- | --- |
+| `alternative_path` | Canonical shortest path avoiding the removed pair, with counts replayed against the supplied graph. Search stops after finding a path; `search_complete` is false. |
+| `disconnected` | BFS exhausted its queue without reaching the target; `search_complete` is true and `visited_nodes` records the full reachable-set size. No path payload. |
+| `unresolved` | Candidate or removal-traversal budget exhausted; explicit `reason`, no witness or disconnection claim, null visited count. Includes trials that could not start. |
+
+The extension's overall status is `partial` if any query is partial; otherwise `complete` (missing endpoints and initially unreachable queries remain explicitly distinguished). `tested_removals` counts searches started, including interrupted searches. The report's outer `status: complete` and bundle marker mean that serialization finished, not that all removal trials resolved. Consumers must check the extension status. Exit code 0 can therefore accompany a partial analysis; the CLI prints that status separately.
+
+Two additional ceilings may only be lowered:
+
+| Resource, across all queries/thresholds | Ceiling | Flag | Exhaustion |
+| --- | --- | --- | --- |
+| Candidate searches started | 10,000 | `--max-candidate-removals` | Remaining candidates unresolved |
+| Removal BFS pops + neighbor inspections | 2,000,000 | `--max-removal-operations` | Current and remaining candidates unresolved |
+
+The existing 5,000,000 total-operation, 30-second runtime, 100,000 witness-node and 8 MiB per-artifact limits still apply to the entire workflow, including alternatives. Their exhaustion aborts the bundle, as do cancellation and serialization errors. Only the two additional ceilings permit a partial report. Each candidate search costs O(V + E) in the worst case, with O(V + E) search memory; total work is bounded by the explicit budgets. Paths and unresolved records also consume bounded output space. The HTML paginates candidate and alternative-edge tables at 20 rows, including partial outcomes.
+
+Edge removal is a graph operation, **not a validated neuronal intervention**. Query-relative criticality does not establish biological importance. Missing connections can change every conclusion.

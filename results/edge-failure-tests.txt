@@ -1,0 +1,73 @@
+test_300_seeded_graphs (test_core.IndependentReference.test_300_seeded_graphs) ... ok
+test_boundaries_duplicates_cycles_identity_missing_and_direction (test_core.Semantics.test_boundaries_duplicates_cycles_identity_missing_and_direction) ... ok
+test_empty_graph_and_declared_isolate (test_core.Semantics.test_empty_graph_and_declared_isolate) ... ok
+test_exactly_twelve_thresholds_and_safe_maximum (test_core.Semantics.test_exactly_twelve_thresholds_and_safe_maximum) ... ok
+test_numeric_ids_are_strings_and_lexicographic_tie_break (test_core.Semantics.test_numeric_ids_are_strings_and_lexicographic_tie_break) ... ok
+test_threshold_and_query_validation (test_core.Semantics.test_threshold_and_query_validation) ... ok
+test_300_seeded_all_edge_removals (test_edge_failures.EdgeFailures.test_300_seeded_all_edge_removals) ... ok
+test_duplicates_ties_loops_boundaries_and_identity (test_edge_failures.EdgeFailures.test_duplicates_ties_loops_boundaries_and_identity) ... ok
+test_partial_and_hard_limits (test_edge_failures.EdgeFailures.test_partial_and_hard_limits) ... ok
+test_actual_sigint_and_sigterm_cleanup (test_edge_failures.FailureOutputRegressions.test_actual_sigint_and_sigterm_cleanup) ... ok
+test_cleanup_write_failure_and_cancellation (test_edge_failures.FailureOutputRegressions.test_cleanup_write_failure_and_cancellation) ... INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+ok
+test_cli_success_repeat_and_collision (test_edge_failures.FailureOutputRegressions.test_cli_success_repeat_and_collision) ... INCOMPLETE: [Errno 17] File exists: '/tmp/tmp5hmp5hno/out'; no completed report produced
+INCOMPLETE: [Errno 17] File exists: '/tmp/tmp5hmp5hno/empty'; no completed report produced
+INCOMPLETE: [Errno 17] File exists: '/tmp/tmp5hmp5hno/link'; no completed report produced
+ok
+test_exhausted_report_and_runtime (test_edge_failures.FailureOutputRegressions.test_exhausted_report_and_runtime) ... INCOMPLETE: JSON report byte limit exhausted; no completed report produced
+INCOMPLETE: runtime limit exhausted; no completed report produced
+ok
+test_hostile_text_cannot_end_data_block (test_edge_failures.FailureOutputRegressions.test_hostile_text_cannot_end_data_block) ... ok
+test_serialization_failure_does_not_create_output (test_edge_failures.FailureOutputRegressions.test_serialization_failure_does_not_create_output) ... INCOMPLETE: injected serialization failure; no completed report produced
+INCOMPLETE: injected serialization failure; no completed report produced
+ok
+test_bom_crlf_and_hash_exact_bytes (test_failures.InputFailures.test_bom_crlf_and_hash_exact_bytes) ... ok
+test_computation_runtime_witness_and_limit_validation (test_failures.InputFailures.test_computation_runtime_witness_and_limit_validation) ... ok
+test_fifo_rejected_without_waiting (test_failures.InputFailures.test_fifo_rejected_without_waiting) ... ok
+test_input_limits (test_failures.InputFailures.test_input_limits) ... ok
+test_malformed_connections (test_failures.InputFailures.test_malformed_connections) ... ok
+test_malformed_nodes (test_failures.InputFailures.test_malformed_nodes) ... ok
+test_malformed_provenance (test_failures.InputFailures.test_malformed_provenance) ... ok
+test_actual_sigint_and_sigterm_cleanup (test_failures.OutputFailures.test_actual_sigint_and_sigterm_cleanup) ... ok
+test_cleanup_write_failure_and_cancellation (test_failures.OutputFailures.test_cleanup_write_failure_and_cancellation) ... INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: injected disk failure; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: cancelled; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+INCOMPLETE: timeout; no completed report produced
+ok
+test_cli_success_repeat_and_collision (test_failures.OutputFailures.test_cli_success_repeat_and_collision) ... INCOMPLETE: [Errno 17] File exists: '/tmp/tmpwpjif7y6/out'; no completed report produced
+INCOMPLETE: [Errno 17] File exists: '/tmp/tmpwpjif7y6/empty'; no completed report produced
+INCOMPLETE: [Errno 17] File exists: '/tmp/tmpwpjif7y6/link'; no completed report produced
+ok
+test_exhausted_report_and_runtime (test_failures.OutputFailures.test_exhausted_report_and_runtime) ... INCOMPLETE: JSON report byte limit exhausted; no completed report produced
+INCOMPLETE: runtime limit exhausted; no completed report produced
+ok
+test_hostile_text_cannot_end_data_block (test_failures.OutputFailures.test_hostile_text_cannot_end_data_block) ... ok
+test_serialization_failure_does_not_create_output (test_failures.OutputFailures.test_serialization_failure_does_not_create_output) ... INCOMPLETE: injected serialization failure; no completed report produced
+INCOMPLETE: injected serialization failure; no completed report produced
+ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 10.291s
+
+OK
+Independent reference: 300 seeds, 145458 findings, 42874 verified witnesses; NetworkX 3.4.2 + Floyd-Warshall
+Edge failure reference: 300 seeds, 69136 findings, 5764 full-edge reference removals, 6415 alternative witnesses, 10449 critical findings
+Single-edge failure analysis: complete
+Complete: /tmp/tmp5hmp5hno/out/report.html (3 findings)
+Single-edge failure analysis: complete
+Complete: /tmp/tmp5hmp5hno/second/report.html (3 findings)
+Complete: /tmp/tmpwpjif7y6/out/report.html (3 findings)
+Complete: /tmp/tmpwpjif7y6/second/report.html (3 findings)

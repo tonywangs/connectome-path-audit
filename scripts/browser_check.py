@@ -1,12 +1,14 @@
 """Exercise generated local HTML with real Chromium, all network requests blocked."""
 import hashlib
 import json
+import time
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
 
 def check(report_path, screenshot=None):
+    started = time.monotonic()
     report_path = Path(report_path).resolve()
     raw = report_path.with_suffix('.json').read_bytes()
     data = json.loads(raw)
@@ -59,11 +61,39 @@ def check(report_path, screenshot=None):
             page.locator('#next-hop').click()
         assert edges == [str(i) for i in range(1, 65)]
         page.locator('#previous-hop').click()
+        failure_checks = {}
+        if data.get('single_edge_failure'):
+            assert not page.locator('#failure-section').is_hidden()
+            visited = []
+            while True:
+                assert page.locator('#removals tbody tr').count() <= 20
+                visited += page.locator('#removals button').evaluate_all('(bs) => bs.map(b => b.getAttribute("aria-label"))')
+                if page.locator('#next-removal').is_disabled(): break
+                page.locator('#next-removal').click()
+            assert len(visited) == 64
+            page.locator('#removals button').first.click()
+            assert 'complete search exhausted' in page.locator('#alternative-status').inner_text()
+            while not page.locator('#previous-removal').is_disabled(): page.locator('#previous-removal').click()
+            page.locator('#removals button').first.focus(); page.keyboard.press('Enter')
+            assert page.locator('#alternative-heading').evaluate('(e) => e === document.activeElement')
+            assert 'verified alternative' in page.locator('#alternative-status').inner_text()
+            alt = []
+            while True:
+                assert page.locator('#alternative tbody tr').count() <= 20
+                alt += page.locator('#alternative tbody tr td:first-child').all_text_contents()
+                if page.locator('#next-alternative').is_disabled(): break
+                page.locator('#next-alternative').click()
+            assert alt == [str(i) for i in range(1, 90)]
+            page.locator('#previous-alternative').click()
+            failure_checks = {'candidate_rows_visited': len(visited), 'alternative_edges_visited': len(alt),
+                              'dom_elements': page.locator('*').count()}
         # Threshold can be changed by overview and keyboard-operated select.
         page.get_by_role('button', name='Select threshold 6', exact=True).click()
         assert page.locator('#threshold').input_value() == '6'
         assert 'No path in the supplied graph' in page.locator('#path-status').inner_text()
         assert page.locator('#witness').is_hidden()
+        if data.get('single_edge_failure'):
+            assert 'Initially unreachable' in page.locator('#failure-status').inner_text()
         page.locator('#threshold').focus(); page.keyboard.press('Home'); page.keyboard.press('Enter')
         assert page.locator('#threshold').input_value() == '1'
         # Filter status separates missing identifiers from no supplied-graph path.
@@ -101,7 +131,7 @@ def check(report_path, screenshot=None):
             page.screenshot(path=str(screenshot), full_page=True)
         assert not requests, requests
         assert not errors, errors
-        result = {'browser': browser.version, 'external_request_attempts': len(requests),
+        result = {'elapsed_seconds': round(time.monotonic() - started, 6), 'browser': browser.version, 'single_edge_failure': failure_checks, 'dom_elements': page.locator('*').count(), 'external_request_attempts': len(requests),
                   'javascript_errors': len(errors), 'queries_visited': len(seen),
                   'path_edges_visited': len(edges), 'max_mounted_rows_per_paged_table': 20,
                   'viewports': ['1280x960', '360x800'], 'download_sha256': hashlib.sha256(raw).hexdigest(),
@@ -116,3 +146,28 @@ def check(report_path, screenshot=None):
 if __name__ == '__main__':
     import sys
     print(json.dumps(check(sys.argv[1]), indent=2))
+
+
+def check_partial(report_path):
+    """Partial outcomes remain visible in a network-blocked browser."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
+        context = browser.new_context(offline=True)
+        requests, errors = [], []
+        context.route('**/*', lambda route: route.abort() if route.request.url.startswith(('http:', 'https:')) else route.continue_())
+        page = context.new_page()
+        page.on('request', lambda r: requests.append(r.url) if r.url.startswith(('http:', 'https:')) else None)
+        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.goto(Path(report_path).resolve().as_uri())
+        page.locator('#load-status').wait_for(state='hidden')
+        page.locator('#filter').fill('motor')
+        assert 'PARTIAL' in page.locator('#failure-status').inner_text()
+        page.locator('#removals button').last.click()
+        assert 'unresolved' in page.locator('#alternative-status').inner_text()
+        assert page.locator('#alternative tbody tr').count() == 0
+        assert not requests and not errors
+        result = {'partial_visible': True, 'unresolved_without_witness': True,
+                  'external_request_attempts': len(requests), 'javascript_errors': len(errors),
+                  'dom_elements': page.locator('*').count(), 'browser': browser.version}
+        browser.close()
+        return result

@@ -22,6 +22,8 @@ class Limits:
     rows: int = 200_000  # connection rows before aggregation
     queries: int = 256  # distinct source x target pairs
     operations: int = 5_000_000
+    candidate_removals: int = 10_000  # across all queries and thresholds
+    removal_operations: int = 2_000_000  # removal BFS pops and adjacency visits
     seconds: float = 30.0
     report_bytes: int = 8 * 1024 * 1024  # each artifact
     witness_nodes: int = 100_000  # all reported paths, including repetitions

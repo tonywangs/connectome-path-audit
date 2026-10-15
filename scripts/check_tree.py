@@ -22,15 +22,16 @@ def main():
         assert not name.endswith('.log') or name == 'results/tests.log', f'non-test log: {name}'
         total += size
     assert total <= 32 * 1024 * 1024, 'tree exceeds 32 MiB'
-    evidence = json.loads((ROOT / 'results/verification.json').read_text())
+    evidence = json.loads((ROOT / 'results/edge-failure-verification.json').read_text())
     for name, expected in evidence['verified_files'].items():
         assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected, f'verification stale: {name}'
-    example = ROOT / 'results/example'
-    marker = json.loads((example / 'COMPLETE.json').read_text())
-    for name, info in marker['artifacts'].items():
-        raw = (example / name).read_bytes()
-        assert len(raw) == info['bytes']
-        assert hashlib.sha256(raw).hexdigest() == info['sha256']
+    for directory in ['example', 'edge-failure-example']:
+        example = ROOT / 'results' / directory
+        marker = json.loads((example / 'COMPLETE.json').read_text())
+        for name, info in marker['artifacts'].items():
+            raw = (example / name).read_bytes()
+            assert len(raw) == info['bytes']
+            assert hashlib.sha256(raw).hexdigest() == info['sha256']
     print(json.dumps({'publishable_files': len(names), 'total_bytes': total,
                       'largest_file_bytes': max((ROOT / n).stat().st_size for n in names),
                       'recorded_source_hashes_match': True, 'example_bundle_hashes_match': True}, sort_keys=True))

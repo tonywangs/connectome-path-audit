@@ -110,9 +110,57 @@ def check_benchmark_reference(report, inputs):
     return count
 
 
+def check_failure_reference(report, inputs):
+    """Independent installed-artifact oracle: remove every retained pair."""
+    import networkx as nx
+    doc = json.loads(report.read_text())
+    totals = {}
+    with (inputs / 'connections.csv').open() as f:
+        for row in csv.DictReader(f):
+            edge = row['source'], row['target']
+            totals[edge] = totals.get(edge, 0) + int(row['synapses'])
+    findings = witnesses = deletions = 0
+    for threshold in doc['thresholds']:
+        graph = nx.DiGraph(); graph.add_nodes_from(n['id'] for n in doc['nodes'])
+        graph.add_edges_from(e for e, count in totals.items() if count >= threshold)
+        expected = {}
+        distances = {}
+        for edge in list(graph.edges):
+            changed = graph.copy(); changed.remove_edge(*edge)
+            distances[edge] = dict(nx.all_pairs_shortest_path_length(changed))
+            deletions += 1
+        for r in doc['results']:
+            if r['threshold'] != threshold: continue
+            f = r['single_edge_failure']; a, b = r['source'], r['target']
+            findings += 1
+            if a not in graph or b not in graph:
+                assert f['status'] == 'missing_node'; continue
+            if not nx.has_path(graph, a, b):
+                assert f['status'] == 'initially_unreachable'; continue
+            assert f['status'] == 'complete'
+            expected = {e for e, d in distances.items() if b not in d[a]}
+            assert set(map(tuple, f['critical_edges'])) == expected
+            for c in f['candidates']:
+                edge = tuple(c['edge'])
+                assert c['synapses'] == totals[edge]
+                if edge in expected:
+                    assert c['status'] == 'disconnected' and c['search_complete']
+                    assert c['visited_nodes'] == len(distances[edge][a])
+                    continue
+                assert c['status'] == 'alternative_path'
+                path = c['path']
+                assert path[0] == a and path[-1] == b
+                assert len(path) - 1 == distances[edge][a][b]
+                pairs = list(zip(path, path[1:]))
+                assert edge not in pairs and all(totals.get(e, 0) >= threshold for e in pairs)
+                assert c['edge_counts'] == [totals[e] for e in pairs]
+                witnesses += 1
+    return {'findings': findings, 'reference_removals': deletions, 'alternative_witnesses': witnesses}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--record', action='store_true', help='refresh results/verification.json, results/tests.log, and results/example/')
+    parser.add_argument('--record', action='store_true', help='refresh results/edge-failure-verification.json, results/edge-failure-tests.txt, and results/edge-failure-example/')
     args = parser.parse_args()
     required = {'networkx': '3.4.2', 'playwright': '1.51.0', 'setuptools': '75.8.0', 'wheel': '0.45.1', 'pip': '25.0.1',
                 'pyee': '12.1.1', 'greenlet': '3.5.6', 'typing-extensions': '4.16.0'}
@@ -151,6 +199,9 @@ socket.getaddrinfo = denied
         match = re.search(r'Independent reference: (\d+) seeds, (\d+) findings, (\d+) verified witnesses', logs[-1])
         assert match
         evidence['reference'].update(graphs=int(match[1]), findings=int(match[2]), witnesses=int(match[3]))
+        edge_match = re.search(r'Edge failure reference: (\d+) seeds, (\d+) findings, (\d+) full-edge reference removals, (\d+) alternative witnesses, (\d+) critical findings', logs[-1])
+        assert edge_match
+        evidence['edge_failure_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses', 'critical_findings'], map(int, edge_match.groups())))
         match = re.search(r'Ran (\d+) tests', logs[-1]); assert match
         evidence['unit_tests']['tests_passed'] = int(match[1])
         # Build from a clean source copy. No source-tree import in installed runs.
@@ -199,6 +250,47 @@ socket.getaddrinfo = denied
         run([executable, *browser_args, '--output', browser_bundle], temp, env, logs)
         from browser_check import check
         evidence['browser'] = check(browser_bundle / 'report.html')
+        # Same installed binary, now with the optional failure analysis enabled.
+        failure_example = temp / 'failure-example'
+        evidence['failure_example'] = run([executable, *example_args, '--single-edge-failure', '--output', failure_example], temp, env, logs)
+        evidence['failure_example']['artifacts'] = verify_bundle(failure_example)
+        evidence['failure_example']['reference'] = check_failure_reference(failure_example / 'report.json', ROOT / 'examples')
+        failure_again = temp / 'failure-again'
+        run([executable, *example_args, '--single-edge-failure', '--output', failure_again], temp,
+            {**env, 'PYTHONHASHSEED': '73'}, logs)
+        assert verify_bundle(failure_example) == verify_bundle(failure_again)
+        evidence['failure_example']['byte_identical_repeated_outputs'] = True
+        assert example_hashes == {p.name: sha(p) for p in (ROOT / 'examples').iterdir() if p.is_file()}
+        evidence['failure_example']['unchanged_input_hashes'] = example_hashes
+        failure_data = json.loads((failure_example / 'report.json').read_text())
+        assert failure_data['single_edge_failure']['status'] == 'complete'
+        # A long detour replaces the first chain edge; later edges remain critical.
+        with (browser_inputs / 'nodes.csv').open('a', newline='') as f:
+            csv.writer(f).writerows((f'alt{i:03}', '') for i in range(25))
+        with (browser_inputs / 'connections.csv').open('a', newline='') as f:
+            csv.writer(f).writerows([('n000', 'alt000', 5)] +
+                [(f'alt{i:03}', f'alt{i+1:03}', 5) for i in range(24)] + [('alt024', 'n001', 5)])
+        before_failure = {p.name: sha(p) for p in browser_inputs.iterdir()}
+        failure_browser = temp / 'failure-browser'
+        evidence['failure_workload'] = run([executable, *browser_args, '--single-edge-failure', '--output', failure_browser], temp, env, logs)
+        evidence['failure_workload']['artifacts'] = verify_bundle(failure_browser)
+        failure_doc = json.loads((failure_browser / 'report.json').read_text())
+        evidence['failure_workload'].update(graph=failure_doc['graph'], queries=len(failure_doc['queries']),
+            thresholds=failure_doc['thresholds'], analysis=failure_doc['single_edge_failure'])
+        assert before_failure == {p.name: sha(p) for p in browser_inputs.iterdir()}
+        evidence['failure_workload']['unchanged_input_hashes'] = before_failure
+        evidence['failure_workload']['reference'] = check_failure_reference(failure_browser / 'report.json', browser_inputs)
+        failure_repeat = temp / 'failure-browser-repeat'
+        run([executable, *browser_args, '--single-edge-failure', '--output', failure_repeat], temp,
+            {**env, 'PYTHONHASHSEED': '73'}, logs)
+        assert verify_bundle(failure_repeat) == verify_bundle(failure_browser)
+        evidence['failure_workload']['byte_identical_repeated_outputs'] = True
+        evidence['failure_browser'] = check(failure_browser / 'report.html')
+        partial = temp / 'partial'
+        run([executable, *example_args, '--single-edge-failure', '--max-candidate-removals', '1', '--output', partial], temp, env, logs)
+        assert json.loads((partial / 'report.json').read_text())['single_edge_failure']['status'] == 'partial'
+        from browser_check import check_partial
+        evidence['partial_browser'] = check_partial(partial / 'report.html')
         assert not attempts.exists(), 'offline Python process attempted network access'
         evidence['python_network_attempts'] = 0
         evidence['total_elapsed_seconds'] = round(time.monotonic() - started, 6)
@@ -209,10 +301,10 @@ socket.getaddrinfo = denied
         evidence['verified_files'] = {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
         if args.record:
             results = ROOT / 'results'; results.mkdir(exist_ok=True)
-            (results / 'verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
-            (results / 'tests.log').write_text(logs[0])
-            target = results / 'example'; target.mkdir(exist_ok=True)
-            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(example / name, target / name)
+            (results / 'edge-failure-verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
+            (results / 'edge-failure-tests.txt').write_text(logs[0])
+            target = results / 'edge-failure-example'; target.mkdir(exist_ok=True)
+            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(failure_example / name, target / name)
         print(json.dumps(evidence, indent=2, sort_keys=True))
     return 0
 
