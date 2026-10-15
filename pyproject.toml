@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==75.8.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "connectome-path-audit"
+version = "1.0.0"
+description = "Bounded offline audits of directed connectome pathway sensitivity"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+connectome-audit = "connectome_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+connectome_audit = ["*.html", "*.js", "*.css"]

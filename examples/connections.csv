@@ -1,0 +1,12 @@
+source,target,synapses
+sensor,fast,2
+sensor,fast,3
+fast,motor,5
+sensor,relay-a,12
+relay-a,relay-b,10
+relay-b,motor,9
+sensor,tie,5
+tie,motor,5
+motor,sensor,1
+motor,motor,7
+720575940628731140,sensor,8

@@ -1,0 +1,118 @@
+"""Exercise generated local HTML with real Chromium, all network requests blocked."""
+import hashlib
+import json
+from pathlib import Path
+
+from playwright.sync_api import sync_playwright
+
+
+def check(report_path, screenshot=None):
+    report_path = Path(report_path).resolve()
+    raw = report_path.with_suffix('.json').read_bytes()
+    data = json.loads(raw)
+    requests, errors = [], []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
+        context = browser.new_context(accept_downloads=True, offline=True, viewport={'width': 1280, 'height': 960})
+        def route_handler(route):
+            if route.request.url.startswith(('http:', 'https:', 'ws:', 'wss:')):
+                requests.append(route.request.url); route.abort()
+            else: route.continue_()
+        context.route('**/*', route_handler)
+        page = context.new_page()
+        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.on('request', lambda r: requests.append(r.url) if r.url.startswith(('http:', 'https:')) else None)
+        page.goto(report_path.as_uri())
+        page.locator('#load-status').wait_for(state='hidden')
+        assert page.locator('#kind').inner_text() == 'SYNTHETIC DATA'
+        assert page.locator('#summary tbody tr').count() == len(data['thresholds'])
+        assert page.locator('#pairs tbody tr').count() <= 20
+        # Walk every findings page, collect every explicit inspect control.
+        seen = set()
+        while True:
+            for label in page.locator('#pairs button').evaluate_all('(buttons) => buttons.map(b => b.getAttribute("aria-label"))'):
+                seen.add(label)
+            if page.locator('#next-page').is_disabled(): break
+            page.locator('#next-page').click()
+        assert len(seen) == len(data['queries']), (len(seen), len(data['queries']))
+        page.locator('#previous-page').click()
+        # Source/target label filter including hostile markup, never interpreted.
+        page.locator('#filter').fill('Hostile')
+        assert '1 of ' in page.locator('#filter-count').inner_text()
+        assert page.locator('img').count() == 0
+        assert page.evaluate('window.pwned') is None
+        assert '</script>' in page.locator('#pairs').inner_text()
+        page.locator('#pairs button').click()
+        assert page.locator('#path-heading').evaluate('(e) => e === document.activeElement')
+        page.locator('#filter').fill('not-a-real-label')
+        assert 'No matching queries' in page.locator('#pairs').inner_text()
+        assert 'No query selected' == page.locator('#selected-pair').inner_text()
+        # Long path edge pagination: all 64 witness hops are reachable, <=20 mounted.
+        page.locator('#filter').fill('End of chain')
+        page.locator('#threshold').select_option('1')
+        page.locator('#pairs button').click()
+        edges = []
+        while True:
+            assert page.locator('#path tbody tr').count() <= 20
+            edges.extend(page.locator('#path tbody tr td:first-child').all_text_contents())
+            if page.locator('#next-hop').is_disabled(): break
+            page.locator('#next-hop').click()
+        assert edges == [str(i) for i in range(1, 65)]
+        page.locator('#previous-hop').click()
+        # Threshold can be changed by overview and keyboard-operated select.
+        page.get_by_role('button', name='Select threshold 6', exact=True).click()
+        assert page.locator('#threshold').input_value() == '6'
+        assert 'No path in the supplied graph' in page.locator('#path-status').inner_text()
+        assert page.locator('#witness').is_hidden()
+        page.locator('#threshold').focus(); page.keyboard.press('Home'); page.keyboard.press('Enter')
+        assert page.locator('#threshold').input_value() == '1'
+        # Filter status separates missing identifiers from no supplied-graph path.
+        page.locator('#filter').fill('')
+        page.locator('#status').select_option('missing_node')
+        assert '1 of ' in page.locator('#filter-count').inner_text()
+        assert 'Unresolved' in page.locator('#path-status').inner_text()
+        page.locator('#status').select_option('no_path_in_supplied_graph')
+        assert 'No path in supplied graph' in page.locator('#pairs').inner_text()
+        page.locator('#status').select_option('reachable')
+        # Native keyboard button activation and query navigation across page boundary.
+        page.locator('#next-query').focus(); before = page.locator('#selected-pair').inner_text()
+        page.keyboard.press('Enter'); assert page.locator('#selected-pair').inner_text() != before
+        page.locator('#previous-query').click(); assert page.locator('#selected-pair').inner_text() == before
+        for _ in range(23): page.locator('#next-query').click()
+        assert 'Page 2' in page.locator('#page-label').inner_text()
+        assert page.locator('#pairs tbody tr').count() <= 20
+        # Download must preserve exact bytes even literal backslash-u sequences.
+        with page.expect_download() as info: page.locator('#download').click()
+        download = info.value
+        assert download.suggested_filename == 'connectome-audit.json'
+        assert Path(download.path()).read_bytes() == raw
+        # Small screens: document does not overflow; tables have their own scrollers.
+        page.set_viewport_size({'width': 360, 'height': 800})
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'page overflow'
+        page.locator('#filter').fill('Hostile')
+        page.locator('#pairs button').click()
+        assert page.locator('#pairs tbody tr').count() == 1
+        # All actionable controls remain reachable through native focus navigation.
+        page.keyboard.press('Tab')
+        assert page.evaluate('document.activeElement.tagName') != 'BODY'
+        if screenshot:
+            page.set_viewport_size({'width': 1280, 'height': 960})
+            page.locator('#filter').fill('End of chain')
+            page.screenshot(path=str(screenshot), full_page=True)
+        assert not requests, requests
+        assert not errors, errors
+        result = {'browser': browser.version, 'external_request_attempts': len(requests),
+                  'javascript_errors': len(errors), 'queries_visited': len(seen),
+                  'path_edges_visited': len(edges), 'max_mounted_rows_per_paged_table': 20,
+                  'viewports': ['1280x960', '360x800'], 'download_sha256': hashlib.sha256(raw).hexdigest(),
+                  'checks': ['threshold select and summary buttons', 'all query pages', 'query navigation',
+                             'all witness edge pages', 'ID and label filtering', 'status filtering',
+                             'native keyboard controls', 'focus after inspection', 'narrow viewport',
+                             'hostile labels inert', 'byte-identical JSON download', 'zero external requests']}
+        browser.close()
+        return result
+
+
+if __name__ == '__main__':
+    import sys
+    print(json.dumps(check(sys.argv[1]), indent=2))

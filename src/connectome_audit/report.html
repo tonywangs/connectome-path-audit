@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="@@CSP@@">
+<title>Connectome · Path audit</title><style>@@STYLE@@</style></head>
+<body>
+<a class="skip" href="#findings">Skip to findings</a>
+<header><div class="brand">◎ CONNECTOME <span> / PATH AUDIT</span></div><span class="local">LOCAL FILE · OFFLINE</span></header>
+<main>
+<section class="intro"><p class="eyebrow">DIRECTED CONNECTIVITY / THRESHOLD SENSITIVITY</p>
+<h1>How much does a path<br>depend on the threshold?</h1>
+<p class="lede">Compare directed reachability across synapse-count cutoffs. Inspect one shortest witness and the connection counts that support it.</p>
+<div class="identity"><span id="kind" class="pill"></span><span id="dataset"></span><span id="revision"></span></div></section>
+<noscript><p class="notice">JavaScript is disabled. Open the adjacent report.json for all findings and provenance. No incomplete results are inferred.</p></noscript>
+<div id="load-status" class="notice">Loading the embedded audit… If this remains visible, use report.json; no findings have been displayed.</div>
+<section class="notice" aria-label="Interpretation"><strong>A wiring path is not a functional claim.</strong> Missing paths apply only to this supplied graph. Sampling and omitted connections matter. These results do not establish signal propagation, causal influence, engineered dynamics, or consciousness.</section>
+<section class="metrics" aria-label="Graph summary"><div><strong id="nodes-count"></strong><span>supplied nodes</span></div><div><strong id="edges-count"></strong><span>aggregated edges</span></div><div><strong id="pairs-count"></strong><span>query pairs</span></div><div><strong id="thresholds-count"></strong><span>thresholds audited</span></div></section>
+<section aria-labelledby="comparison-heading"><div class="section-top"><div><p class="eyebrow">01 / COMPARE</p><h2 id="comparison-heading">Threshold overview</h2></div><button id="download">Download audit JSON</button></div>
+<p>Keep an edge when its aggregated synapse count is <strong>at least</strong> the threshold. Counts are filters, not path costs.</p>
+<div class="table-wrap" tabindex="0" aria-label="Threshold summary, scroll horizontally if needed"><table id="summary"><caption>All audited thresholds</caption><thead><tr><th scope="col">Minimum synapses</th><th scope="col">Retained edges</th><th scope="col">Removed edges</th><th scope="col">Reachable pairs</th><th scope="col">No path in graph</th><th scope="col">Missing-ID pairs</th></tr></thead><tbody></tbody></table></div></section>
+<section id="findings" aria-labelledby="findings-heading"><p class="eyebrow">02 / EXPLORE</p><h2 id="findings-heading">Query findings</h2>
+<div class="filters"><label>Minimum synapses<select id="threshold"></select></label><label class="grow">Filter IDs or labels<input id="filter" type="search" placeholder="Search source or target" maxlength="512"></label><label>Result<select id="status"><option value="all">All results</option><option value="reachable">Reachable</option><option value="no_path_in_supplied_graph">No path in graph</option><option value="missing_node">Missing ID</option></select></label></div>
+<p id="filter-count" role="status" aria-live="polite"></p>
+<div class="table-wrap" tabindex="0" aria-label="Query findings, scroll horizontally if needed"><table id="pairs"><caption>Source → target findings at the selected threshold</caption><thead><tr><th scope="col">Source</th><th scope="col">Target</th><th scope="col">Result</th><th scope="col">Hops</th><th scope="col">Inspect</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="previous-page">Previous page</button><span id="page-label"></span><button id="next-page">Next page</button></div>
+</section>
+<section class="inspector" aria-labelledby="path-heading"><div class="section-top"><div><p class="eyebrow">03 / INSPECT</p><h2 id="path-heading" tabindex="-1">Selected pathway</h2></div><div class="button-group"><button id="previous-query">Previous query</button><button id="next-query">Next query</button></div></div>
+<p id="selected-pair" class="selected-pair"></p><p id="path-status" role="status"></p>
+<div id="witness"><p id="path-detail"></p><div class="table-wrap" tabindex="0" aria-label="Witness edges, scroll horizontally if needed"><table id="path"><caption>Directed witness edges · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th><th scope="col">Margin above cutoff</th></tr></thead><tbody></tbody></table></div><div class="pagination"><button id="previous-hop">Previous edges</button><span id="hop-label"></span><button id="next-hop">Next edges</button></div></div>
+<div class="table-wrap" tabindex="0" aria-label="Selected query across all thresholds"><table id="query-comparison"><caption>Selected query across thresholds</caption><thead><tr><th scope="col">Minimum synapses</th><th scope="col">Result</th><th scope="col">Hops</th><th scope="col">Weakest witness edge</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section aria-labelledby="provenance-heading"><p class="eyebrow">04 / REPRODUCE</p><h2 id="provenance-heading">Provenance & interpretation</h2><dl id="provenance"></dl><h3>Exact input bytes</h3><div id="hashes"></div><details><summary>Computation, semantics & limits</summary><pre id="technical"></pre></details><h3>What this audit cannot tell you</h3><ul id="limitations"></ul><p class="muted">A complete bundle contains report.html, report.json, and COMPLETE.json. The marker records artifact hashes. No requests, remote assets, analytics, or account access are used by this report.</p></section>
+</main><footer>CONNECTOME PATH AUDIT <span>One supplied graph. Explicit assumptions. Reproducible witnesses.</span></footer>
+<script id="audit-data" type="application/json">@@DATA@@</script><script>@@SCRIPT@@</script></body></html>

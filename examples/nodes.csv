@@ -1,0 +1,9 @@
+node_id,label
+sensor,Synthetic sensory cell
+fast,Synthetic short route
+relay-a,Synthetic relay A
+relay-b,Synthetic relay B
+motor,Synthetic motor cell
+tie,Synthetic tied route
+isolated,Explicitly isolated in this fixture
+720575940628731140,Large identifier example (synthetic; not FlyWire data)

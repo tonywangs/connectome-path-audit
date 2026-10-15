@@ -1,0 +1,9 @@
+# Development/verification only; the installed CLI has zero runtime dependencies.
+setuptools==75.8.0
+wheel==0.45.1
+networkx==3.4.2
+playwright==1.51.0
+pip==25.0.1
+pyee==12.1.1
+greenlet==3.5.6
+typing-extensions==4.16.0

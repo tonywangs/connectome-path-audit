@@ -1,0 +1,13 @@
+{
+  "schema": "connectome-provenance/v1",
+  "kind": "synthetic",
+  "dataset": "Threshold sensitivity teaching circuit",
+  "revision": "synthetic-v1",
+  "license": "MIT (project fixture)",
+  "attribution": "Connectome Path Audit contributors",
+  "selection": "Hand-constructed directed graph: duplicate rows aggregate to 5, a 2-hop route survives through threshold 5, a 3-hop route survives through threshold 9, and no sensor-to-motor route survives threshold 10.",
+  "limitations": [
+    "All cells and counts are synthetic. The large numeric-looking ID is a string-format example, not an assertion about a real FlyWire neuron.",
+    "Only listed edges exist in this fixture. The isolated cell is deliberately declared without connections. The fixture makes no biological or physiological claims."
+  ]
+}

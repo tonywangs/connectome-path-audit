@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+node_modules/
+*.log
+!results/tests.log
+.audit-*/
