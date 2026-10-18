@@ -62,7 +62,7 @@
     drawPath();
   }
   function drawPath() {
-    drawFailures();
+    drawFailures('edge'); drawFailures('node');
     const pos = filtered.findIndex(f => f.index === selected);
     $('previous-query').disabled = pos <= 0;
     $('next-query').disabled = pos < 0 || pos >= filtered.length - 1;
@@ -95,35 +95,42 @@
       cell(tr, t); cell(tr, statusText[other.status]); cell(tr, dash(other.hops)); cell(tr, dash(other.bottleneck));
     }
   }
-  let removalPage = 0, removalSelected = 0, alternativePage = 0, failureKey = '';
+  const failureState = Object.fromEntries(['edge', 'node'].map(k => [k,
+    {removalPage: 0, removalSelected: 0, alternativePage: 0, failureKey: ''}]));
   const outcome = {alternative_path: 'Alternative path verified', disconnected: 'Critical — disconnected', unresolved: 'Unresolved'};
-  function drawFailures() {
-    $('failure-section').hidden = !data.single_edge_failure;
-    if (!data.single_edge_failure) return;
+  function drawFailures(kind) {
+    const isNode = kind === 'node', field = `single_${kind}_failure`;
+    const $ = id => document.getElementById((isNode ? 'node-' : '') + id);
+    const state = failureState[kind];
+    let {removalPage, removalSelected, alternativePage, failureKey} = state;
+    $('failure-section').hidden = !data[field];
+    if (!data[field]) return;
     const r = selected < 0 ? null : rows.get(threshold)[selected];
     const key = `${threshold}/${selected}`;
     if (failureKey !== key) { removalPage = 0; removalSelected = 0; alternativePage = 0; failureKey = key; }
-    const f = r && r.single_edge_failure;
+    const f = r && r[field];
     const candidates = f ? f.candidates : [];
     $('failure-status').textContent = !f ? 'No query selected.' :
       f.status === 'initially_unreachable' ? 'Initially unreachable: no removal-induced disconnection is claimed.' :
       f.status === 'missing_node' ? 'Missing ID — unresolved baseline.' :
-      `${f.status === 'partial' ? 'PARTIAL — unresolved candidates remain' : 'Complete candidate analysis'} · ${f.critical_edges.length} confirmed critical edges · ${f.candidate_count} candidates. ${f.untested_noncritical_edges} other retained edges preserve the baseline witness.`;
+      `${f.status === 'partial' ? 'PARTIAL — unresolved candidates remain' : 'Complete candidate analysis'} · ${f[`critical_${kind}s`].length} confirmed critical ${kind}s · ${f.candidate_count} candidates. ${f[`untested_noncritical_${kind}s`]} other eligible ${kind}s preserve the baseline witness.`;
     const pages = Math.max(1, Math.ceil(candidates.length / size));
     removalPage = Math.min(removalPage, pages - 1);
     const body = $('removals').tBodies[0]; body.replaceChildren();
     for (let i = removalPage * size; i < Math.min((removalPage + 1) * size, candidates.length); i++) {
       const c = candidates[i], tr = element('tr', null, body);
-      nodeCell(tr, c.edge[0]); nodeCell(tr, c.edge[1]); cell(tr, c.synapses); cell(tr, outcome[c.status]);
+      if (isNode) nodeCell(tr, c.node);
+      else { nodeCell(tr, c.edge[0]); nodeCell(tr, c.edge[1]); cell(tr, c.synapses); }
+      cell(tr, outcome[c.status]);
       const b = element('button', i === removalSelected ? 'Selected' : 'Inspect', cell(tr));
-      b.setAttribute('aria-label', `Inspect removal ${c.edge[0]} to ${c.edge[1]}`);
-      b.addEventListener('click', () => { removalSelected = i; alternativePage = 0; drawFailures(); $('alternative-heading').focus(); });
+      b.setAttribute('aria-label', isNode ? `Inspect node removal ${c.node}` : `Inspect removal ${c.edge[0]} to ${c.edge[1]}`);
+      b.addEventListener('click', () => { state.removalSelected = i; state.alternativePage = 0; drawFailures(kind); $('alternative-heading').focus(); });
     }
     $('removal-page').textContent = `Page ${removalPage + 1} of ${pages}`;
     $('previous-removal').disabled = removalPage === 0; $('next-removal').disabled = removalPage >= pages - 1;
     const c = candidates[removalSelected];
-    $('alternative-status').textContent = !c ? (r && r.status === 'reachable' ? 'Zero-hop identity: no candidate removal is needed.' : 'No removal analysis for this baseline.') :
-      `Removed ${c.edge[0]} → ${c.edge[1]} (${c.synapses} synapses): ` +
+    $('alternative-status').textContent = !c ? (r && r.status === 'reachable' ? (isNode ? 'No intermediate candidates: the identity or direct path survives every eligible node removal.' : 'Zero-hop identity: no candidate removal is needed.') : 'No removal analysis for this baseline.') :
+      (isNode ? `Removed ${display(c.node)} and all incident edges: ` : `Removed ${c.edge[0]} → ${c.edge[1]} (${c.synapses} synapses): `) +
       (c.status === 'disconnected' ? `complete search exhausted, ${c.visited_nodes} nodes reached; target unreachable.` :
        c.status === 'unresolved' ? `unresolved (${c.reason}); no disconnection conclusion.` : `verified alternative, ${c.edge_counts.length} hops.`);
     const edges = c ? c.edge_counts : [], path = c ? c.path : [];
@@ -135,11 +142,15 @@
     }
     $('alternative-page').textContent = `Page ${alternativePage + 1} of ${altPages} · ${edges.length} edges`;
     $('previous-alternative').disabled = alternativePage === 0; $('next-alternative').disabled = alternativePage >= altPages - 1;
+    Object.assign(state, {removalPage, removalSelected, alternativePage, failureKey});
   }
-  $('previous-removal').addEventListener('click', () => { removalPage--; drawFailures(); });
-  $('next-removal').addEventListener('click', () => { removalPage++; drawFailures(); });
-  $('previous-alternative').addEventListener('click', () => { alternativePage--; drawFailures(); });
-  $('next-alternative').addEventListener('click', () => { alternativePage++; drawFailures(); });
+  for (const kind of ['edge', 'node']) {
+    const prefix = kind === 'node' ? 'node-' : '';
+    for (const [id, field, delta] of [['previous-removal', 'removalPage', -1], ['next-removal', 'removalPage', 1],
+      ['previous-alternative', 'alternativePage', -1], ['next-alternative', 'alternativePage', 1]]) {
+      $(prefix + id).addEventListener('click', () => { failureState[kind][field] += delta; drawFailures(kind); });
+    }
+  }
   function changeThreshold() { threshold = Number($('threshold').value); page = 0; hopPage = 0; drawPairs(); }
   function moveQuery(delta) {
     const pos = filtered.findIndex(f => f.index === selected) + delta;

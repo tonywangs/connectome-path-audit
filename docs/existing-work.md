@@ -18,3 +18,33 @@ Reviewed 2026-10-15:
 - NetworkX [local_edge_connectivity](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.connectivity.connectivity.local_edge_connectivity.html) and its [implementation](https://networkx.org/documentation/stable/_modules/networkx/algorithms/connectivity/connectivity.html) compute a minimum cut cardinality with auxiliary directed networks and maximum flow. The verification dependency remains pinned to NetworkX 3.4.2; live documentation may describe a later version.
 
 This extension reports every individually disconnecting edge for each reachable ordered query, not just one minimum cut or its size. A fixed baseline witness bounds candidates: any edge outside it can be removed without destroying that witness. Repeated BFS after suppressing each candidate yields either an alternative path or an exhausted-search result. This elementary reduction is not a novelty claim. Flow-based local connectivity provides useful context, while independent exhaustive edge deletion supplies the test oracle. General directed strong bridges, undirected bridges, and biological importance are different questions.
+
+## Directed single-node failure analysis
+
+Reviewed 2026-10-18:
+
+- Esfahanian, [Connectivity Algorithms](https://www.cse.msu.edu/~cse835/Papers/Graph_connectivity_revised.pdf),
+  section 4, defines local vertex deletion with the two endpoints excluded and
+  describes reduction to flow by splitting intermediate vertices. This provides
+  graph-theoretic context; its global connectivity problem and conventions for
+  adjacent endpoints are not the output of this tool.
+- NetworkX [DiGraph.remove_node](https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.remove_node.html)
+  removes the vertex and incident edges. Verification uses this operation on a
+  copied graph for **every** node, then excludes each query's endpoints. This is
+  independent of the production candidate restriction and traversal suppression.
+- NetworkX [minimum_st_node_cut](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.connectivity.cuts.minimum_st_node_cut.html)
+  uses an auxiliary flow network to find a minimum separating set. This audit
+  instead lists all individually disconnecting nodes and gives explicit
+  alternative witnesses or unresolved outcomes under work limits.
+- NetworkX's [dominance implementation](https://networkx.org/documentation/stable/_modules/networkx/algorithms/dominance.html)
+  is another relevant approach: dominators describe vertices shared by all paths
+  from a start vertex. This extension chooses repeated bounded BFS for simple,
+  replayable alternatives and explicit interruption semantics, rather than
+  implementing a dominator tree. Undirected articulation points are not a
+  substitute for ordered-query reachability in a digraph.
+
+The fixed-witness candidate restriction is elementary: deleting a node outside
+an existing path leaves that path intact. No algorithmic novelty is claimed.
+Live documentation may describe newer NetworkX versions; tests remain pinned
+to 3.4.2 and record hashes of the installed reference sources. Neither these
+references nor the synthetic experiments validate a neuronal intervention.

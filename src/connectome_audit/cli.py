@@ -20,6 +20,7 @@ def parser():
     p.add_argument("--target", action="append", required=True, help="exact target ID; repeat for multiple targets")
     p.add_argument("--thresholds", required=True, help="1..12 comma-separated positive integers")
     p.add_argument("--single-edge-failure", action="store_true", help="test individual aggregated edge removals on baseline witnesses")
+    p.add_argument("--single-node-failure", action="store_true", help="test intermediate-node removals (all incident edges); exclude query endpoints")
     p.add_argument("--output", required=True, help="new output directory; parent must exist")
     for name, default in asdict(Limits()).items():
         p.add_argument("--max-" + name.replace("_", "-"), dest="limit_" + name,
@@ -57,12 +58,17 @@ def main(argv=None):
         if args.single_edge_failure:
             from .failures import analyze_failures
             analyze_failures(graph, analysis, budget)
+        if args.single_node_failure:
+            from .node_failures import analyze_node_failures
+            analyze_node_failures(graph, analysis, budget)
         document = make_document(graph, analysis, budget)
         json_bytes = canonical_json(document, budget)
         html_bytes = html_report(json_bytes, budget)
         write_bundle(args.output, json_bytes, html_bytes, budget)
         if args.single_edge_failure:
             print("Single-edge failure analysis: " + analysis["single_edge_failure"]["status"])
+        if args.single_node_failure:
+            print("Single-node failure analysis: " + analysis["single_node_failure"]["status"])
         print(f"Complete: {args.output}/report.html ({len(analysis['results'])} findings)")
         return 0
     except KeyboardInterrupt:

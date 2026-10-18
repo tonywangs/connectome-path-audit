@@ -1,0 +1,13 @@
+{
+  "attribution": "Connectome Path Audit contributors",
+  "dataset": "Synthetic shared intermediate-node fixture",
+  "kind": "synthetic",
+  "license": "MIT (project fixture)",
+  "limitations": [
+    "Synthetic graph only; no biological or neuronal intervention validation.",
+    "Omitted connections can change criticality. Counts gate edges, not physiological influence."
+  ],
+  "revision": "shared-node-v1",
+  "schema": "connectome-provenance/v1",
+  "selection": "Two directed diamonds share one intermediate node. A weak bypass exists only at threshold 1. Entirely constructed example."
+}

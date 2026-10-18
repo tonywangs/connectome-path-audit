@@ -100,3 +100,41 @@ The extension is versioned `connectome-single-edge-failure/v1`. `--max-candidate
 Criticality is specific to this source, target, threshold and supplied graph. Edge removal is a graph operation, not a validated neuronal intervention or a measure of biological importance. Missing connections can change every conclusion.
 
 The same single verification command above covers this extension, including 300 additional seeded graphs checked by removing every retained edge in an independent NetworkX reference. Current evidence is in [edge-failure-verification.json](results/edge-failure-verification.json); the original reachability evidence and example remain historical artifacts.
+
+## Audit individual intermediate-node failures
+
+```sh
+PYTHONPATH=src python3 -m connectome_audit examples/node-failure/connections.csv \
+  --nodes examples/node-failure/nodes.csv --provenance examples/node-failure/provenance.json \
+  --source sensor --target motor --target sensor --target isolated --target absent \
+  --thresholds 1,5,6 --single-node-failure --single-edge-failure \
+  --output /tmp/node-failures
+```
+
+Open the [shared-node synthetic report](results/node-failure-example/report.html)
+locally. At threshold 1 a weak bypass avoids the shared node. At threshold 5,
+two input branches and two output branches provide edge redundancy: no individual
+edge disconnects sensor → motor, yet removing `shared` does. At threshold 6 the
+query is initially unreachable. This distinguishes edge redundancy from
+intermediate-node redundancy without inferring biological importance.
+
+`--single-node-failure` removes a node and all incoming/outgoing edges in each
+independent trial. Endpoints are excluded. Only intermediate nodes on the
+baseline path need testing; deleting any other eligible node preserves that
+path. Identity and direct paths have no intermediate candidates. Inspect node
+outcomes and paginated alternative witnesses in the new HTML section.
+
+Both failure flags are optional and can be used separately or together. Together,
+edge trials run first and node trials use the remaining shared removal budgets.
+Unresolved trials are shown explicitly; check each extension's completeness
+before treating its critical list as exhaustive. The enclosing bundle marker
+only certifies that the report finished writing. See the
+[node-failure contract](docs/contract.md#optional-connectome-single-node-failurev1).
+
+The same `scripts/verify.py` command now checks node failures, preserving earlier
+edge and baseline regression coverage. Current measurements and checks are in
+[node-failure-verification.json](results/node-failure-verification.json) and
+[node-failure-tests.txt](results/node-failure-tests.txt). `--record` refreshes only
+these new artifacts and the node example; earlier evidence and examples remain
+historical. Node deletion is a graph operation, **not a validated neuronal
+intervention**. All included examples are synthetic.

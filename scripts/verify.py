@@ -158,9 +158,103 @@ def check_failure_reference(report, inputs):
     return {'findings': findings, 'reference_removals': deletions, 'alternative_witnesses': witnesses}
 
 
+
+def check_node_reference(report, inputs):
+    """Independent installed-artifact oracle: remove every supplied node."""
+    import networkx as nx
+    doc = json.loads(report.read_text())
+    totals = {}
+    with (inputs / 'connections.csv').open() as f:
+        for row in csv.DictReader(f):
+            edge = row['source'], row['target']
+            totals[edge] = totals.get(edge, 0) + int(row['synapses'])
+    findings = witnesses = deletions = 0
+    for threshold in doc['thresholds']:
+        graph = nx.DiGraph(); graph.add_nodes_from(n['id'] for n in doc['nodes'])
+        graph.add_edges_from(e for e, count in totals.items() if count >= threshold)
+        expected = {}
+        distances = {}
+        for node in list(graph.nodes):
+            changed = graph.copy(); changed.remove_node(node)
+            distances[node] = dict(nx.all_pairs_shortest_path_length(changed))
+            deletions += 1
+        for r in doc['results']:
+            if r['threshold'] != threshold: continue
+            f = r['single_node_failure']; a, b = r['source'], r['target']
+            findings += 1
+            if a not in graph or b not in graph:
+                assert f['status'] == 'missing_node'; continue
+            if not nx.has_path(graph, a, b):
+                assert f['status'] == 'initially_unreachable'; continue
+            assert f['status'] == 'complete'
+            expected = {e for e, d in distances.items() if e not in (a, b) and b not in d[a]}
+            assert set(f['critical_nodes']) == expected
+            for c in f['candidates']:
+                node = c['node']
+                assert node not in (a, b)
+                if node in expected:
+                    assert c['status'] == 'disconnected' and c['search_complete']
+                    assert c['visited_nodes'] == len(distances[node][a])
+                    continue
+                assert c['status'] == 'alternative_path'
+                path = c['path']
+                assert path[0] == a and path[-1] == b
+                assert len(path) - 1 == distances[node][a][b]
+                pairs = list(zip(path, path[1:]))
+                assert node not in path and all(totals.get(e, 0) >= threshold for e in pairs)
+                assert c['edge_counts'] == [totals[e] for e in pairs]
+                witnesses += 1
+    return {'findings': findings, 'reference_removals': deletions, 'alternative_witnesses': witnesses}
+
+
+
+def check_partial_node_reference(report, inputs):
+    """Replay every resolved trial in a large partial report, independently."""
+    import networkx as nx
+    doc = json.loads(report.read_text())
+    totals = {}
+    with (inputs / 'connections.csv').open() as f:
+        for row in csv.DictReader(f):
+            edge = row['source'], row['target']
+            totals[edge] = totals.get(edge, 0) + int(row['synapses'])
+    resolved = witnesses = unresolved = 0
+    for t in doc['thresholds']:
+        g = nx.DiGraph(); g.add_nodes_from(n['id'] for n in doc['nodes'])
+        g.add_edges_from(e for e, count in totals.items() if count >= t)
+        for r in doc['results']:
+            if r['threshold'] != t: continue
+            f = r['single_node_failure']
+            confirmed = []
+            for c in f['candidates']:
+                assert c['node'] not in (r['source'], r['target'])
+                if c['status'] == 'unresolved':
+                    assert c['reason'] in ('candidate_removal_limit', 'removal_operation_limit')
+                    assert not c['search_complete'] and c['visited_nodes'] is None
+                    assert c['path'] == c['edge_counts'] == []
+                    unresolved += 1; continue
+                h = g.copy(); h.remove_node(c['node'])
+                distances = nx.single_source_shortest_path_length(h, r['source'])
+                resolved += 1
+                if c['status'] == 'disconnected':
+                    assert r['target'] not in distances and c['search_complete']
+                    assert c['visited_nodes'] == len(distances)
+                    confirmed.append(c['node'])
+                else:
+                    assert c['status'] == 'alternative_path'
+                    path = c['path']; witnesses += 1
+                    assert path[0] == r['source'] and path[-1] == r['target']
+                    assert c['node'] not in path and len(path) - 1 == distances[r['target']]
+                    pairs = list(zip(path, path[1:]))
+                    assert all(h.has_edge(*e) for e in pairs)
+                    assert c['edge_counts'] == [totals[e] for e in pairs]
+            assert confirmed == f['critical_nodes']
+            if f['status'] in ('complete', 'partial'):
+                assert (f['status'] == 'partial') == any(c['status'] == 'unresolved' for c in f['candidates'])
+    return {'resolved_candidates': resolved, 'alternative_witnesses': witnesses, 'unresolved_candidates': unresolved}
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--record', action='store_true', help='refresh results/edge-failure-verification.json, results/edge-failure-tests.txt, and results/edge-failure-example/')
+    parser.add_argument('--record', action='store_true', help='refresh node-failure evidence and example; preserve historical artifacts')
     args = parser.parse_args()
     required = {'networkx': '3.4.2', 'playwright': '1.51.0', 'setuptools': '75.8.0', 'wheel': '0.45.1', 'pip': '25.0.1',
                 'pyee': '12.1.1', 'greenlet': '3.5.6', 'typing-extensions': '4.16.0'}
@@ -175,6 +269,8 @@ def main():
                       'methods': ['NetworkX 3.4.2', 'independent Floyd-Warshall', 'distance-constrained canonical witness']}}
     import networkx.algorithms.shortest_paths.unweighted as reference
     evidence['reference']['unweighted_source_sha256'] = sha(reference.__file__)
+    import networkx.classes.digraph as node_reference
+    evidence['reference']['digraph_source_sha256'] = sha(node_reference.__file__)
     with tempfile.TemporaryDirectory(prefix='connectome-verify-') as td:
         temp = Path(td); guard = temp / 'guard'; guard.mkdir()
         # Child processes including installed CLI and pip cannot use network sockets.
@@ -202,6 +298,9 @@ socket.getaddrinfo = denied
         edge_match = re.search(r'Edge failure reference: (\d+) seeds, (\d+) findings, (\d+) full-edge reference removals, (\d+) alternative witnesses, (\d+) critical findings', logs[-1])
         assert edge_match
         evidence['edge_failure_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses', 'critical_findings'], map(int, edge_match.groups())))
+        node_match = re.search(r'Node failure reference: (\d+) seeds, (\d+) findings, (\d+) full-node reference removals, (\d+) alternative witnesses, (\d+) critical findings', logs[-1])
+        assert node_match
+        evidence['node_failure_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses', 'critical_findings'], map(int, node_match.groups())))
         match = re.search(r'Ran (\d+) tests', logs[-1]); assert match
         evidence['unit_tests']['tests_passed'] = int(match[1])
         # Build from a clean source copy. No source-tree import in installed runs.
@@ -291,6 +390,73 @@ socket.getaddrinfo = denied
         assert json.loads((partial / 'report.json').read_text())['single_edge_failure']['status'] == 'partial'
         from browser_check import check_partial
         evidence['partial_browser'] = check_partial(partial / 'report.html')
+        # Node-only and combined installed workflows, with their own synthetic inputs.
+        node_inputs = ROOT / 'examples/node-failure'
+        node_args = [node_inputs / 'connections.csv', '--nodes', node_inputs / 'nodes.csv',
+                     '--provenance', node_inputs / 'provenance.json', '--source', 'sensor',
+                     '--target', 'motor', '--target', 'sensor', '--target', 'isolated', '--target', 'absent',
+                     '--thresholds', '1,5,6', '--single-node-failure']
+        node_before = {p.name: sha(p) for p in node_inputs.iterdir()}
+        node_example = temp / 'node-example'
+        evidence['node_example'] = run([executable, *node_args, '--single-edge-failure', '--output', node_example], temp, env, logs)
+        node_doc = json.loads((node_example / 'report.json').read_text())
+        selected = next(r for r in node_doc['results'] if r['target'] == 'motor' and r['threshold'] == 5)
+        assert selected['single_edge_failure']['critical_edges'] == []
+        assert selected['single_node_failure']['critical_nodes'] == ['shared']
+        evidence['node_example'].update(artifacts=verify_bundle(node_example), graph=node_doc['graph'],
+            reference=check_node_reference(node_example / 'report.json', node_inputs),
+            edge_reference=check_failure_reference(node_example / 'report.json', node_inputs))
+        repeat = temp / 'node-example-repeat'
+        run([executable, *node_args, '--single-edge-failure', '--output', repeat], temp,
+            {**env, 'PYTHONHASHSEED': '73'}, logs)
+        assert verify_bundle(repeat) == verify_bundle(node_example)
+        assert node_before == {p.name: sha(p) for p in node_inputs.iterdir()}
+        evidence['node_example'].update(byte_identical_repeated_outputs=True, unchanged_input_hashes=node_before)
+        from browser_check import check_combined
+        evidence['combined_browser'] = check_combined(node_example / 'report.html')
+        # Bypass n001 itself, leaving n002 and later intermediate nodes critical.
+        with (browser_inputs / 'connections.csv').open('a', newline='') as f:
+            csv.writer(f).writerow(('alt024', 'n002', 5))
+        with (browser_inputs / 'nodes.csv').open() as f:
+            node_rows = list(csv.reader(f))
+        for row in node_rows[1:]:
+            if row[0] in ('n001', 'alt001'):
+                row[1] = 'Intermediate </script><img src="https://example.invalid/pixel" onerror="window.pwned=1">'
+        with (browser_inputs / 'nodes.csv').open('w', newline='') as f:
+            csv.writer(f).writerows(node_rows)
+        node_workload = temp / 'node-workload'
+        node_hashes = {p.name: sha(p) for p in browser_inputs.iterdir()}
+        evidence['node_workload'] = run([executable, *browser_args, '--single-node-failure', '--output', node_workload], temp, env, logs)
+        doc = json.loads((node_workload / 'report.json').read_text())
+        evidence['node_workload'].update(artifacts=verify_bundle(node_workload), graph=doc['graph'], queries=len(doc['queries']),
+            thresholds=doc['thresholds'], analysis=doc['single_node_failure'],
+            reference=check_node_reference(node_workload / 'report.json', browser_inputs))
+        repeat = temp / 'node-workload-repeat'
+        run([executable, *browser_args, '--single-node-failure', '--output', repeat], temp,
+            {**env, 'PYTHONHASHSEED': '73'}, logs)
+        assert verify_bundle(repeat) == verify_bundle(node_workload)
+        assert node_hashes == {p.name: sha(p) for p in browser_inputs.iterdir()}
+        evidence['node_workload'].update(byte_identical_repeated_outputs=True, unchanged_input_hashes=node_hashes)
+        evidence['node_browser'] = check(node_workload / 'report.html')
+        node_partial = temp / 'node-partial'
+        run([executable, *node_args, '--max-candidate-removals', '1', '--output', node_partial], temp, env, logs)
+        assert json.loads((node_partial / 'report.json').read_text())['single_node_failure']['status'] == 'partial'
+        evidence['node_partial_browser'] = check_partial(node_partial / 'report.html', kind='node')
+        # Larger workload deliberately bounded; partial outcomes are evidence, not failures.
+        node_bench = temp / 'node-benchmark'
+        evidence['node_benchmark'] = run([executable, *bench_args, '--single-node-failure',
+            '--max-candidate-removals', '20', '--max-removal-operations', '100000', '--output', node_bench], temp, env, logs)
+        doc = json.loads((node_bench / 'report.json').read_text())
+        assert doc['single_node_failure']['status'] == 'partial'
+        evidence['node_benchmark'].update(artifacts=verify_bundle(node_bench), graph=doc['graph'],
+            queries=len(doc['queries']), thresholds=doc['thresholds'], analysis=doc['single_node_failure'],
+            reference=check_partial_node_reference(node_bench / 'report.json', inputs))
+        repeat = temp / 'node-benchmark-repeat'
+        run([executable, *bench_args, '--single-node-failure', '--max-candidate-removals', '20',
+             '--max-removal-operations', '100000', '--output', repeat], temp, {**env, 'PYTHONHASHSEED': '73'}, logs)
+        assert verify_bundle(node_bench) == verify_bundle(repeat)
+        assert before == {p.name: sha(p) for p in inputs.iterdir()}
+        evidence['node_benchmark'].update(byte_identical_repeated_outputs=True, unchanged_input_hashes=before)
         assert not attempts.exists(), 'offline Python process attempted network access'
         evidence['python_network_attempts'] = 0
         evidence['total_elapsed_seconds'] = round(time.monotonic() - started, 6)
@@ -301,10 +467,10 @@ socket.getaddrinfo = denied
         evidence['verified_files'] = {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
         if args.record:
             results = ROOT / 'results'; results.mkdir(exist_ok=True)
-            (results / 'edge-failure-verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
-            (results / 'edge-failure-tests.txt').write_text(logs[0])
-            target = results / 'edge-failure-example'; target.mkdir(exist_ok=True)
-            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(failure_example / name, target / name)
+            (results / 'node-failure-verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
+            (results / 'node-failure-tests.txt').write_text(logs[0])
+            target = results / 'node-failure-example'; target.mkdir(exist_ok=True)
+            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(node_example / name, target / name)
         print(json.dumps(evidence, indent=2, sort_keys=True))
     return 0
 

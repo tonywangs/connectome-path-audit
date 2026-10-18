@@ -87,6 +87,35 @@ def check(report_path, screenshot=None):
             page.locator('#previous-alternative').click()
             failure_checks = {'candidate_rows_visited': len(visited), 'alternative_edges_visited': len(alt),
                               'dom_elements': page.locator('*').count()}
+        node_checks = {}
+        if data.get('single_node_failure'):
+            assert not page.locator('#node-failure-section').is_hidden()
+            visited = []
+            while True:
+                assert page.locator('#node-removals tbody tr').count() <= 20
+                visited += page.locator('#node-removals button').evaluate_all('(bs) => bs.map(b => b.getAttribute("aria-label"))')
+                if page.locator('#node-next-removal').is_disabled(): break
+                page.locator('#node-next-removal').click()
+            assert len(visited) == 63
+            page.locator('#node-removals button').first.click()
+            assert 'complete search exhausted' in page.locator('#node-alternative-status').inner_text()
+            while not page.locator('#node-previous-removal').is_disabled(): page.locator('#node-previous-removal').click()
+            page.locator('#node-removals button').first.focus(); page.keyboard.press('Enter')
+            assert page.locator('#node-alternative-heading').evaluate('(e) => e === document.activeElement')
+            assert 'verified alternative' in page.locator('#node-alternative-status').inner_text()
+            assert '</script>' in page.locator('#node-removals').inner_text()
+            assert '</script>' in page.locator('#node-alternative').inner_text()
+            assert page.locator('img').count() == 0 and page.evaluate('window.pwned') is None
+            alt = []
+            while True:
+                assert page.locator('#node-alternative tbody tr').count() <= 20
+                alt += page.locator('#node-alternative tbody tr td:first-child').all_text_contents()
+                if page.locator('#node-next-alternative').is_disabled(): break
+                page.locator('#node-next-alternative').click()
+            assert alt == [str(i) for i in range(1, 89)]
+            page.locator('#node-previous-alternative').click()
+            node_checks = {'candidate_rows_visited': len(visited), 'alternative_edges_visited': len(alt),
+                              'dom_elements': page.locator('*').count()}
         # Threshold can be changed by overview and keyboard-operated select.
         page.get_by_role('button', name='Select threshold 6', exact=True).click()
         assert page.locator('#threshold').input_value() == '6'
@@ -94,6 +123,8 @@ def check(report_path, screenshot=None):
         assert page.locator('#witness').is_hidden()
         if data.get('single_edge_failure'):
             assert 'Initially unreachable' in page.locator('#failure-status').inner_text()
+        if data.get('single_node_failure'):
+            assert 'Initially unreachable' in page.locator('#node-failure-status').inner_text()
         page.locator('#threshold').focus(); page.keyboard.press('Home'); page.keyboard.press('Enter')
         assert page.locator('#threshold').input_value() == '1'
         # Filter status separates missing identifiers from no supplied-graph path.
@@ -131,7 +162,7 @@ def check(report_path, screenshot=None):
             page.screenshot(path=str(screenshot), full_page=True)
         assert not requests, requests
         assert not errors, errors
-        result = {'elapsed_seconds': round(time.monotonic() - started, 6), 'browser': browser.version, 'single_edge_failure': failure_checks, 'dom_elements': page.locator('*').count(), 'external_request_attempts': len(requests),
+        result = {'elapsed_seconds': round(time.monotonic() - started, 6), 'browser': browser.version, 'single_edge_failure': failure_checks, 'single_node_failure': node_checks, 'dom_elements': page.locator('*').count(), 'external_request_attempts': len(requests),
                   'javascript_errors': len(errors), 'queries_visited': len(seen),
                   'path_edges_visited': len(edges), 'max_mounted_rows_per_paged_table': 20,
                   'viewports': ['1280x960', '360x800'], 'download_sha256': hashlib.sha256(raw).hexdigest(),
@@ -148,8 +179,9 @@ if __name__ == '__main__':
     print(json.dumps(check(sys.argv[1]), indent=2))
 
 
-def check_partial(report_path):
+def check_partial(report_path, kind="edge"):
     """Partial outcomes remain visible in a network-blocked browser."""
+    prefix = "node-" if kind == "node" else ""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
         context = browser.new_context(offline=True)
@@ -161,12 +193,58 @@ def check_partial(report_path):
         page.goto(Path(report_path).resolve().as_uri())
         page.locator('#load-status').wait_for(state='hidden')
         page.locator('#filter').fill('motor')
-        assert 'PARTIAL' in page.locator('#failure-status').inner_text()
-        page.locator('#removals button').last.click()
-        assert 'unresolved' in page.locator('#alternative-status').inner_text()
-        assert page.locator('#alternative tbody tr').count() == 0
+        assert 'PARTIAL' in page.locator(f'#{prefix}failure-status').inner_text()
+        page.locator(f'#{prefix}removals button').last.click()
+        assert 'unresolved' in page.locator(f'#{prefix}alternative-status').inner_text()
+        assert page.locator(f'#{prefix}alternative tbody tr').count() == 0
         assert not requests and not errors
         result = {'partial_visible': True, 'unresolved_without_witness': True,
+                  'external_request_attempts': len(requests), 'javascript_errors': len(errors),
+                  'dom_elements': page.locator('*').count(), 'browser': browser.version}
+        browser.close()
+        return result
+
+
+def check_combined(report_path):
+    """The two inspectors coexist without sharing selection state."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
+        context = browser.new_context(offline=True, viewport={'width': 360, 'height': 800})
+        requests, errors = [], []
+        context.route('**/*', lambda route: route.abort() if route.request.url.startswith(('http:', 'https:')) else route.continue_())
+        page = context.new_page()
+        page.on('request', lambda r: requests.append(r.url) if r.url.startswith(('http:', 'https:')) else None)
+        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.goto(Path(report_path).resolve().as_uri())
+        page.locator('#load-status').wait_for(state='hidden')
+        page.locator('#filter').fill('motor')
+        page.locator('#threshold').select_option('5')
+        assert '0 confirmed critical edges' in page.locator('#failure-status').inner_text()
+        assert '1 confirmed critical nodes' in page.locator('#node-failure-status').inner_text()
+        edge_before = page.locator('#alternative-status').inner_text()
+        page.get_by_role('button', name='Inspect node removal shared', exact=True).focus()
+        page.keyboard.press('Enter')
+        assert page.locator('#node-alternative-heading').evaluate('(e) => e === document.activeElement')
+        assert 'complete search exhausted' in page.locator('#node-alternative-status').inner_text()
+        assert page.locator('#alternative-status').inner_text() == edge_before
+        node_before = page.locator('#node-alternative-status').inner_text()
+        page.locator('#removals button').last.click()
+        assert page.locator('#node-alternative-status').inner_text() == node_before
+        page.locator('#threshold').select_option('1')
+        assert '0 confirmed critical nodes' in page.locator('#node-failure-status').inner_text()
+        assert 'verified alternative' in page.locator('#node-alternative-status').inner_text()
+        page.locator('#filter').fill('')
+        page.get_by_role('button', name='Inspect sensor to sensor', exact=True).click()
+        assert 'No intermediate candidates' in page.locator('#node-alternative-status').inner_text()
+        assert page.locator('#node-removals tbody tr').count() == 0
+        page.locator('#status').select_option('missing_node')
+        assert 'Missing ID' in page.locator('#node-failure-status').inner_text()
+        page.locator('#filter').fill('no match')
+        assert 'No query selected' in page.locator('#node-failure-status').inner_text()
+        assert page.locator('#node-alternative tbody tr').count() == 0
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+        assert not requests and not errors
+        result = {'independent_inspector_selection': True, 'identity_and_missing_states': True,
                   'external_request_attempts': len(requests), 'javascript_errors': len(errors),
                   'dom_elements': page.locator('*').count(), 'browser': browser.version}
         browser.close()

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XxpZj5/msvJlRVMrq3JBh6YzZsx/Y78yO1NYjeTTQhU='; style-src 'sha256-w/z8dDcR0L+sSBwmt6QLw4PcgWoqPDfkg/SsYYoEe/c='; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Connectome · Path audit</title><style>:root{color-scheme:light;--ink:#172e32;--muted:#4d6366;--paper:#f5f6f0;--line:#ccd5cc;--accent:#21654f;--wash:#e5eee6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}header,footer{max-width:1220px;margin:auto;padding:24px 36px;display:flex;justify-content:space-between;gap:20px;align-items:center}header{border-bottom:1px solid var(--line)}.brand{font-size:14px;font-weight:800;letter-spacing:1px}.brand span,.local{color:var(--muted);font-weight:500;font-size:12px}.local{letter-spacing:1.4px}main{max-width:1148px;margin:auto;padding:0 24px}section{margin:42px 0}.intro{padding:20px 0 8px;max-width:850px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:2px;color:var(--accent);margin-bottom:10px}h1{font-size:clamp(32px,4.3vw,54px);line-height:1.12;letter-spacing:-1.6px;font-weight:650;margin:16px 0 22px}h2{font-size:25px;letter-spacing:-.6px;margin:0 0 14px;line-height:1.2}h3{font-size:18px}p{margin:12px 0}.lede{font-size:18px;max-width:690px;color:var(--muted)}.identity{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;margin-top:24px;overflow-wrap:anywhere}.pill{padding:4px 10px;border-radius:4px;background:var(--wash);color:var(--accent);font-size:11px;letter-spacing:1px;font-weight:800}.notice{border-left:3px solid var(--accent);background:var(--wash);padding:16px 20px;font-size:14px;margin:25px 0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0}.metrics strong{display:block;font-size:30px;line-height:1.3;font-weight:600;font-variant-numeric:tabular-nums}.metrics span{font-size:12px;color:var(--muted)}.section-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:6px;background:#fff;max-width:100%;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:13px}caption{text-align:left;padding:12px 16px;font-size:12px;color:var(--muted);background:#f0f3ed}th{text-align:left;font-weight:650;background:#edf1eb;font-size:12px}td,th{padding:12px 16px;border-bottom:1px solid #e3e8e0;vertical-align:top}td{overflow-wrap:anywhere;min-width:90px;max-width:290px}td small{display:block;color:var(--muted);font-size:11px}tr[aria-selected=true]{background:#e8f3e8}button,input,select{font:inherit;font-size:13px;color:var(--ink);border:1px solid #91a69a;border-radius:5px;padding:9px 12px;background:white;min-height:42px}button{cursor:pointer;font-weight:600}button:hover:enabled{background:#deebdf;border-color:var(--accent)}button:disabled{opacity:.42;cursor:default}button[aria-pressed=true]{background:var(--accent);color:white}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible,.table-wrap:focus-visible{outline:3px solid #b06e08;outline-offset:3px}.filters{display:flex;gap:16px;align-items:end;flex-wrap:wrap;margin-top:22px}.filters label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600}.grow{flex:1;min-width:180px}.filters input{width:100%}.pagination{display:flex;align-items:center;justify-content:flex-end;gap:16px;font-size:12px;color:var(--muted)}.inspector{background:#eaf0e8;border:1px solid #c3d2c2;border-radius:8px;padding:24px}.button-group{display:flex;gap:8px}.selected-pair{font-size:17px;font-weight:650;overflow-wrap:anywhere}dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 20px;font-size:14px}dt{font-weight:650}dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:12px;overflow-wrap:anywhere;white-space:normal}pre{font-size:12px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}summary{cursor:pointer;font-size:14px;padding:12px 0}li{margin:8px 0;font-size:14px}.muted{color:var(--muted);font-size:13px}footer{border-top:1px solid var(--line);font-size:10px;letter-spacing:1px}footer span{letter-spacing:0;color:var(--muted)}.skip{position:absolute;top:-100px;left:20px;background:white;padding:10px;color:var(--ink);z-index:1}.skip:focus{top:10px}[hidden]{display:none!important}@media(max-width:650px){header,footer{padding:18px 20px;flex-wrap:wrap}.local{display:none}main{padding:0 16px}section{margin:32px 0}.metrics{grid-template-columns:repeat(2,1fr)}.section-top{align-items:flex-start;flex-direction:column;gap:8px}.inspector{padding:16px}.pagination{gap:8px;justify-content:space-between}.filters{gap:10px}.filters label{flex:1;min-width:140px}dl{grid-template-columns:1fr;gap:3px}dd{margin-bottom:12px}td,th{padding:10px}h1 br{display:none}.brand span{font-size:10px}}
+</style></head>
+<body>
+<a class="skip" href="#findings">Skip to findings</a>
+<header><div class="brand">◎ CONNECTOME <span> / PATH AUDIT</span></div><span class="local">LOCAL FILE · OFFLINE</span></header>
+<main>
+<section class="intro"><p class="eyebrow">DIRECTED CONNECTIVITY / THRESHOLD SENSITIVITY</p>
+<h1>How much does a path<br>depend on the threshold?</h1>
+<p class="lede">Compare directed reachability across synapse-count cutoffs. Inspect one shortest witness and the connection counts that support it.</p>
+<div class="identity"><span id="kind" class="pill"></span><span id="dataset"></span><span id="revision"></span></div></section>
+<noscript><p class="notice">JavaScript is disabled. Open the adjacent report.json for all findings and provenance. No incomplete results are inferred.</p></noscript>
+<div id="load-status" class="notice">Loading the embedded audit… If this remains visible, use report.json; no findings have been displayed.</div>
+<section class="notice" aria-label="Interpretation"><strong>A wiring path is not a functional claim.</strong> Missing paths apply only to this supplied graph. Sampling and omitted connections matter. These results do not establish signal propagation, causal influence, engineered dynamics, or consciousness.</section>
+<section class="metrics" aria-label="Graph summary"><div><strong id="nodes-count"></strong><span>supplied nodes</span></div><div><strong id="edges-count"></strong><span>aggregated edges</span></div><div><strong id="pairs-count"></strong><span>query pairs</span></div><div><strong id="thresholds-count"></strong><span>thresholds audited</span></div></section>
+<section aria-labelledby="comparison-heading"><div class="section-top"><div><p class="eyebrow">01 / COMPARE</p><h2 id="comparison-heading">Threshold overview</h2></div><button id="download">Download audit JSON</button></div>
+<p>Keep an edge when its aggregated synapse count is <strong>at least</strong> the threshold. Counts are filters, not path costs.</p>
+<div class="table-wrap" tabindex="0" aria-label="Threshold summary, scroll horizontally if needed"><table id="summary"><caption>All audited thresholds</caption><thead><tr><th scope="col">Minimum synapses</th><th scope="col">Retained edges</th><th scope="col">Removed edges</th><th scope="col">Reachable pairs</th><th scope="col">No path in graph</th><th scope="col">Missing-ID pairs</th></tr></thead><tbody></tbody></table></div></section>
+<section id="findings" aria-labelledby="findings-heading"><p class="eyebrow">02 / EXPLORE</p><h2 id="findings-heading">Query findings</h2>
+<div class="filters"><label>Minimum synapses<select id="threshold"></select></label><label class="grow">Filter IDs or labels<input id="filter" type="search" placeholder="Search source or target" maxlength="512"></label><label>Result<select id="status"><option value="all">All results</option><option value="reachable">Reachable</option><option value="no_path_in_supplied_graph">No path in graph</option><option value="missing_node">Missing ID</option></select></label></div>
+<p id="filter-count" role="status" aria-live="polite"></p>
+<div class="table-wrap" tabindex="0" aria-label="Query findings, scroll horizontally if needed"><table id="pairs"><caption>Source → target findings at the selected threshold</caption><thead><tr><th scope="col">Source</th><th scope="col">Target</th><th scope="col">Result</th><th scope="col">Hops</th><th scope="col">Inspect</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="previous-page">Previous page</button><span id="page-label"></span><button id="next-page">Next page</button></div>
+</section>
+<section class="inspector" aria-labelledby="path-heading"><div class="section-top"><div><p class="eyebrow">03 / INSPECT</p><h2 id="path-heading" tabindex="-1">Selected pathway</h2></div><div class="button-group"><button id="previous-query">Previous query</button><button id="next-query">Next query</button></div></div>
+<p id="selected-pair" class="selected-pair"></p><p id="path-status" role="status"></p>
+<div id="witness"><p id="path-detail"></p><div class="table-wrap" tabindex="0" aria-label="Witness edges, scroll horizontally if needed"><table id="path"><caption>Directed witness edges · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th><th scope="col">Margin above cutoff</th></tr></thead><tbody></tbody></table></div><div class="pagination"><button id="previous-hop">Previous edges</button><span id="hop-label"></span><button id="next-hop">Next edges</button></div></div>
+<div class="table-wrap" tabindex="0" aria-label="Selected query across all thresholds"><table id="query-comparison"><caption>Selected query across thresholds</caption><thead><tr><th scope="col">Minimum synapses</th><th scope="col">Result</th><th scope="col">Hops</th><th scope="col">Weakest witness edge</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section id="failure-section" hidden aria-labelledby="failure-heading">
+<h2 id="failure-heading">Single-edge failure analysis</h2>
+<p>Critical means that removing this entire aggregated directed edge disconnects this query at this threshold in the supplied graph. This is not biological importance or a validated neuronal intervention. Missing connections can change every conclusion.</p>
+<p id="failure-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Candidate edge removals"><table id="removals"><caption>Baseline witness candidates · individual removals</caption><thead><tr><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th><th scope="col">Outcome</th><th scope="col">Inspect</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="previous-removal">Previous removals</button><span id="removal-page" role="status"></span><button id="next-removal">Next removals</button></div>
+<h3 id="alternative-heading" tabindex="-1">Removal evidence</h3><p id="alternative-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Alternative witness edges"><table id="alternative"><caption>Verified alternative path · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="previous-alternative">Previous alternative edges</button><span id="alternative-page" role="status"></span><button id="next-alternative">Next alternative edges</button></div>
+</section>
+<section id="node-failure-section" hidden aria-labelledby="node-failure-heading">
+<h2 id="node-failure-heading">Single-node failure analysis</h2>
+<p>Critical means that removing this intermediate node and all its incoming and outgoing edges disconnects this query at this threshold in the supplied graph. This is not biological importance or a validated neuronal intervention. Missing connections can change every conclusion.</p>
+<p>Source and target are excluded. Each trial starts from the original thresholded graph. Nodes outside the baseline path preserve that path; a present self-query retains its zero-hop identity path.</p>
+<p id="node-failure-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Candidate intermediate-node removals"><table id="node-removals"><caption>Baseline witness candidates · individual removals</caption><thead><tr><th scope="col">Removed node</th><th scope="col">Outcome</th><th scope="col">Inspect</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="node-previous-removal">Previous removals</button><span id="node-removal-page" role="status"></span><button id="node-next-removal">Next removals</button></div>
+<h3 id="node-alternative-heading" tabindex="-1">Removal evidence</h3><p id="node-alternative-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Alternative witness edges"><table id="node-alternative"><caption>Verified alternative path · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="node-previous-alternative">Previous alternative edges</button><span id="node-alternative-page" role="status"></span><button id="node-next-alternative">Next alternative edges</button></div>
+</section>
+<section aria-labelledby="provenance-heading"><p class="eyebrow">04 / REPRODUCE</p><h2 id="provenance-heading">Provenance & interpretation</h2><dl id="provenance"></dl><h3>Exact input bytes</h3><div id="hashes"></div><details><summary>Computation, semantics & limits</summary><pre id="technical"></pre></details><h3>What this audit cannot tell you</h3><ul id="limitations"></ul><p class="muted">A complete bundle contains report.html, report.json, and COMPLETE.json. The marker records artifact hashes. No requests, remote assets, analytics, or account access are used by this report.</p></section>
+</main><footer>CONNECTOME PATH AUDIT <span>One supplied graph. Explicit assumptions. Reproducible witnesses.</span></footer>
+<script id="audit-data" type="application/json">{"graph":{"connection_rows":14,"duplicate_rows":1,"edge_count":13,"node_count":10,"self_loop_edges":1},"input_contract":"connectome-csv/v1","inputs":{"connections":{"bytes":245,"sha256":"015347671d650c2c2d2b21bcf28eec3e85bbd3b2bc507208736040bd5d1181ea"},"nodes":{"bytes":264,"sha256":"419b5f9ab9982ff89d313b963cf77012836d92170cf8dc36050c67043d124336"},"provenance":{"bytes":593,"sha256":"7b7d5932f213dc961a5a065b2153b287cc33f64829d4bd1861ddbb65afbe1987"}},"interpretation":["A missing path means no directed path in the supplied graph at this threshold, not biological disconnection.","Sampling boundaries, omitted neurons or connections, proofreading errors, and upstream filters can remove real pathways. Lowering a threshold cannot restore omitted data.","Synapse counts gate edges; shortest means fewest hops, not strongest or most likely transmission. One deterministic witness is shown, not every possible path.","Wiring paths do not establish signal propagation, causal influence, engineered dynamics, or consciousness. No physiological or clinical validation is claimed.","Source equals target has a zero-hop path when the ID is present; missing IDs are unresolved, including missing self-queries."],"limits":{"candidate_removals":10000,"edges":100000,"input_bytes":8388608,"nodes":10000,"operations":5000000,"queries":256,"removal_operations":2000000,"report_bytes":8388608,"rows":200000,"seconds":30.0,"witness_nodes":100000},"nodes":[{"id":"isolated","label":"Explicit isolate"},{"id":"left","label":"First input branch"},{"id":"motor","label":"Target"},{"id":"out-left","label":"First output branch"},{"id":"out-right","label":"Second output branch"},{"id":"right","label":"Second input branch"},{"id":"sensor","label":"Source"},{"id":"shared","label":"Shared critical intermediate"},{"id":"weak-a","label":"Weak bypass first"},{"id":"weak-b","label":"Weak bypass second"}],"provenance":{"attribution":"Connectome Path Audit contributors","dataset":"Synthetic shared intermediate-node fixture","kind":"synthetic","license":"MIT (project fixture)","limitations":["Synthetic graph only; no biological or neuronal intervention validation.","Omitted connections can change criticality. Counts gate edges, not physiological influence."],"revision":"shared-node-v1","schema":"connectome-provenance/v1","selection":"Two directed diamonds share one intermediate node. A weak bypass exists only at threshold 1. Entirely constructed example."},"queries":[{"source":"sensor","target":"absent"},{"source":"sensor","target":"isolated"},{"source":"sensor","target":"motor"},{"source":"sensor","target":"sensor"}],"results":[{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":["absent"],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"missing_node","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"missing_node","untested_noncritical_nodes":0},"source":"sensor","status":"missing_node","target":"absent","threshold":1},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":[],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"initially_unreachable","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"initially_unreachable","untested_noncritical_nodes":0},"source":"sensor","status":"no_path_in_supplied_graph","target":"isolated","threshold":1},{"bottleneck":1,"edge_counts":[1,1,1],"hops":3,"missing_ids":[],"path":["sensor","weak-a","weak-b","motor"],"single_edge_failure":{"candidate_count":3,"candidates":[{"edge":["sensor","weak-a"],"edge_counts":[5,5,5,5],"path":["sensor","left","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":1,"visited_nodes":7},{"edge":["weak-a","weak-b"],"edge_counts":[5,5,5,5],"path":["sensor","left","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":1,"visited_nodes":8},{"edge":["weak-b","motor"],"edge_counts":[5,5,5,5],"path":["sensor","left","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":1,"visited_nodes":9}],"critical_edges":[],"status":"complete","untested_noncritical_edges":10},"single_node_failure":{"candidate_count":2,"candidates":[{"edge_counts":[5,5,5,5],"node":"weak-a","path":["sensor","left","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","visited_nodes":7},{"edge_counts":[5,5,5,5],"node":"weak-b","path":["sensor","left","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","visited_nodes":8}],"critical_nodes":[],"status":"complete","untested_noncritical_nodes":6},"source":"sensor","status":"reachable","target":"motor","threshold":1},{"bottleneck":null,"edge_counts":[],"hops":0,"missing_ids":[],"path":["sensor"],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"complete","untested_noncritical_edges":13},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"complete","untested_noncritical_nodes":9},"source":"sensor","status":"reachable","target":"sensor","threshold":1},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":["absent"],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"missing_node","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"missing_node","untested_noncritical_nodes":0},"source":"sensor","status":"missing_node","target":"absent","threshold":5},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":[],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"initially_unreachable","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"initially_unreachable","untested_noncritical_nodes":0},"source":"sensor","status":"no_path_in_supplied_graph","target":"isolated","threshold":5},{"bottleneck":5,"edge_counts":[5,5,5,5],"hops":4,"missing_ids":[],"path":["sensor","left","shared","out-left","motor"],"single_edge_failure":{"candidate_count":4,"candidates":[{"edge":["sensor","left"],"edge_counts":[5,5,5,5],"path":["sensor","right","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":5,"visited_nodes":6},{"edge":["left","shared"],"edge_counts":[5,5,5,5],"path":["sensor","right","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":5,"visited_nodes":7},{"edge":["shared","out-left"],"edge_counts":[5,5,5,5],"path":["sensor","left","shared","out-right","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":5,"visited_nodes":6},{"edge":["out-left","motor"],"edge_counts":[5,5,5,5],"path":["sensor","left","shared","out-right","motor"],"reason":null,"search_complete":false,"status":"alternative_path","synapses":5,"visited_nodes":7}],"critical_edges":[],"status":"complete","untested_noncritical_edges":5},"single_node_failure":{"candidate_count":3,"candidates":[{"edge_counts":[5,5,5,5],"node":"left","path":["sensor","right","shared","out-left","motor"],"reason":null,"search_complete":false,"status":"alternative_path","visited_nodes":6},{"edge_counts":[],"node":"shared","path":[],"reason":null,"search_complete":true,"status":"disconnected","visited_nodes":3},{"edge_counts":[5,5,5,5],"node":"out-left","path":["sensor","left","shared","out-right","motor"],"reason":null,"search_complete":false,"status":"alternative_path","visited_nodes":6}],"critical_nodes":["shared"],"status":"complete","untested_noncritical_nodes":5},"source":"sensor","status":"reachable","target":"motor","threshold":5},{"bottleneck":null,"edge_counts":[],"hops":0,"missing_ids":[],"path":["sensor"],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"complete","untested_noncritical_edges":9},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"complete","untested_noncritical_nodes":9},"source":"sensor","status":"reachable","target":"sensor","threshold":5},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":["absent"],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"missing_node","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"missing_node","untested_noncritical_nodes":0},"source":"sensor","status":"missing_node","target":"absent","threshold":6},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":[],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"initially_unreachable","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"initially_unreachable","untested_noncritical_nodes":0},"source":"sensor","status":"no_path_in_supplied_graph","target":"isolated","threshold":6},{"bottleneck":null,"edge_counts":[],"hops":null,"missing_ids":[],"path":[],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"initially_unreachable","untested_noncritical_edges":0},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"initially_unreachable","untested_noncritical_nodes":0},"source":"sensor","status":"no_path_in_supplied_graph","target":"motor","threshold":6},{"bottleneck":null,"edge_counts":[],"hops":0,"missing_ids":[],"path":["sensor"],"single_edge_failure":{"candidate_count":0,"candidates":[],"critical_edges":[],"status":"complete","untested_noncritical_edges":1},"single_node_failure":{"candidate_count":0,"candidates":[],"critical_nodes":[],"status":"complete","untested_noncritical_nodes":9},"source":"sensor","status":"reachable","target":"sensor","threshold":6}],"schema":"connectome-audit/v1","semantics":{"direction":"source to target","distance":"unweighted hops","duplicates":"sum before thresholding","self_loops":"retained","source_equals_target":"zero hops when present","threshold":"aggregated synapses \u003e= threshold","tie_break":"Unicode-code-point lexicographic shortest node sequence"},"single_edge_failure":{"candidate_strategy":"edges of deterministic baseline witness; all other retained edges preserve that witness","interpretation":"Query-relative graph operation, not a validated neuronal intervention or biological importance. Missing connections can change every conclusion.","removal_unit":"entire aggregated directed edge","schema":"connectome-single-edge-failure/v1","status":"complete","tested_removals":7,"traversal_operations":100},"single_node_failure":{"candidate_strategy":"intermediate nodes of deterministic baseline witness; all other eligible nodes preserve that witness","endpoint_policy":"exclude source and target","interpretation":"Query-relative graph operation, not a validated neuronal intervention or biological importance. Missing connections can change every conclusion.","prior_edge_removals":7,"prior_edge_traversal_operations":100,"removal_unit":"node and all incoming and outgoing edges, including self-loops","schema":"connectome-single-node-failure/v1","source_equals_target":"zero-hop identity preserved; no candidates","status":"complete","tested_removals":5,"traversal_operations":61},"status":"complete","summaries":[{"missing_pairs":1,"no_path_pairs":1,"reachable_pairs":2,"removed_edges":0,"retained_edges":13,"threshold":1},{"missing_pairs":1,"no_path_pairs":1,"reachable_pairs":2,"removed_edges":4,"retained_edges":9,"threshold":5},{"missing_pairs":1,"no_path_pairs":2,"reachable_pairs":1,"removed_edges":12,"retained_edges":1,"threshold":6}],"thresholds":[1,5,6],"tool_version":"1.2.0","work":{"operations":500,"witness_nodes":67}}
+</script><script>'use strict';
+(() => {
+  const data = JSON.parse(document.getElementById('audit-data').textContent);
+  const $ = id => document.getElementById(id);
+  const labels = new Map(data.nodes.map(n => [n.id, n.label]));
+  const size = 20;
+  let threshold = data.thresholds[0], page = 0, selected = 0, hopPage = 0;
+  let filtered = [];
+  const statusText = {reachable: 'Reachable', no_path_in_supplied_graph: 'No path in supplied graph', missing_node: 'Missing ID — unresolved'};
+  const rows = new Map(data.thresholds.map(t => [t, data.results.filter(r => r.threshold === t)]));
+  const display = id => labels.get(id) ? `${id} · ${labels.get(id)}` : id;
+  function element(tag, value, parent) {
+    const el = document.createElement(tag);
+    if (value !== undefined && value !== null) el.textContent = String(value);
+    if (parent) parent.append(el);
+    return el;
+  }
+  function cell(row, value) { return element('td', value, row); }
+  function nodeCell(row, id) {
+    const td = cell(row, id);
+    if (labels.get(id)) element('small', labels.get(id), td);
+  }
+  function dash(value) { return value === null ? '—' : value; }
+  function drawSummary() {
+    const body = $('summary').tBodies[0];
+    for (const s of data.summaries) {
+      const tr = element('tr', null, body);
+      const button = element('button', `≥ ${s.threshold}`, cell(tr));
+      button.dataset.threshold = s.threshold;
+      button.setAttribute('aria-label', `Select threshold ${s.threshold}`);
+      button.addEventListener('click', () => { $('threshold').value = String(s.threshold); changeThreshold(); });
+      for (const k of ['retained_edges', 'removed_edges', 'reachable_pairs', 'no_path_pairs', 'missing_pairs']) cell(tr, s[k]);
+    }
+  }
+  function drawPairs() {
+    const query = $('filter').value.toLocaleLowerCase();
+    const status = $('status').value;
+    filtered = rows.get(threshold).map((r, index) => ({r, index})).filter(({r}) =>
+      (status === 'all' || r.status === status) &&
+      (display(r.source) + ' ' + display(r.target)).toLocaleLowerCase().includes(query));
+    const pages = Math.max(1, Math.ceil(filtered.length / size));
+    page = Math.min(page, pages - 1);
+    if (!filtered.some(f => f.index === selected)) {
+      selected = filtered.length ? filtered[0].index : -1;
+      hopPage = 0;
+    }
+    const body = $('pairs').tBodies[0]; body.replaceChildren();
+    for (const {r, index} of filtered.slice(page * size, (page + 1) * size)) {
+      const tr = element('tr', null, body);
+      tr.setAttribute('aria-selected', String(selected === index));
+      nodeCell(tr, r.source); nodeCell(tr, r.target);
+      cell(tr, statusText[r.status]); cell(tr, dash(r.hops));
+      const button = element('button', selected === index ? 'Selected' : 'Inspect', cell(tr));
+      button.setAttribute('aria-label', `Inspect ${r.source} to ${r.target}`);
+      button.addEventListener('click', () => { selected = index; hopPage = 0; drawPairs(); $('path-heading').focus(); });
+    }
+    if (!filtered.length) { const td = cell(element('tr', null, body), 'No matching queries. Clear the filter or choose another result type.'); td.colSpan = 5; }
+    $('filter-count').textContent = `${filtered.length} of ${data.queries.length} query pairs · threshold ≥ ${threshold}`;
+    $('page-label').textContent = `Page ${page + 1} of ${pages}`;
+    $('previous-page').disabled = page === 0; $('next-page').disabled = page >= pages - 1;
+    document.querySelectorAll('#summary button').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.threshold) === threshold)));
+    drawPath();
+  }
+  function drawPath() {
+    drawFailures('edge'); drawFailures('node');
+    const pos = filtered.findIndex(f => f.index === selected);
+    $('previous-query').disabled = pos <= 0;
+    $('next-query').disabled = pos < 0 || pos >= filtered.length - 1;
+    const body = $('path').tBodies[0]; body.replaceChildren();
+    const compare = $('query-comparison').tBodies[0]; compare.replaceChildren();
+    if (selected < 0) {
+      $('selected-pair').textContent = 'No query selected';
+      $('path-status').textContent = 'Adjust the filters to inspect a query.';
+      $('witness').hidden = true;
+      return;
+    }
+    const r = rows.get(threshold)[selected];
+    $('selected-pair').textContent = `${display(r.source)} → ${display(r.target)}`;
+    $('path-status').textContent = r.status === 'missing_node' ? `Unresolved: not present in supplied nodes or connections: ${r.missing_ids.join(', ')}` :
+      r.status === 'no_path_in_supplied_graph' ? 'No path in the supplied graph at this threshold. This does not establish biological disconnection.' :
+      r.hops === 0 ? 'Zero-hop identity path. This is not evidence of a self-connection or feedback circuit.' : `${r.hops} directed hops · one deterministic shortest witness`;
+    $('witness').hidden = r.status !== 'reachable' || r.hops === 0;
+    $('path-detail').textContent = r.hops ? `Weakest witness edge: ${r.bottleneck} synapses. Ties use lexicographic node IDs, not connection strength.` : '';
+    const pages = Math.max(1, Math.ceil(r.edge_counts.length / size));
+    hopPage = Math.min(hopPage, pages - 1);
+    for (let i = hopPage * size; i < Math.min((hopPage + 1) * size, r.edge_counts.length); i++) {
+      const tr = element('tr', null, body);
+      cell(tr, i + 1); nodeCell(tr, r.path[i]); nodeCell(tr, r.path[i + 1]);
+      cell(tr, r.edge_counts[i]); cell(tr, r.edge_counts[i] - threshold);
+    }
+    $('hop-label').textContent = `Edges ${r.edge_counts.length ? hopPage * size + 1 : 0}–${Math.min((hopPage + 1) * size, r.edge_counts.length)} of ${r.edge_counts.length}`;
+    $('previous-hop').disabled = hopPage === 0; $('next-hop').disabled = hopPage >= pages - 1;
+    for (const t of data.thresholds) {
+      const other = rows.get(t)[selected], tr = element('tr', null, compare);
+      cell(tr, t); cell(tr, statusText[other.status]); cell(tr, dash(other.hops)); cell(tr, dash(other.bottleneck));
+    }
+  }
+  const failureState = Object.fromEntries(['edge', 'node'].map(k => [k,
+    {removalPage: 0, removalSelected: 0, alternativePage: 0, failureKey: ''}]));
+  const outcome = {alternative_path: 'Alternative path verified', disconnected: 'Critical — disconnected', unresolved: 'Unresolved'};
+  function drawFailures(kind) {
+    const isNode = kind === 'node', field = `single_${kind}_failure`;
+    const $ = id => document.getElementById((isNode ? 'node-' : '') + id);
+    const state = failureState[kind];
+    let {removalPage, removalSelected, alternativePage, failureKey} = state;
+    $('failure-section').hidden = !data[field];
+    if (!data[field]) return;
+    const r = selected < 0 ? null : rows.get(threshold)[selected];
+    const key = `${threshold}/${selected}`;
+    if (failureKey !== key) { removalPage = 0; removalSelected = 0; alternativePage = 0; failureKey = key; }
+    const f = r && r[field];
+    const candidates = f ? f.candidates : [];
+    $('failure-status').textContent = !f ? 'No query selected.' :
+      f.status === 'initially_unreachable' ? 'Initially unreachable: no removal-induced disconnection is claimed.' :
+      f.status === 'missing_node' ? 'Missing ID — unresolved baseline.' :
+      `${f.status === 'partial' ? 'PARTIAL — unresolved candidates remain' : 'Complete candidate analysis'} · ${f[`critical_${kind}s`].length} confirmed critical ${kind}s · ${f.candidate_count} candidates. ${f[`untested_noncritical_${kind}s`]} other eligible ${kind}s preserve the baseline witness.`;
+    const pages = Math.max(1, Math.ceil(candidates.length / size));
+    removalPage = Math.min(removalPage, pages - 1);
+    const body = $('removals').tBodies[0]; body.replaceChildren();
+    for (let i = removalPage * size; i < Math.min((removalPage + 1) * size, candidates.length); i++) {
+      const c = candidates[i], tr = element('tr', null, body);
+      if (isNode) nodeCell(tr, c.node);
+      else { nodeCell(tr, c.edge[0]); nodeCell(tr, c.edge[1]); cell(tr, c.synapses); }
+      cell(tr, outcome[c.status]);
+      const b = element('button', i === removalSelected ? 'Selected' : 'Inspect', cell(tr));
+      b.setAttribute('aria-label', isNode ? `Inspect node removal ${c.node}` : `Inspect removal ${c.edge[0]} to ${c.edge[1]}`);
+      b.addEventListener('click', () => { state.removalSelected = i; state.alternativePage = 0; drawFailures(kind); $('alternative-heading').focus(); });
+    }
+    $('removal-page').textContent = `Page ${removalPage + 1} of ${pages}`;
+    $('previous-removal').disabled = removalPage === 0; $('next-removal').disabled = removalPage >= pages - 1;
+    const c = candidates[removalSelected];
+    $('alternative-status').textContent = !c ? (r && r.status === 'reachable' ? (isNode ? 'No intermediate candidates: the identity or direct path survives every eligible node removal.' : 'Zero-hop identity: no candidate removal is needed.') : 'No removal analysis for this baseline.') :
+      (isNode ? `Removed ${display(c.node)} and all incident edges: ` : `Removed ${c.edge[0]} → ${c.edge[1]} (${c.synapses} synapses): `) +
+      (c.status === 'disconnected' ? `complete search exhausted, ${c.visited_nodes} nodes reached; target unreachable.` :
+       c.status === 'unresolved' ? `unresolved (${c.reason}); no disconnection conclusion.` : `verified alternative, ${c.edge_counts.length} hops.`);
+    const edges = c ? c.edge_counts : [], path = c ? c.path : [];
+    const altPages = Math.max(1, Math.ceil(edges.length / size));
+    alternativePage = Math.min(alternativePage, altPages - 1);
+    const alt = $('alternative').tBodies[0]; alt.replaceChildren();
+    for (let i = alternativePage * size; i < Math.min((alternativePage + 1) * size, edges.length); i++) {
+      const tr = element('tr', null, alt); cell(tr, i + 1); nodeCell(tr, path[i]); nodeCell(tr, path[i + 1]); cell(tr, edges[i]);
+    }
+    $('alternative-page').textContent = `Page ${alternativePage + 1} of ${altPages} · ${edges.length} edges`;
+    $('previous-alternative').disabled = alternativePage === 0; $('next-alternative').disabled = alternativePage >= altPages - 1;
+    Object.assign(state, {removalPage, removalSelected, alternativePage, failureKey});
+  }
+  for (const kind of ['edge', 'node']) {
+    const prefix = kind === 'node' ? 'node-' : '';
+    for (const [id, field, delta] of [['previous-removal', 'removalPage', -1], ['next-removal', 'removalPage', 1],
+      ['previous-alternative', 'alternativePage', -1], ['next-alternative', 'alternativePage', 1]]) {
+      $(prefix + id).addEventListener('click', () => { failureState[kind][field] += delta; drawFailures(kind); });
+    }
+  }
+  function changeThreshold() { threshold = Number($('threshold').value); page = 0; hopPage = 0; drawPairs(); }
+  function moveQuery(delta) {
+    const pos = filtered.findIndex(f => f.index === selected) + delta;
+    if (pos < 0 || pos >= filtered.length) return;
+    selected = filtered[pos].index; page = Math.floor(pos / size); hopPage = 0; drawPairs();
+  }
+  $('kind').textContent = data.provenance.kind.toUpperCase() + ' DATA';
+  $('dataset').textContent = data.provenance.dataset; $('revision').textContent = data.provenance.revision;
+  $('nodes-count').textContent = data.graph.node_count; $('edges-count').textContent = data.graph.edge_count;
+  $('pairs-count').textContent = data.queries.length; $('thresholds-count').textContent = data.thresholds.length;
+  for (const t of data.thresholds) { const option = element('option', `≥ ${t}`, $('threshold')); option.value = t; }
+  $('threshold').addEventListener('change', changeThreshold);
+  for (const id of ['filter', 'status']) $(id).addEventListener(id === 'filter' ? 'input' : 'change', () => { page = 0; hopPage = 0; drawPairs(); });
+  $('previous-page').addEventListener('click', () => { page--; drawPairs(); });
+  $('next-page').addEventListener('click', () => { page++; drawPairs(); });
+  $('previous-query').addEventListener('click', () => moveQuery(-1));
+  $('next-query').addEventListener('click', () => moveQuery(1));
+  $('previous-hop').addEventListener('click', () => { hopPage--; drawPath(); });
+  $('next-hop').addEventListener('click', () => { hopPage++; drawPath(); });
+  $('download').addEventListener('click', () => {
+    // The embedded text is the exact canonical ASCII report, including newline.
+    const raw = $('audit-data').textContent;
+    const url = URL.createObjectURL(new Blob([raw], {type: 'application/json'}));
+    const a = element('a'); a.href = url; a.download = 'connectome-audit.json'; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  for (const key of ['dataset', 'kind', 'revision', 'license', 'attribution', 'selection']) {
+    element('dt', key[0].toUpperCase() + key.slice(1), $('provenance'));
+    element('dd', data.provenance[key], $('provenance'));
+  }
+  for (const [role, info] of Object.entries(data.inputs)) {
+    const p = element('p', `${role} · ${info.bytes} bytes`, $('hashes'));
+    element('br', null, p); element('code', `SHA-256 ${info.sha256}`, p);
+  }
+  for (const text of [...data.provenance.limitations, ...data.interpretation]) element('li', text, $('limitations'));
+  $('technical').textContent = JSON.stringify({schema: data.schema, tool_version: data.tool_version, status: data.status,
+    graph: data.graph, semantics: data.semantics, limits: data.limits, work: data.work}, null, 2);
+  drawSummary(); drawPairs(); $('load-status').hidden = true;
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+node_id,label
+sensor,Source
+left,First input branch
+right,Second input branch
+shared,Shared critical intermediate
+out-left,First output branch
+out-right,Second output branch
+motor,Target
+weak-a,Weak bypass first
+weak-b,Weak bypass second
+isolated,Explicit isolate

@@ -120,3 +120,74 @@ Two additional ceilings may only be lowered:
 The existing 5,000,000 total-operation, 30-second runtime, 100,000 witness-node and 8 MiB per-artifact limits still apply to the entire workflow, including alternatives. Their exhaustion aborts the bundle, as do cancellation and serialization errors. Only the two additional ceilings permit a partial report. Each candidate search costs O(V + E) in the worst case, with O(V + E) search memory; total work is bounded by the explicit budgets. Paths and unresolved records also consume bounded output space. The HTML paginates candidate and alternative-edge tables at 20 rows, including partial outcomes.
 
 Edge removal is a graph operation, **not a validated neuronal intervention**. Query-relative criticality does not establish biological importance. Missing connections can change every conclusion.
+
+## Optional `connectome-single-node-failure/v1`
+
+`--single-node-failure` adds `single_node_failure` to the document and each
+finding. It uses the same offline inputs, bounded Cartesian queries, and up to
+12 thresholds. The original baseline and edge-failure meanings are unchanged.
+
+Each trial removes **one node and all incident incoming/outgoing edges**, including
+self-loops, from the original thresholded graph. Trials are independent, never
+cumulative. Source and target are excluded even when they coincide. A present
+self-query preserves its zero-hop identity path and has no candidates; a direct
+source-to-target edge likewise survives every eligible node removal. A missing
+endpoint remains `missing_node`, and a previously unreachable query remains
+`initially_unreachable`: neither supports a removal-induced disconnection claim.
+
+Only `path[1:-1]` of the deterministic baseline witness needs testing. For any
+eligible node outside that path, the unchanged baseline witnesses continued
+reachability. Therefore complete candidate analysis identifies **all individually
+critical intermediate nodes**, including in cyclic directed graphs. This does not
+find combinations of failures, enumerate minimum cuts, or measure global graph
+connectivity. Isolates and off-path nodes are covered by the unchanged witness,
+not by extra searches. Endpoints are not counted as noncritical.
+
+The per-query object contains:
+
+- `status`: `complete`, `partial`, `initially_unreachable`, or `missing_node`.
+- `candidate_count` and `candidates`: intermediate baseline nodes in path order.
+- `critical_nodes`: confirmed disconnecting node IDs, in candidate order. This is
+  exhaustive only when query status is `complete`; otherwise it is a lower bound.
+- `untested_noncritical_nodes`: for reachable queries, the number of supplied
+  nodes outside the path and excluded endpoints. Their removal preserves the
+  baseline. For other statuses this is zero and makes no noncriticality claim.
+
+Each candidate has `node` (the exact string ID), `status`, `reason`, `path`,
+`edge_counts`, `search_complete`, and `visited_nodes`. Labels are resolved from
+the enclosing sorted `nodes` array; hashes and declared provenance are in the
+same document. Candidate status and evidence follow the edge extension:
+`alternative_path` includes a replayed canonical shortest witness avoiding the
+node; `disconnected` requires an exhausted BFS and `search_complete: true`;
+`unresolved` carries a limit reason, empty witness, false search completeness,
+and null visited count. A verified alternative does not require an exhaustive
+reachable-set search, so its `search_complete` remains false.
+
+The versioned document object records removal semantics, endpoint policy,
+identity behavior, candidate strategy, completeness, `tested_removals`, and
+`traversal_operations`. Node counters describe node trials only.
+`prior_edge_removals` and `prior_edge_traversal_operations` record the edge work
+already charged. When both flags are present, **edge trials run first**, then
+node trials use the remaining shared `--max-candidate-removals` and
+`--max-removal-operations` allowances. Flag order does not change this order.
+A node-only run receives the full allowances. Standalone edge runs retain their
+existing limits and behavior. One extension can be complete while the other is
+partial; inspect each separately.
+
+The removal ceilings (10,000 starts and 2,000,000 BFS pops/neighbor inspections)
+apply across all queries, thresholds, and both requested extensions. Exhausting
+them yields explicit partial outcomes. Global operation, runtime, witness and
+output limits still abort the entire bundle. There is no silent truncation.
+Worst-case per-trial search is O(V + E), with O(V + E) search memory; paths and
+candidate records also consume bounded report space. The CLI prints the node
+extension status. A completed bundle and exit 0 do not imply all removals resolved.
+
+The HTML has separate node and edge inspectors, each with at most 20 candidate
+or alternative-edge rows mounted per page. Filtering or changing the selected
+query updates both inspectors; keyboard buttons and focus targets expose all
+pages. Input labels are displayed as text, including removal and witness labels.
+
+Node removal is a **graph operation, not a validated neuronal intervention**.
+No claim about cell ablation, silencing, compensation, dynamics, physiological
+function, or biological importance follows from these results. Missing
+connections can change every conclusion.

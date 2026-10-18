@@ -1,0 +1,15 @@
+source,target,synapses
+sensor,left,2
+sensor,left,3
+sensor,right,5
+left,shared,5
+right,shared,5
+shared,out-left,5
+shared,out-right,5
+out-left,motor,5
+out-right,motor,5
+sensor,weak-a,1
+weak-a,weak-b,1
+weak-b,motor,1
+shared,shared,9
+motor,sensor,1

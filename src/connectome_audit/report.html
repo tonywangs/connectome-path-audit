@@ -39,6 +39,17 @@
 <div class="table-wrap" tabindex="0" aria-label="Alternative witness edges"><table id="alternative"><caption>Verified alternative path · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th></tr></thead><tbody></tbody></table></div>
 <div class="pagination"><button id="previous-alternative">Previous alternative edges</button><span id="alternative-page" role="status"></span><button id="next-alternative">Next alternative edges</button></div>
 </section>
+<section id="node-failure-section" hidden aria-labelledby="node-failure-heading">
+<h2 id="node-failure-heading">Single-node failure analysis</h2>
+<p>Critical means that removing this intermediate node and all its incoming and outgoing edges disconnects this query at this threshold in the supplied graph. This is not biological importance or a validated neuronal intervention. Missing connections can change every conclusion.</p>
+<p>Source and target are excluded. Each trial starts from the original thresholded graph. Nodes outside the baseline path preserve that path; a present self-query retains its zero-hop identity path.</p>
+<p id="node-failure-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Candidate intermediate-node removals"><table id="node-removals"><caption>Baseline witness candidates · individual removals</caption><thead><tr><th scope="col">Removed node</th><th scope="col">Outcome</th><th scope="col">Inspect</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="node-previous-removal">Previous removals</button><span id="node-removal-page" role="status"></span><button id="node-next-removal">Next removals</button></div>
+<h3 id="node-alternative-heading" tabindex="-1">Removal evidence</h3><p id="node-alternative-status" role="status"></p>
+<div class="table-wrap" tabindex="0" aria-label="Alternative witness edges"><table id="node-alternative"><caption>Verified alternative path · aggregated counts</caption><thead><tr><th scope="col">Hop</th><th scope="col">From</th><th scope="col">To</th><th scope="col">Synapses</th></tr></thead><tbody></tbody></table></div>
+<div class="pagination"><button id="node-previous-alternative">Previous alternative edges</button><span id="node-alternative-page" role="status"></span><button id="node-next-alternative">Next alternative edges</button></div>
+</section>
 <section aria-labelledby="provenance-heading"><p class="eyebrow">04 / REPRODUCE</p><h2 id="provenance-heading">Provenance & interpretation</h2><dl id="provenance"></dl><h3>Exact input bytes</h3><div id="hashes"></div><details><summary>Computation, semantics & limits</summary><pre id="technical"></pre></details><h3>What this audit cannot tell you</h3><ul id="limitations"></ul><p class="muted">A complete bundle contains report.html, report.json, and COMPLETE.json. The marker records artifact hashes. No requests, remote assets, analytics, or account access are used by this report.</p></section>
 </main><footer>CONNECTOME PATH AUDIT <span>One supplied graph. Explicit assumptions. Reproducible witnesses.</span></footer>
 <script id="audit-data" type="application/json">@@DATA@@</script><script>@@SCRIPT@@</script></body></html>
