@@ -116,6 +116,35 @@ def check(report_path, screenshot=None):
             page.locator('#node-previous-alternative').click()
             node_checks = {'candidate_rows_visited': len(visited), 'alternative_edges_visited': len(alt),
                               'dom_elements': page.locator('*').count()}
+        dominator_checks = {}
+        if data.get('dominator_node_failure'):
+            assert not page.locator('#dom-failure-section').is_hidden()
+            visited = []
+            while True:
+                assert page.locator('#dom-removals tbody tr').count() <= 20
+                visited += page.locator('#dom-removals button').evaluate_all('(bs) => bs.map(b => b.getAttribute("aria-label"))')
+                if page.locator('#dom-next-removal').is_disabled(): break
+                page.locator('#dom-next-removal').click()
+            assert len(visited) == 63
+            page.locator('#dom-removals button').first.click()
+            assert 'converged dominator tree' in page.locator('#dom-alternative-status').inner_text()
+            while not page.locator('#dom-previous-removal').is_disabled(): page.locator('#dom-previous-removal').click()
+            page.locator('#dom-removals button').first.focus(); page.keyboard.press('Enter')
+            assert page.locator('#dom-alternative-heading').evaluate('(e) => e === document.activeElement')
+            assert 'witness available' in page.locator('#dom-alternative-status').inner_text()
+            assert '</script>' in page.locator('#dom-removals').inner_text()
+            assert '</script>' in page.locator('#dom-alternative').inner_text()
+            assert page.locator('img').count() == 0 and page.evaluate('window.pwned') is None
+            alt = []
+            while True:
+                assert page.locator('#dom-alternative tbody tr').count() <= 20
+                alt += page.locator('#dom-alternative tbody tr td:first-child').all_text_contents()
+                if page.locator('#dom-next-alternative').is_disabled(): break
+                page.locator('#dom-next-alternative').click()
+            assert alt == [str(i) for i in range(1, 89)]
+            page.locator('#dom-previous-alternative').click()
+            dominator_checks = {'candidate_rows_visited': len(visited), 'alternative_edges_visited': len(alt),
+                              'dom_elements': page.locator('*').count()}
         # Threshold can be changed by overview and keyboard-operated select.
         page.get_by_role('button', name='Select threshold 6', exact=True).click()
         assert page.locator('#threshold').input_value() == '6'
@@ -162,7 +191,7 @@ def check(report_path, screenshot=None):
             page.screenshot(path=str(screenshot), full_page=True)
         assert not requests, requests
         assert not errors, errors
-        result = {'elapsed_seconds': round(time.monotonic() - started, 6), 'browser': browser.version, 'single_edge_failure': failure_checks, 'single_node_failure': node_checks, 'dom_elements': page.locator('*').count(), 'external_request_attempts': len(requests),
+        result = {'elapsed_seconds': round(time.monotonic() - started, 6), 'browser': browser.version, 'single_edge_failure': failure_checks, 'single_node_failure': node_checks, 'dominator_node_failure': dominator_checks, 'dom_elements': page.locator('*').count(), 'external_request_attempts': len(requests),
                   'javascript_errors': len(errors), 'queries_visited': len(seen),
                   'path_edges_visited': len(edges), 'max_mounted_rows_per_paged_table': 20,
                   'viewports': ['1280x960', '360x800'], 'download_sha256': hashlib.sha256(raw).hexdigest(),
@@ -181,7 +210,7 @@ if __name__ == '__main__':
 
 def check_partial(report_path, kind="edge"):
     """Partial outcomes remain visible in a network-blocked browser."""
-    prefix = "node-" if kind == "node" else ""
+    prefix = "dom-" if kind == "dom" else ("node-" if kind == "node" else "")
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
         context = browser.new_context(offline=True)
@@ -249,3 +278,31 @@ def check_combined(report_path):
                   'dom_elements': page.locator('*').count(), 'browser': browser.version}
         browser.close()
         return result
+
+
+def check_dominator_witness_state(report_path, expected):
+    """Witness absence must not look like an unresolved classification."""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
+        context = browser.new_context(offline=True)
+        requests, errors = [], []
+        context.route('**/*', lambda route: route.abort() if route.request.url.startswith(('http:', 'https:')) else route.continue_())
+        page = context.new_page()
+        page.on('request', lambda r: requests.append(r.url) if r.url.startswith(('http:', 'https:')) else None)
+        page.on('pageerror', lambda e: errors.append(str(e)))
+        page.goto(Path(report_path).resolve().as_uri())
+        page.locator('#load-status').wait_for(state='hidden')
+        page.locator('#filter').fill('motor')
+        page.locator('#threshold').select_option('1')
+        assert 'Complete candidate analysis' in page.locator('#dom-failure-status').inner_text()
+        assert 'Classification: complete' in page.locator('#dom-provenance').inner_text()
+        page.locator('#dom-removals button').first.focus(); page.keyboard.press('Enter')
+        assert page.locator('#dom-alternative-heading').evaluate('(e) => e === document.activeElement')
+        assert f'noncritical; witness {expected}' in page.locator('#dom-alternative-status').inner_text()
+        assert page.locator('#dom-alternative tbody tr').count() == 0
+        page.locator('#filter').fill('no such query')
+        assert 'No query selected' in page.locator('#dom-failure-status').inner_text()
+        assert not requests and not errors
+        browser.close()
+    return {'classification_complete': True, 'witness_status_visible': expected,
+            'external_request_attempts': 0, 'javascript_errors': 0}

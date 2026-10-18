@@ -191,3 +191,10 @@ Node removal is a **graph operation, not a validated neuronal intervention**.
 No claim about cell ablation, silencing, compensation, dynamics, physiological
 function, or biological importance follows from these results. Missing
 connections can change every conclusion.
+
+## Optional dominator extension
+
+`--dominator-node-failure` adds `connectome-dominator-node-failure/v1` fields without
+replacing baseline or removal-extension fields. `--dominator-witnesses` requires
+that flag and requests separately budgeted alternatives. See the
+[complete semantics and limit contract](dominators.md#resource-and-output-contract).

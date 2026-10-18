@@ -24,6 +24,10 @@ class Limits:
     operations: int = 5_000_000
     candidate_removals: int = 10_000  # across all queries and thresholds
     removal_operations: int = 2_000_000  # removal BFS pops and adjacency visits
+    dominator_operations: int = 2_000_000
+    dominator_source_operations: int = 250_000
+    dominator_witness_searches: int = 10_000
+    dominator_witness_operations: int = 2_000_000
     seconds: float = 30.0
     report_bytes: int = 8 * 1024 * 1024  # each artifact
     witness_nodes: int = 100_000  # all reported paths, including repetitions

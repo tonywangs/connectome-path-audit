@@ -48,3 +48,9 @@ an existing path leaves that path intact. No algorithmic novelty is claimed.
 Live documentation may describe newer NetworkX versions; tests remain pinned
 to 3.4.2 and record hashes of the installed reference sources. Neither these
 references nor the synthetic experiments validate a neuronal intervention.
+
+The critical-intermediate extension uses established iterative dominator analysis:
+Cooper, Harvey and Kennedy's [Figure 3 algorithm](https://www.cs.tufts.edu/~nr/cs257/archive/keith-cooper/dom14.pdf),
+with a separately installed, pinned NetworkX 3.4.2 oracle and exhaustive node
+removal checks. See [algorithm scope and validation](dominators.md). This is an
+offline auditing application of existing graph theory, with no algorithmic novelty claim.

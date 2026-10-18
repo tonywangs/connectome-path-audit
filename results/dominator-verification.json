@@ -1,0 +1,2660 @@
+{
+  "benchmark": {
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 282,
+        "sha256": "190a8f74e804dc857b62206f9eafb271be8710b83f30185bc85e1a8d5c3a9678"
+      },
+      "report.html": {
+        "bytes": 360989,
+        "sha256": "42fadb9f7777bdf0c729f6c35481817119ea6a236b07d5b6584d7ac035ec470e"
+      },
+      "report.json": {
+        "bytes": 330659,
+        "sha256": "93d1e1c319448875988d2a0b763e505d6925c4050d05e031a47d4a2e2c1fae7e"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "connection_rows": 10000,
+    "elapsed_seconds": 0.949372,
+    "independent_findings_checked": 1024,
+    "node_count": 2000,
+    "peak_process_rss_kib": 27948,
+    "query_pairs": 256,
+    "repeat_measurement": {
+      "elapsed_seconds": 0.970275,
+      "peak_process_rss_kib": 27948
+    },
+    "seed": 1701,
+    "thresholds": [
+      1,
+      5,
+      10,
+      15
+    ],
+    "unchanged_input_hashes": {
+      "connections.csv": "248838579f210469f5772af6c24e3e9918d6b20074c0e157312b105fc29a38df",
+      "nodes.csv": "ca0e51d453bc142dd2d36ef8f5efc495c84d8b564fa72f5f79ad8cbaf8f9f7f4",
+      "provenance.json": "97d097e2a79355bd2f423a492104d6804fd1d9e224d80a8bc00b797825eed4d1"
+    }
+  },
+  "browser": {
+    "browser": "134.0.6998.35",
+    "checks": [
+      "threshold select and summary buttons",
+      "all query pages",
+      "query navigation",
+      "all witness edge pages",
+      "ID and label filtering",
+      "status filtering",
+      "native keyboard controls",
+      "focus after inspection",
+      "narrow viewport",
+      "hostile labels inert",
+      "byte-identical JSON download",
+      "zero external requests"
+    ],
+    "dom_elements": 332,
+    "dominator_node_failure": {},
+    "download_sha256": "9b8d80cb9207d8729649cab2b5f844fff03871dfda9edf8a78a5fe2ae8a5ac86",
+    "elapsed_seconds": 7.189119,
+    "external_request_attempts": 0,
+    "javascript_errors": 0,
+    "max_mounted_rows_per_paged_table": 20,
+    "path_edges_visited": 64,
+    "queries_visited": 68,
+    "single_edge_failure": {},
+    "single_node_failure": {},
+    "viewports": [
+      "1280x960",
+      "360x800"
+    ]
+  },
+  "build": {
+    "elapsed_seconds": 2.367783,
+    "peak_process_rss_kib": 42660
+  },
+  "combined_browser": {
+    "browser": "134.0.6998.35",
+    "dom_elements": 303,
+    "external_request_attempts": 0,
+    "identity_and_missing_states": true,
+    "independent_inspector_selection": true,
+    "javascript_errors": 0
+  },
+  "dominator_reference": {
+    "alternative_witnesses": 4000,
+    "findings": 69030,
+    "graphs": 300,
+    "reference_removals": 6828
+  },
+  "dominators": {
+    "benchmark": {
+      "cases": [
+        {
+          "name": "chain-shared",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03586614318192005,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25216,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.035345752723515034,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.448647913057357,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03401145897805691,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25216,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03762503573670983,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.689118459355086,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03504343377426267,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25344,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.04093922907486558,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.6882106252014637,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03817074419930577,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25216,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.04165937006473541,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.6103898799046874,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.041405357886105776,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25216,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03881500568240881,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.5579232410527766,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.03951504500582814,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25344,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 7992,
+                  "charged_extension_operations": 18996,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 0.04246722860261798,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 25472,
+                  "run_status": "complete",
+                  "traversal_operations": 10502,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 1349358,
+                  "classification_sha256": "f78584955f3ef8539a891b653b72e0e73690fc23d6ff1d5768d0c75fddebe15e",
+                  "completed_classifications": 7992,
+                  "elapsed_seconds": 1.6084388890303671,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "complete",
+                  "traversal_operations": 1340960,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 25216.0,
+              "median_seconds": 0.03701844369061291
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 25472.0,
+              "median_seconds": 0.039877117378637195
+            },
+            "removal": {
+              "median_peak_rss_kib": 24832.0,
+              "median_seconds": 1.6094143844675273
+            }
+          }
+        },
+        {
+          "name": "chain-single",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.004326144233345985,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.006103157065808773,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.09509174292907119,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.008106103166937828,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.006716497242450714,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.07243511406704783,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.006838311441242695,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.005164790898561478,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.12016892107203603,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.0044425008818507195,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.005860152654349804,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20968,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.07458307407796383,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.005740561988204718,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.005657845176756382,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20864,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.0826682629995048,
+                  "failure": null,
+                  "peak_process_rss_kib": 20836,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.0066116550005972385,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 356,
+                  "charged_extension_operations": 3586,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.0049482351168990135,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20736,
+                  "run_status": "complete",
+                  "traversal_operations": 2866,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 64440,
+                  "classification_sha256": "b338714a8b9ee00c970cc0bbd05cbab18a5b801e282e61c8eb1441e5c3e37e30",
+                  "completed_classifications": 356,
+                  "elapsed_seconds": 0.07699737790971994,
+                  "failure": null,
+                  "peak_process_rss_kib": 20836,
+                  "run_status": "complete",
+                  "traversal_operations": 63724,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 20736.0,
+              "median_seconds": 0.006176108494400978
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 20800.0,
+              "median_seconds": 0.005758998915553093
+            },
+            "removal": {
+              "median_peak_rss_kib": 20864.0,
+              "median_seconds": 0.07983282045461237
+            }
+          }
+        },
+        {
+          "name": "dense-single",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.02391001395881176,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21248,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.028562088031321764,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21108,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.008068436291068792,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.023579059168696404,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.021570911165326834,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21220,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.009901111014187336,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.02730572083964944,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.022281043231487274,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21112,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.008317218162119389,
+                  "failure": null,
+                  "peak_process_rss_kib": 21232,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.031360672786831856,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21248,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.022152671590447426,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21232,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.008748368360102177,
+                  "failure": null,
+                  "peak_process_rss_kib": 21248,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.0776717122644186,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21240,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.02347064483910799,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.004931953269988298,
+                  "failure": null,
+                  "peak_process_rss_kib": 21232,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20848,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.022213555872440338,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21240,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 1,
+                  "charged_extension_operations": 20966,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.027791820000857115,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21236,
+                  "run_status": "complete",
+                  "traversal_operations": 13741,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 115,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 7218,
+                  "classification_sha256": "47d13088f6030b9af4964fc9c9b995f17acae5449faf5826e9ed44d4c613519e",
+                  "completed_classifications": 1,
+                  "elapsed_seconds": 0.00893265986815095,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 110,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 21240.0,
+              "median_seconds": 0.0256078673992306
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 21166.0,
+              "median_seconds": 0.022875844035297632
+            },
+            "removal": {
+              "median_peak_rss_kib": 21176.0,
+              "median_seconds": 0.008532793261110783
+            }
+          }
+        },
+        {
+          "name": "diamonds-shared",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.023709800094366074,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24192,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.7696821712888777,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8404967151582241,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.02016510395333171,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24192,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.7156665208749473,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24448,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8446997632272542,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.029352508019655943,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 23936,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.758811364416033,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24192,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8518903502263129,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24192,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.023607772774994373,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24064,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.7789509813301265,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24448,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8396017393097281,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24192,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.022061232943087816,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24064,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8718083309940994,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8895298638381064,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 12708,
+                  "classification_sha256": "da57018af9e9456b7ba56ceeda77aa8d429c95f71fac666d723cc62850a1caf0",
+                  "completed_classifications": 5344,
+                  "elapsed_seconds": 0.026876950170844793,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24064,
+                  "run_status": "complete",
+                  "traversal_operations": 6620,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 659664,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.7710016430355608,
+                  "exact_output_agreement": true,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 2845,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": 560191,
+                  "witness_status": "unreported_hard_limit"
+                },
+                "removal": {
+                  "charged_extension_operations": 745921,
+                  "classification_sha256": "a3f32d3f852953933463270625934007d6dea08b277aec9fab789c3584215e1d",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.8686263132840395,
+                  "failure": "total witness-node limit exhausted",
+                  "peak_process_rss_kib": 24320,
+                  "run_status": "hard_limit",
+                  "traversal_operations": 555686,
+                  "unresolved_classifications": 5344,
+                  "witness_operations": null,
+                  "witness_status": "unreported_hard_limit"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 24064.0,
+              "median_seconds": 0.023658786434680223
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 24320.0,
+              "median_seconds": 0.7703419071622193
+            },
+            "removal": {
+              "median_peak_rss_kib": 24320.0,
+              "median_seconds": 0.8482950567267835
+            }
+          }
+        },
+        {
+          "name": "random-shared",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.03858180111274123,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.14368883427232504,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.1365682897157967,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.03686808422207832,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.1249327096156776,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.12483201082795858,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.05839455081149936,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20856,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.18131521483883262,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.10492707416415215,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.03030661540105939,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.10079346504062414,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.12694000592455268,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.03912449022755027,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.15686004515737295,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21120,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.12347242003306746,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 30603,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.04251462174579501,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 21048,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 158,
+                  "charged_extension_operations": 130648,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.17147005535662174,
+                  "exact_output_agreement": true,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 27319,
+                  "unresolved_classifications": 0,
+                  "witness_operations": 99100,
+                  "witness_status": "complete"
+                },
+                "removal": {
+                  "charged_extension_operations": 107276,
+                  "classification_sha256": "e857bdfd65c001ba9eb24292ae48ff693736ebd3ab848c63db47bda6c897f6fd",
+                  "completed_classifications": 158,
+                  "elapsed_seconds": 0.11955829197540879,
+                  "failure": null,
+                  "peak_process_rss_kib": 20992,
+                  "run_status": "complete",
+                  "traversal_operations": 102352,
+                  "unresolved_classifications": 0,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 20992.0,
+              "median_seconds": 0.03885314567014575
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 21056.0,
+              "median_seconds": 0.150274439714849
+            },
+            "removal": {
+              "median_peak_rss_kib": 20992.0,
+              "median_seconds": 0.12415221543051302
+            }
+          }
+        },
+        {
+          "name": "budget-exhaustion",
+          "runs": [
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.026376106310635805,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.02453278237953782,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.021547478158026934,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 0
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.020501076243817806,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.02031631302088499,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.023159789852797985,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 1
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.02379231620579958,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.022339727263897657,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.022306394763290882,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 2
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.024112320970743895,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.02019157027825713,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.0268432660959661,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 3
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.022168896161019802,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.02245035907253623,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.019049992319196463,
+                  "failure": null,
+                  "peak_process_rss_kib": 24704,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "removal",
+                "dominator",
+                "dominator-witnesses"
+              ],
+              "repeat": 4
+            },
+            {
+              "methods": {
+                "dominator": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.022371830884367228,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "not_requested"
+                },
+                "dominator-witnesses": {
+                  "agreed_completed_classifications": 0,
+                  "charged_extension_operations": 8594,
+                  "classification_sha256": "6bef2a3dbddf3a1c6b331b8d5978ec8e253988177e45ae0c54b4b4e3c242c6c9",
+                  "completed_classifications": 0,
+                  "elapsed_seconds": 0.022328027058392763,
+                  "exact_output_agreement": false,
+                  "failure": null,
+                  "peak_process_rss_kib": 24960,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7992,
+                  "witness_operations": 0,
+                  "witness_status": "partial"
+                },
+                "removal": {
+                  "charged_extension_operations": 8498,
+                  "classification_sha256": "e409ef342dc53c6d2fdc920d2ba27f11616585071237b6ed7702de267e5e7b6c",
+                  "completed_classifications": 9,
+                  "elapsed_seconds": 0.02097663888707757,
+                  "failure": null,
+                  "peak_process_rss_kib": 24832,
+                  "run_status": "partial",
+                  "traversal_operations": 100,
+                  "unresolved_classifications": 7983,
+                  "witness_operations": null,
+                  "witness_status": "included_in_removal_search"
+                }
+              },
+              "order": [
+                "dominator-witnesses",
+                "dominator",
+                "removal"
+              ],
+              "repeat": 5
+            }
+          ],
+          "summary": {
+            "dominator": {
+              "median_peak_rss_kib": 24896.0,
+              "median_seconds": 0.023082073545083404
+            },
+            "dominator-witnesses": {
+              "median_peak_rss_kib": 24896.0,
+              "median_seconds": 0.02233387716114521
+            },
+            "removal": {
+              "median_peak_rss_kib": 24896.0,
+              "median_seconds": 0.021926936460658908
+            }
+          }
+        }
+      ],
+      "generator_sha256": "b2ec7a231faf03f60369fac4e47b7852de97f28c6f7c27c3303d4cadba231aa3",
+      "measurement": "Existing removal includes alternative witnesses; dominator classification alone does not. Also measure dominator with requested witnesses. Timing includes extension only, RSS includes Python, imports and baseline. No biological or population inference.",
+      "suite_sha256": "66cf60b5d97b686b288c391ad7827f78cb040475945c35998f529641bf39df95"
+    },
+    "browser": {
+      "browser": "134.0.6998.35",
+      "checks": [
+        "threshold select and summary buttons",
+        "all query pages",
+        "query navigation",
+        "all witness edge pages",
+        "ID and label filtering",
+        "status filtering",
+        "native keyboard controls",
+        "focus after inspection",
+        "narrow viewport",
+        "hostile labels inert",
+        "byte-identical JSON download",
+        "zero external requests"
+      ],
+      "dom_elements": 332,
+      "dominator_node_failure": {
+        "alternative_edges_visited": 88,
+        "candidate_rows_visited": 63,
+        "dom_elements": 744
+      },
+      "download_sha256": "873754abaab842373334daaaf10dcc06e36243cb50bf7c8f9822aace29d597fc",
+      "elapsed_seconds": 11.514813,
+      "external_request_attempts": 0,
+      "javascript_errors": 0,
+      "max_mounted_rows_per_paged_table": 20,
+      "path_edges_visited": 64,
+      "queries_visited": 68,
+      "single_edge_failure": {},
+      "single_node_failure": {},
+      "viewports": [
+        "1280x960",
+        "360x800"
+      ]
+    },
+    "browser_reference": {
+      "findings": 204,
+      "independently_checked_witnesses": 126
+    },
+    "classification_only_browser": {
+      "classification_complete": true,
+      "external_request_attempts": 0,
+      "javascript_errors": 0,
+      "witness_status_visible": "not_requested"
+    },
+    "classification_only_reference": {
+      "findings": 12,
+      "independently_checked_witnesses": 0
+    },
+    "example": {
+      "artifacts": {
+        "COMPLETE.json": {
+          "bytes": 279,
+          "sha256": "273f22d4a89d48ff1512313659335cf5a1d8bc685a6cfbede2fc799488162b5c"
+        },
+        "report.html": {
+          "bytes": 39841,
+          "sha256": "e264e53b5df744ba5649475cb09740d8074915a5591f9f4764d5bb34a324b0ee"
+        },
+        "report.json": {
+          "bytes": 9511,
+          "sha256": "76bedb743378e7362af5d707fa06b884370afd630464fe7512cc9543740c5605"
+        }
+      },
+      "byte_identical_repeated_outputs": true,
+      "elapsed_seconds": 0.176874,
+      "peak_process_rss_kib": 20476,
+      "reference": {
+        "findings": 12,
+        "independently_checked_witnesses": 4
+      },
+      "unchanged_input_hashes": {
+        "connections.csv": "015347671d650c2c2d2b21bcf28eec3e85bbd3b2bc507208736040bd5d1181ea",
+        "nodes.csv": "419b5f9ab9982ff89d313b963cf77012836d92170cf8dc36050c67043d124336",
+        "provenance.json": "7b7d5932f213dc961a5a065b2153b287cc33f64829d4bd1861ddbb65afbe1987"
+      }
+    },
+    "exhausted_witness_browser": {
+      "classification_complete": true,
+      "external_request_attempts": 0,
+      "javascript_errors": 0,
+      "witness_status_visible": "unresolved"
+    },
+    "exhausted_witness_reference": {
+      "findings": 12,
+      "independently_checked_witnesses": 0
+    },
+    "partial_browser": {
+      "browser": "134.0.6998.35",
+      "dom_elements": 361,
+      "external_request_attempts": 0,
+      "javascript_errors": 0,
+      "partial_visible": true,
+      "unresolved_without_witness": true
+    },
+    "partial_reference": {
+      "findings": 12,
+      "independently_checked_witnesses": 0
+    },
+    "reference_source_sha256": "4ffcf7ee3c7f5926d8fc731f620a992fa7d3fa9e8f3009598d2c0456c68b7cb1",
+    "reference_version": "NetworkX 3.4.2"
+  },
+  "edge_failure_reference": {
+    "alternative_witnesses": 6415,
+    "critical_findings": 10449,
+    "findings": 69136,
+    "graphs": 300,
+    "reference_removals": 5764
+  },
+  "environment": {
+    "cpu_count": 4,
+    "dependencies": {
+      "greenlet": "3.5.6",
+      "networkx": "3.4.2",
+      "pip": "25.0.1",
+      "playwright": "1.51.0",
+      "pyee": "12.1.1",
+      "setuptools": "75.8.0",
+      "typing-extensions": "4.16.0",
+      "wheel": "0.45.1"
+    },
+    "machine": "x86_64",
+    "measurement": "GNU time maximum resident set size in KiB; elapsed includes process launch",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "failure_browser": {
+    "browser": "134.0.6998.35",
+    "checks": [
+      "threshold select and summary buttons",
+      "all query pages",
+      "query navigation",
+      "all witness edge pages",
+      "ID and label filtering",
+      "status filtering",
+      "native keyboard controls",
+      "focus after inspection",
+      "narrow viewport",
+      "hostile labels inert",
+      "byte-identical JSON download",
+      "zero external requests"
+    ],
+    "dom_elements": 341,
+    "dominator_node_failure": {},
+    "download_sha256": "8b6736a8244cc55db42e6c5e6da00b535642ce59fc16a0d579aaa466911c70fc",
+    "elapsed_seconds": 8.327188,
+    "external_request_attempts": 0,
+    "javascript_errors": 0,
+    "max_mounted_rows_per_paged_table": 20,
+    "path_edges_visited": 64,
+    "queries_visited": 68,
+    "single_edge_failure": {
+      "alternative_edges_visited": 89,
+      "candidate_rows_visited": 64,
+      "dom_elements": 804
+    },
+    "single_node_failure": {},
+    "viewports": [
+      "1280x960",
+      "360x800"
+    ]
+  },
+  "failure_example": {
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 280,
+        "sha256": "b065f269a57fba7d5375ccfebbc5c592ac3da63f200d4bb33bef255cf34a4b5d"
+      },
+      "report.html": {
+        "bytes": 42449,
+        "sha256": "3c1605c8923d5ded1c3c1f3689f43a9360cadbc7cb2202b56ccde9ce5108ea88"
+      },
+      "report.json": {
+        "bytes": 12119,
+        "sha256": "6d644fba66d8b9e694379c1324f2f60c4e984be3080348a92cdf8735f5fe6219"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "elapsed_seconds": 0.21597,
+    "peak_process_rss_kib": 20476,
+    "reference": {
+      "alternative_witnesses": 4,
+      "findings": 20,
+      "reference_removals": 29
+    },
+    "unchanged_input_hashes": {
+      "connections.csv": "8267f19be9b2cccf2b6caf318f0ba6d7dcda60daa05c8a22437881ae854f415f",
+      "nodes.csv": "8930a2472c47318de25a85f58818eacdc25f0cff8cd758ceb402b485bafdc523",
+      "provenance.json": "eea986cc57336e868944969e8ced0d67587879c993cd938687f22421fb3bd72a"
+    }
+  },
+  "failure_workload": {
+    "analysis": {
+      "candidate_strategy": "edges of deterministic baseline witness; all other retained edges preserve that witness",
+      "interpretation": "Query-relative graph operation, not a validated neuronal intervention or biological importance. Missing connections can change every conclusion.",
+      "removal_unit": "entire aggregated directed edge",
+      "schema": "connectome-single-edge-failure/v1",
+      "status": "complete",
+      "tested_removals": 4163,
+      "traversal_operations": 411948
+    },
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 282,
+        "sha256": "ff24cf56c0ff68225177bdf083b33c4e2bc087f37484560e9ec43de1aada626b"
+      },
+      "report.html": {
+        "bytes": 876775,
+        "sha256": "ce8d0c0f9af66707c2b2f46e65cfda5d1d491a0cf28e59e11cd93ca1bbf4a44a"
+      },
+      "report.json": {
+        "bytes": 846445,
+        "sha256": "8b6736a8244cc55db42e6c5e6da00b535642ce59fc16a0d579aaa466911c70fc"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "elapsed_seconds": 0.947087,
+    "graph": {
+      "connection_rows": 91,
+      "duplicate_rows": 0,
+      "edge_count": 91,
+      "node_count": 92,
+      "self_loop_edges": 0
+    },
+    "peak_process_rss_kib": 30720,
+    "queries": 68,
+    "reference": {
+      "alternative_witnesses": 128,
+      "findings": 204,
+      "reference_removals": 183
+    },
+    "thresholds": [
+      1,
+      5,
+      6
+    ],
+    "unchanged_input_hashes": {
+      "connections.csv": "588768be4a634a42abe13869625921c3b4c273c085fa4f264337edbdd4754d54",
+      "nodes.csv": "11a1605ceaf4790b045acd3124c3a5fb9f021d8ead79aa6d197e5b0fe41cb10d",
+      "provenance.json": "270e4d0c07a95a349289e82db4f58e042f320db4eb118c8b5c3421b4353946d6"
+    }
+  },
+  "install": {
+    "elapsed_seconds": 1.666525,
+    "peak_process_rss_kib": 44244
+  },
+  "installed_example": {
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 279,
+        "sha256": "5d734e1d3d7fbccd795e0ae112688524675b362f1400f0b1d1a11eb20ecd7c0a"
+      },
+      "report.html": {
+        "bytes": 37550,
+        "sha256": "1eacc01d121edc3abe1ccd3325c70bdf59728d1314a31aad3ed7d5e9e2dd08ff"
+      },
+      "report.json": {
+        "bytes": 7220,
+        "sha256": "3abdb9b90e9b94e3b3b0d6e5785431fdbf86c116c3ff20939ddd54220f27529f"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "elapsed_seconds": 0.226269,
+    "peak_process_rss_kib": 20340,
+    "unchanged_input_hashes": {
+      "connections.csv": "8267f19be9b2cccf2b6caf318f0ba6d7dcda60daa05c8a22437881ae854f415f",
+      "nodes.csv": "8930a2472c47318de25a85f58818eacdc25f0cff8cd758ceb402b485bafdc523",
+      "provenance.json": "eea986cc57336e868944969e8ced0d67587879c993cd938687f22421fb3bd72a"
+    }
+  },
+  "node_benchmark": {
+    "analysis": {
+      "candidate_strategy": "intermediate nodes of deterministic baseline witness; all other eligible nodes preserve that witness",
+      "endpoint_policy": "exclude source and target",
+      "interpretation": "Query-relative graph operation, not a validated neuronal intervention or biological importance. Missing connections can change every conclusion.",
+      "prior_edge_removals": 0,
+      "prior_edge_traversal_operations": 0,
+      "removal_unit": "node and all incoming and outgoing edges, including self-loops",
+      "schema": "connectome-single-node-failure/v1",
+      "source_equals_target": "zero-hop identity preserved; no candidates",
+      "status": "partial",
+      "tested_removals": 20,
+      "traversal_operations": 100000
+    },
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 284,
+        "sha256": "dc29ef66fd6393297aa174a5d20b21a9fc4c71afc7748417a0f08324c62e8944"
+      },
+      "report.html": {
+        "bytes": 1230658,
+        "sha256": "8039b7782c4062c190dd1903b148608c817890328eeceb07fccdf3edc728a40b"
+      },
+      "report.json": {
+        "bytes": 1200328,
+        "sha256": "c29f5b43095c810e0aebe7327932ca45e331e63322b9e59c4ce790aec02efa7d"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "elapsed_seconds": 1.565472,
+    "graph": {
+      "connection_rows": 10000,
+      "duplicate_rows": 5,
+      "edge_count": 9995,
+      "node_count": 2000,
+      "self_loop_edges": 3
+    },
+    "peak_process_rss_kib": 36912,
+    "queries": 256,
+    "reference": {
+      "alternative_witnesses": 19,
+      "resolved_candidates": 19,
+      "unresolved_candidates": 4987
+    },
+    "thresholds": [
+      1,
+      5,
+      10,
+      15
+    ],
+    "unchanged_input_hashes": {
+      "connections.csv": "248838579f210469f5772af6c24e3e9918d6b20074c0e157312b105fc29a38df",
+      "nodes.csv": "ca0e51d453bc142dd2d36ef8f5efc495c84d8b564fa72f5f79ad8cbaf8f9f7f4",
+      "provenance.json": "97d097e2a79355bd2f423a492104d6804fd1d9e224d80a8bc00b797825eed4d1"
+    }
+  },
+  "node_browser": {
+    "browser": "134.0.6998.35",
+    "checks": [
+      "threshold select and summary buttons",
+      "all query pages",
+      "query navigation",
+      "all witness edge pages",
+      "ID and label filtering",
+      "status filtering",
+      "native keyboard controls",
+      "focus after inspection",
+      "narrow viewport",
+      "hostile labels inert",
+      "byte-identical JSON download",
+      "zero external requests"
+    ],
+    "dom_elements": 332,
+    "dominator_node_failure": {},
+    "download_sha256": "ef54cc96df0aa6507a5dc666fbba13fd66cada22d9f1ec8ff96927aa10b90ddd",
+    "elapsed_seconds": 9.937968,
+    "external_request_attempts": 0,
+    "javascript_errors": 0,
+    "max_mounted_rows_per_paged_table": 20,
+    "path_edges_visited": 64,
+    "queries_visited": 68,
+    "single_edge_failure": {},
+    "single_node_failure": {
+      "alternative_edges_visited": 88,
+      "candidate_rows_visited": 63,
+      "dom_elements": 744
+    },
+    "viewports": [
+      "1280x960",
+      "360x800"
+    ]
+  },
+  "node_example": {
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 280,
+        "sha256": "028d0dc3dcbd77f1eeb80f20a59656ecc18214f373a4659c28448d17f37171f9"
+      },
+      "report.html": {
+        "bytes": 42524,
+        "sha256": "71709bb76e791ebe53f9ad4d723189971f8ea4059591bb4b6a18813cf7e8b3c2"
+      },
+      "report.json": {
+        "bytes": 12194,
+        "sha256": "61d8a196ab9a5a9a9c9f0e5ddbe93134026ccde30ec28222dd0c53e5cd649c4e"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "edge_reference": {
+      "alternative_witnesses": 7,
+      "findings": 12,
+      "reference_removals": 23
+    },
+    "elapsed_seconds": 0.212678,
+    "graph": {
+      "connection_rows": 14,
+      "duplicate_rows": 1,
+      "edge_count": 13,
+      "node_count": 10,
+      "self_loop_edges": 1
+    },
+    "peak_process_rss_kib": 20476,
+    "reference": {
+      "alternative_witnesses": 4,
+      "findings": 12,
+      "reference_removals": 30
+    },
+    "unchanged_input_hashes": {
+      "connections.csv": "015347671d650c2c2d2b21bcf28eec3e85bbd3b2bc507208736040bd5d1181ea",
+      "nodes.csv": "419b5f9ab9982ff89d313b963cf77012836d92170cf8dc36050c67043d124336",
+      "provenance.json": "7b7d5932f213dc961a5a065b2153b287cc33f64829d4bd1861ddbb65afbe1987"
+    }
+  },
+  "node_failure_reference": {
+    "alternative_witnesses": 1498,
+    "critical_findings": 6050,
+    "findings": 70544,
+    "graphs": 300,
+    "reference_removals": 7768
+  },
+  "node_partial_browser": {
+    "browser": "134.0.6998.35",
+    "dom_elements": 361,
+    "external_request_attempts": 0,
+    "javascript_errors": 0,
+    "partial_visible": true,
+    "unresolved_without_witness": true
+  },
+  "node_workload": {
+    "analysis": {
+      "candidate_strategy": "intermediate nodes of deterministic baseline witness; all other eligible nodes preserve that witness",
+      "endpoint_policy": "exclude source and target",
+      "interpretation": "Query-relative graph operation, not a validated neuronal intervention or biological importance. Missing connections can change every conclusion.",
+      "prior_edge_removals": 0,
+      "prior_edge_traversal_operations": 0,
+      "removal_unit": "node and all incoming and outgoing edges, including self-loops",
+      "schema": "connectome-single-node-failure/v1",
+      "source_equals_target": "zero-hop identity preserved; no candidates",
+      "status": "complete",
+      "tested_removals": 4032,
+      "traversal_operations": 400260
+    },
+    "artifacts": {
+      "COMPLETE.json": {
+        "bytes": 282,
+        "sha256": "58e9cca50d1ca226ec3a2f6d030fd59293a4c2b613f583684138b425cd8b831b"
+      },
+      "report.html": {
+        "bytes": 730559,
+        "sha256": "1e0075f734a8ade481425099cc7370ceb0b86ca0faa8964fa144dd3a5b69428c"
+      },
+      "report.json": {
+        "bytes": 700229,
+        "sha256": "ef54cc96df0aa6507a5dc666fbba13fd66cada22d9f1ec8ff96927aa10b90ddd"
+      }
+    },
+    "byte_identical_repeated_outputs": true,
+    "elapsed_seconds": 1.005318,
+    "graph": {
+      "connection_rows": 92,
+      "duplicate_rows": 0,
+      "edge_count": 92,
+      "node_count": 92,
+      "self_loop_edges": 0
+    },
+    "peak_process_rss_kib": 28416,
+    "queries": 68,
+    "reference": {
+      "alternative_witnesses": 126,
+      "findings": 204,
+      "reference_removals": 276
+    },
+    "thresholds": [
+      1,
+      5,
+      6
+    ],
+    "unchanged_input_hashes": {
+      "connections.csv": "d73a7b62afde9463496843a8d293451bacb5d50a3af5ccf23699d821415ef7fc",
+      "nodes.csv": "24699c101cf0a95c20c0cc3d3da93da08655bc04ddeffd05fbde26f8911e8fcb",
+      "provenance.json": "270e4d0c07a95a349289e82db4f58e042f320db4eb118c8b5c3421b4353946d6"
+    }
+  },
+  "partial_browser": {
+    "browser": "134.0.6998.35",
+    "dom_elements": 387,
+    "external_request_attempts": 0,
+    "javascript_errors": 0,
+    "partial_visible": true,
+    "unresolved_without_witness": true
+  },
+  "python_network_attempts": 0,
+  "reference": {
+    "digraph_source_sha256": "16ea7519b0030a95ca2c0d7633aed16e1034726e811a2ff8708c412ec8c712d7",
+    "findings": 145458,
+    "graphs": 300,
+    "methods": [
+      "NetworkX 3.4.2",
+      "independent Floyd-Warshall",
+      "distance-constrained canonical witness"
+    ],
+    "seed_range": [
+      0,
+      299
+    ],
+    "unweighted_source_sha256": "dd4a74005f37e69492812423ce64caf1fc38da8d0219cfadb2b8de9d345f8d07",
+    "witnesses": 42874
+  },
+  "schema": "connectome-verification/v1",
+  "total_elapsed_seconds": 145.609221,
+  "unit_tests": {
+    "elapsed_seconds": 24.511709,
+    "peak_process_rss_kib": 40168,
+    "tests_passed": 56
+  },
+  "verified_files": {
+    "benchmarks/dominator-suite.json": "66cf60b5d97b686b288c391ad7827f78cb040475945c35998f529641bf39df95",
+    "examples/connections.csv": "8267f19be9b2cccf2b6caf318f0ba6d7dcda60daa05c8a22437881ae854f415f",
+    "examples/node-failure/connections.csv": "015347671d650c2c2d2b21bcf28eec3e85bbd3b2bc507208736040bd5d1181ea",
+    "examples/node-failure/nodes.csv": "419b5f9ab9982ff89d313b963cf77012836d92170cf8dc36050c67043d124336",
+    "examples/node-failure/provenance.json": "7b7d5932f213dc961a5a065b2153b287cc33f64829d4bd1861ddbb65afbe1987",
+    "examples/nodes.csv": "8930a2472c47318de25a85f58818eacdc25f0cff8cd758ceb402b485bafdc523",
+    "examples/provenance.json": "eea986cc57336e868944969e8ced0d67587879c993cd938687f22421fb3bd72a",
+    "pyproject.toml": "49ec27594884f1e0855ea18641601a76ed860f83685767764d03d08649ab2ee3",
+    "requirements-verify.txt": "e7b65b6f7a30c3e3f6af9ceb3d338034cc582797bb22ee36cfef26526a2cd360",
+    "scripts/browser_check.py": "76105f9e615701b6a3f457be5b765534b5ea3351951d44eaf7adb3d20b596eeb",
+    "scripts/check_tree.py": "f6aeda6473ad2ddb01b7e14f47d559d8e186878ed4051c9e4d9f451af0b15e58",
+    "scripts/dominator_benchmark.py": "b2ec7a231faf03f60369fac4e47b7852de97f28c6f7c27c3303d4cadba231aa3",
+    "scripts/verify.py": "f8867297f8beff3eb9a71e9aae82468c5780309582b5fa4bd3260fbf123358fa",
+    "scripts/verify_dominators.py": "baf08d97966a88740479fe4d9b2736bda60081efacf908ad9a471e8a9aa07733",
+    "src/connectome_audit/__init__.py": "8afe58790968c3023b208763521c3f3bb1724f3b55f43576f05cde8ff8df54f7",
+    "src/connectome_audit/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/connectome_audit/cli.py": "c55cc6ce2bb2a306c8e7e99e16f0b8289e252adbe8971c5789231580f9b25b43",
+    "src/connectome_audit/core.py": "93ab295996cbf5b1d216c4e4fcf781d807c09fd0908839f6c06c4cc657b1c17c",
+    "src/connectome_audit/dominators.py": "2654ec0d83c76d657967c85c61d85eb23fe12c62bd7e38000b63320d4a618cb8",
+    "src/connectome_audit/failures.py": "40b6eab4dc7b74796f1f359a3466b55bd79997b8e6f9a2690a8346f355b6f3b7",
+    "src/connectome_audit/ingest.py": "d2b751b0aef225fd8cfe8ec6c9126937ed2c784b383ecd95bc77fa785d2865c3",
+    "src/connectome_audit/node_failures.py": "6dabe5578a5c349c8a4db17540bd0a0965325cc6ae5a5266a9a841a62d4d8d2d",
+    "src/connectome_audit/report.css": "c3fcfc743711d0bfac481c26b7a40bc383dc816a2a3c37e483f4ac618a047bf7",
+    "src/connectome_audit/report.html": "10f707ff9d7e507eaab644935a816fe52000c3f64f8a4a4b51e31f1cc02bbe46",
+    "src/connectome_audit/report.js": "f4965031295756e5e583eaf5e21fe245fa06970edeb6fe0e985678e4eaaec81c",
+    "src/connectome_audit/report.py": "385ad10b7ca12ed7ea25dde32482d7c88203a9e1ca060753372b6b33f0f80038",
+    "tests/test_core.py": "09d011358d0d23310e61809e1a71e9819d9b30d07ac0a0af814bd4f4a3dc4725",
+    "tests/test_dominators.py": "25e509f545b50b43ac915451e0bd54713b50e26a01abded3aac71058df65fcdf",
+    "tests/test_edge_failures.py": "a894670e03f3f27d7b67cd942491446c3c28f425c018f12e88e312fb3c43db20",
+    "tests/test_failures.py": "7eb4c7ecfcb0b645fc797912656994035e3231b281a5ac8b8bd5183ca645d306",
+    "tests/test_node_failures.py": "7b336394cd12b4341321084db70619c25ace59828b4c1582f12543b862ef1daf"
+  }
+}

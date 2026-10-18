@@ -1,0 +1,17 @@
+{
+  "schema": "connectome-dominator-benchmark/v1",
+  "frozen_before_candidate_measurements": true,
+  "seed": 20261018,
+  "paired_repetitions": 6,
+  "order": "alternate removal/dominator and dominator/removal",
+  "thresholds": [1, 5],
+  "cases": [
+    {"name": "chain-shared", "kind": "chain", "nodes": 180, "targets": 24},
+    {"name": "chain-single", "kind": "chain", "nodes": 180, "targets": 1},
+    {"name": "dense-single", "kind": "dense", "nodes": 100, "targets": 1},
+    {"name": "diamonds-shared", "kind": "diamonds", "nodes": 181, "targets": 24},
+    {"name": "random-shared", "kind": "random", "nodes": 300, "targets": 24},
+    {"name": "budget-exhaustion", "kind": "chain", "nodes": 180, "targets": 24, "operation_limit": 100}
+  ],
+  "comparison": "Existing removal includes alternative witnesses; dominator classification alone does not. Also measure dominator with requested witnesses. Timing includes extension only, RSS includes Python, imports and baseline. No biological or population inference."
+}

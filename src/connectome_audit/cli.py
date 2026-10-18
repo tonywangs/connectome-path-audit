@@ -21,6 +21,8 @@ def parser():
     p.add_argument("--thresholds", required=True, help="1..12 comma-separated positive integers")
     p.add_argument("--single-edge-failure", action="store_true", help="test individual aggregated edge removals on baseline witnesses")
     p.add_argument("--single-node-failure", action="store_true", help="test intermediate-node removals (all incident edges); exclude query endpoints")
+    p.add_argument("--dominator-node-failure", action="store_true", help="classify critical intermediates with shared bounded dominator trees")
+    p.add_argument("--dominator-witnesses", action="store_true", help="also search for alternative witnesses; requires --dominator-node-failure")
     p.add_argument("--output", required=True, help="new output directory; parent must exist")
     for name, default in asdict(Limits()).items():
         p.add_argument("--max-" + name.replace("_", "-"), dest="limit_" + name,
@@ -34,6 +36,8 @@ def main(argv=None):
     old_handlers = {}
     timer = False
     try:
+        if args.dominator_witnesses and not args.dominator_node_failure:
+            raise AuditError("--dominator-witnesses requires --dominator-node-failure")
         limits = Limits(**{name: getattr(args, "limit_" + name) for name in asdict(Limits())})
         budget = Budget(limits)
         def interrupt(signum, frame):
@@ -61,6 +65,9 @@ def main(argv=None):
         if args.single_node_failure:
             from .node_failures import analyze_node_failures
             analyze_node_failures(graph, analysis, budget)
+        if args.dominator_node_failure:
+            from .dominators import analyze_dominators
+            analyze_dominators(graph, analysis, budget, witnesses=args.dominator_witnesses)
         document = make_document(graph, analysis, budget)
         json_bytes = canonical_json(document, budget)
         html_bytes = html_report(json_bytes, budget)

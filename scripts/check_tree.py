@@ -22,10 +22,10 @@ def main():
         assert not name.endswith('.log') or name == 'results/tests.log', f'non-test log: {name}'
         total += size
     assert total <= 32 * 1024 * 1024, 'tree exceeds 32 MiB'
-    evidence = json.loads((ROOT / 'results/node-failure-verification.json').read_text())
+    evidence = json.loads((ROOT / 'results/dominator-verification.json').read_text())
     for name, expected in evidence['verified_files'].items():
         assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected, f'verification stale: {name}'
-    for directory in ['example', 'edge-failure-example', 'node-failure-example']:
+    for directory in ['example', 'edge-failure-example', 'node-failure-example', 'dominator-example']:
         example = ROOT / 'results' / directory
         marker = json.loads((example / 'COMPLETE.json').read_text())
         for name, info in marker['artifacts'].items():

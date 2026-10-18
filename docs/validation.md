@@ -116,3 +116,15 @@ threshold 1 removes that criticality; at threshold 6 the baseline is already
 unreachable. This is a reproducible graph distinction, not a biological finding.
 Node removal is not a validated neuronal intervention; no physiological data,
 cell silencing/ablation validation or real-data accuracy claim is included.
+
+## Dominator extension
+
+Current additive-extension evidence is in
+[dominator-verification.json](../results/dominator-verification.json), with the
+[complete synthetic example](../results/dominator-example/report.html) and
+[measured results and limits](dominators.md#recorded-results). All 56 tests passed,
+including the older regression suites. The new 300-seed comparison checks both
+pinned NetworkX immediate dominators and exhaustive individual-node removal.
+Six balanced paired repetitions retain slowdowns, partial outcomes and hard-limit
+failures. `scripts/verify.py` reproduces these checks offline; `--record` updates
+only the dominator evidence and example, preserving earlier historical artifacts.

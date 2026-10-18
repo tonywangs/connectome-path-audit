@@ -138,3 +138,42 @@ edge and baseline regression coverage. Current measurements and checks are in
 these new artifacts and the node example; earlier evidence and examples remain
 historical. Node deletion is a graph operation, **not a validated neuronal
 intervention**. All included examples are synthetic.
+
+## Find critical intermediates with dominators
+
+Use `--dominator-node-failure` to share a bounded dominator computation across
+all targets with the same source and threshold. It classifies intermediates
+without repeated node-removal searches. Add `--dominator-witnesses` only when
+alternative paths are needed:
+
+```sh
+PYTHONPATH=src python3 -m connectome_audit examples/node-failure/connections.csv \
+  --nodes examples/node-failure/nodes.csv \
+  --provenance examples/node-failure/provenance.json \
+  --source sensor --target motor --target sensor --target isolated --target absent \
+  --thresholds 1,5,6 --dominator-node-failure --dominator-witnesses \
+  --output /tmp/dominator-audit
+```
+
+Open the [complete example](results/dominator-example/report.html). At threshold
+5, `shared` is a critical intermediate for sensor → motor. At threshold 1, a
+bypass makes it noncritical. Identity, initially unreachable and missing-ID queries
+remain distinct. The HTML shows algorithm provenance, classification completeness,
+and witness availability, with keyboard controls and paginated tables.
+
+`--max-dominator-operations` (2,000,000) and
+`--max-dominator-source-operations` (250,000) bound tree construction and ancestor
+walks. Exhaustion produces unresolved classifications. Optional witnesses have
+separate `--max-dominator-witness-searches` (10,000) and
+`--max-dominator-witness-operations` (2,000,000) ceilings. Witness exhaustion does
+not invalidate completed classifications. All extensions still consume the shared
+hard runtime, operation, witness-node and output limits; those failures abort the
+bundle. Existing removal options retain their behavior and may be combined.
+
+See [semantics, algorithm and measured tradeoffs](docs/dominators.md) and
+[reproducible evidence](results/dominator-verification.json). The same
+`scripts/verify.py` command runs all historical regressions, independent dominator
+checks, offline installed-CLI and browser workflows, and six balanced paired
+benchmark repetitions. `--record` now writes new dominator artifacts and preserves
+all earlier result files. These are synthetic graph checks; graph-node removal
+is **not a validated neuronal intervention**.

@@ -62,7 +62,7 @@
     drawPath();
   }
   function drawPath() {
-    drawFailures('edge'); drawFailures('node');
+    drawFailures('edge'); drawFailures('node'); drawFailures('dom');
     const pos = filtered.findIndex(f => f.index === selected);
     $('previous-query').disabled = pos <= 0;
     $('next-query').disabled = pos < 0 || pos >= filtered.length - 1;
@@ -95,16 +95,18 @@
       cell(tr, t); cell(tr, statusText[other.status]); cell(tr, dash(other.hops)); cell(tr, dash(other.bottleneck));
     }
   }
-  const failureState = Object.fromEntries(['edge', 'node'].map(k => [k,
+  const failureState = Object.fromEntries(['edge', 'node', 'dom'].map(k => [k,
     {removalPage: 0, removalSelected: 0, alternativePage: 0, failureKey: ''}]));
   const outcome = {alternative_path: 'Alternative path verified', disconnected: 'Critical — disconnected', unresolved: 'Unresolved'};
   function drawFailures(kind) {
-    const isNode = kind === 'node', field = `single_${kind}_failure`;
-    const $ = id => document.getElementById((isNode ? 'node-' : '') + id);
+    const isDom = kind === 'dom', isNode = kind !== 'edge', field = isDom ? 'dominator_node_failure' : `single_${kind}_failure`;
+    const unit = isNode ? 'node' : 'edge';
+    const $ = id => document.getElementById((isDom ? 'dom-' : (isNode ? 'node-' : '')) + id);
     const state = failureState[kind];
     let {removalPage, removalSelected, alternativePage, failureKey} = state;
     $('failure-section').hidden = !data[field];
     if (!data[field]) return;
+    if (isDom) $('provenance').textContent = `${data[field].algorithm} · Classification: ${data[field].status} · Witnesses: ${data[field].witness_status}`;
     const r = selected < 0 ? null : rows.get(threshold)[selected];
     const key = `${threshold}/${selected}`;
     if (failureKey !== key) { removalPage = 0; removalSelected = 0; alternativePage = 0; failureKey = key; }
@@ -113,7 +115,7 @@
     $('failure-status').textContent = !f ? 'No query selected.' :
       f.status === 'initially_unreachable' ? 'Initially unreachable: no removal-induced disconnection is claimed.' :
       f.status === 'missing_node' ? 'Missing ID — unresolved baseline.' :
-      `${f.status === 'partial' ? 'PARTIAL — unresolved candidates remain' : 'Complete candidate analysis'} · ${f[`critical_${kind}s`].length} confirmed critical ${kind}s · ${f.candidate_count} candidates. ${f[`untested_noncritical_${kind}s`]} other eligible ${kind}s preserve the baseline witness.`;
+      `${f.status === 'partial' ? 'PARTIAL — unresolved candidates remain' : 'Complete candidate analysis'} · ${f[`critical_${unit}s`].length} confirmed critical ${unit}s · ${f.candidate_count} candidates. ${f[`untested_noncritical_${unit}s`]} other eligible ${unit}s preserve the baseline witness.`;
     const pages = Math.max(1, Math.ceil(candidates.length / size));
     removalPage = Math.min(removalPage, pages - 1);
     const body = $('removals').tBodies[0]; body.replaceChildren();
@@ -121,17 +123,20 @@
       const c = candidates[i], tr = element('tr', null, body);
       if (isNode) nodeCell(tr, c.node);
       else { nodeCell(tr, c.edge[0]); nodeCell(tr, c.edge[1]); cell(tr, c.synapses); }
-      cell(tr, outcome[c.status]);
+      cell(tr, isDom ? `${c.status} · witness ${c.witness_status}` : outcome[c.status]);
       const b = element('button', i === removalSelected ? 'Selected' : 'Inspect', cell(tr));
-      b.setAttribute('aria-label', isNode ? `Inspect node removal ${c.node}` : `Inspect removal ${c.edge[0]} to ${c.edge[1]}`);
+      b.setAttribute('aria-label', isDom ? `Inspect dominator classification ${c.node}` : isNode ? `Inspect node removal ${c.node}` : `Inspect removal ${c.edge[0]} to ${c.edge[1]}`);
       b.addEventListener('click', () => { state.removalSelected = i; state.alternativePage = 0; drawFailures(kind); $('alternative-heading').focus(); });
     }
     $('removal-page').textContent = `Page ${removalPage + 1} of ${pages}`;
     $('previous-removal').disabled = removalPage === 0; $('next-removal').disabled = removalPage >= pages - 1;
     const c = candidates[removalSelected];
     $('alternative-status').textContent = !c ? (r && r.status === 'reachable' ? (isNode ? 'No intermediate candidates: the identity or direct path survives every eligible node removal.' : 'Zero-hop identity: no candidate removal is needed.') : 'No removal analysis for this baseline.') :
-      (isNode ? `Removed ${display(c.node)} and all incident edges: ` : `Removed ${c.edge[0]} → ${c.edge[1]} (${c.synapses} synapses): `) +
-      (c.status === 'disconnected' ? `complete search exhausted, ${c.visited_nodes} nodes reached; target unreachable.` :
+      (isDom ? `Intermediate ${display(c.node)}: ` : isNode ? `Removed ${display(c.node)} and all incident edges: ` : `Removed ${c.edge[0]} → ${c.edge[1]} (${c.synapses} synapses): `) +
+      (isDom ? (c.status === 'critical' ? 'critical: every directed path contains this node (converged dominator tree).' :
+        c.status === 'unresolved' ? `classification unresolved (${c.reason}); no disconnection conclusion.` :
+        `noncritical; witness ${c.witness_status}${c.witness_reason ? ' (' + c.witness_reason + ')' : ''}.`) :
+       c.status === 'disconnected' ? `complete search exhausted, ${c.visited_nodes} nodes reached; target unreachable.` :
        c.status === 'unresolved' ? `unresolved (${c.reason}); no disconnection conclusion.` : `verified alternative, ${c.edge_counts.length} hops.`);
     const edges = c ? c.edge_counts : [], path = c ? c.path : [];
     const altPages = Math.max(1, Math.ceil(edges.length / size));
@@ -144,8 +149,8 @@
     $('previous-alternative').disabled = alternativePage === 0; $('next-alternative').disabled = alternativePage >= altPages - 1;
     Object.assign(state, {removalPage, removalSelected, alternativePage, failureKey});
   }
-  for (const kind of ['edge', 'node']) {
-    const prefix = kind === 'node' ? 'node-' : '';
+  for (const kind of ['edge', 'node', 'dom']) {
+    const prefix = kind === 'dom' ? 'dom-' : (kind === 'node' ? 'node-' : '');
     for (const [id, field, delta] of [['previous-removal', 'removalPage', -1], ['next-removal', 'removalPage', 1],
       ['previous-alternative', 'alternativePage', -1], ['next-alternative', 'alternativePage', 1]]) {
       $(prefix + id).addEventListener('click', () => { failureState[kind][field] += delta; drawFailures(kind); });
@@ -187,6 +192,6 @@
   }
   for (const text of [...data.provenance.limitations, ...data.interpretation]) element('li', text, $('limitations'));
   $('technical').textContent = JSON.stringify({schema: data.schema, tool_version: data.tool_version, status: data.status,
-    graph: data.graph, semantics: data.semantics, limits: data.limits, work: data.work}, null, 2);
+    graph: data.graph, semantics: data.semantics, limits: data.limits, work: data.work, dominator_node_failure: data.dominator_node_failure}, null, 2);
   drawSummary(); drawPairs(); $('load-status').hidden = true;
 })();

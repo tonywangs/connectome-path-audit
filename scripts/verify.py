@@ -254,7 +254,7 @@ def check_partial_node_reference(report, inputs):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--record', action='store_true', help='refresh node-failure evidence and example; preserve historical artifacts')
+    parser.add_argument('--record', action='store_true', help='refresh dominator evidence and example; preserve historical artifacts')
     args = parser.parse_args()
     required = {'networkx': '3.4.2', 'playwright': '1.51.0', 'setuptools': '75.8.0', 'wheel': '0.45.1', 'pip': '25.0.1',
                 'pyee': '12.1.1', 'greenlet': '3.5.6', 'typing-extensions': '4.16.0'}
@@ -300,6 +300,9 @@ socket.getaddrinfo = denied
         evidence['edge_failure_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses', 'critical_findings'], map(int, edge_match.groups())))
         node_match = re.search(r'Node failure reference: (\d+) seeds, (\d+) findings, (\d+) full-node reference removals, (\d+) alternative witnesses, (\d+) critical findings', logs[-1])
         assert node_match
+        dom_match = re.search(r'Dominator reference: (\d+) seeds, (\d+) findings, (\d+) full-node removals, (\d+) independent witnesses', logs[-1])
+        assert dom_match
+        evidence['dominator_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses'], map(int, dom_match.groups())))
         evidence['node_failure_reference'] = dict(zip(['graphs', 'findings', 'reference_removals', 'alternative_witnesses', 'critical_findings'], map(int, node_match.groups())))
         match = re.search(r'Ran (\d+) tests', logs[-1]); assert match
         evidence['unit_tests']['tests_passed'] = int(match[1])
@@ -457,20 +460,22 @@ socket.getaddrinfo = denied
         assert verify_bundle(node_bench) == verify_bundle(repeat)
         assert before == {p.name: sha(p) for p in inputs.iterdir()}
         evidence['node_benchmark'].update(byte_identical_repeated_outputs=True, unchanged_input_hashes=before)
+        from verify_dominators import verify as verify_dominators
+        evidence['dominators'], dominator_example = verify_dominators(executable, temp, env, logs, browser_args, browser_inputs, node_args)
         assert not attempts.exists(), 'offline Python process attempted network access'
         evidence['python_network_attempts'] = 0
         evidence['total_elapsed_seconds'] = round(time.monotonic() - started, 6)
         # Include only source inputs, not generated evidence, in the verification fingerprint.
         paths = [ROOT / 'pyproject.toml', ROOT / 'requirements-verify.txt']
-        for directory in ['src', 'scripts', 'tests', 'examples']:
+        for directory in ['src', 'scripts', 'tests', 'examples', 'benchmarks']:
             paths += [p for p in (ROOT / directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts and not any(x.endswith('.egg-info') for x in p.parts)]
         evidence['verified_files'] = {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
         if args.record:
             results = ROOT / 'results'; results.mkdir(exist_ok=True)
-            (results / 'node-failure-verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
-            (results / 'node-failure-tests.txt').write_text(logs[0])
-            target = results / 'node-failure-example'; target.mkdir(exist_ok=True)
-            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(node_example / name, target / name)
+            (results / 'dominator-verification.json').write_text(json.dumps(evidence, indent=2, sort_keys=True) + '\n')
+            (results / 'dominator-tests.txt').write_text(logs[0])
+            target = results / 'dominator-example'; target.mkdir(exist_ok=True)
+            for name in ['report.html', 'report.json', 'COMPLETE.json']: shutil.copy2(dominator_example / name, target / name)
         print(json.dumps(evidence, indent=2, sort_keys=True))
     return 0
 
