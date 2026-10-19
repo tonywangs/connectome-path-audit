@@ -1,0 +1,2450 @@
+[
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "10056280",
+    "name": "KC96"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "10163418",
+    "name": "MBE7a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "10169396",
+    "name": "KC97"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "10209260",
+    "name": "AE_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "10246566",
+    "name": "KC98 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "10259967",
+    "name": "KC99"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "10450307",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "10455234",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "10612094",
+    "name": "CZ2_left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "10673895",
+    "name": "MBE4f right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "10682660",
+    "name": "BL4_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "10809383",
+    "name": "O ; BAmd1 v_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "11003660",
+    "name": "BJ_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "11017761",
+    "name": "MBE26 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "11018254",
+    "name": "G ; 4th order Thermo (Stops Halfway); DALcm12 L m ant lat 10_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "11476614",
+    "name": "neuron 11476615_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "11524047",
+    "name": "MBE15b right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "11525714",
+    "name": "MBE22 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "11528017",
+    "name": "AF11: check if new 3rd BME  (ipsi PDL right?) neuron 11528018 "
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "11691603",
+    "name": "KC17"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "11691640",
+    "name": "KC no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "11725127",
+    "name": "KC12"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "11725803",
+    "name": "KC42"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "11785627",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "11813287",
+    "name": "KC100"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "11889676",
+    "name": "E ; BAMD PN_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "12122924",
+    "name": "CZ2_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "12217572",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "12233237",
+    "name": "AF11: ipsi PDL left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "12262910",
+    "name": "W_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "12398622",
+    "name": "MBON-F-V8;14+4 cell body close to other relays the other side, left "
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "12475432",
+    "name": "MBE24a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "12704069",
+    "name": "K ; DPLam med _right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "12726582",
+    "name": "KC16"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "12805363",
+    "name": "MBE22 right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "12871993",
+    "name": "MBE1b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "13210358",
+    "name": "Headphone_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "13743125",
+    "name": "ASB B1 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "13852833",
+    "name": "CP23 d 5_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "13863331",
+    "name": "Bridge I_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "14000746",
+    "name": "U ; Convergence Sibling; DALcm12 m ant lat 12_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "14077179",
+    "name": "MBE34-like_right; Right Handlebar?_TODO"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "14077615",
+    "name": "D ; Feedback neuron from nociceptive_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "14082322",
+    "name": "MBE9b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "14083681",
+    "name": "X ; F1 pair; DALcm12 L m ant lat 9_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "14158399",
+    "name": "AF12: CP23 d 1_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14255342",
+    "name": "KC no claws"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "14260575",
+    "name": "DPMpl lat 4 loSMpl_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "14313750",
+    "name": "E ; BAMD PN_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14319960",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14460113",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14519048",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14522124",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "14540633",
+    "name": "B ; DALcm12 m ant lat 5_left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "14541927",
+    "name": "AVM011f left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "14547259",
+    "name": "KC32"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14898295",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "14898816",
+    "name": "KC13"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "15253921",
+    "name": "MBE34 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15343835",
+    "name": "CP23 d 13_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "15398730",
+    "name": "MBE23 left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "15404207",
+    "name": "MBE19 right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "15421363",
+    "name": "MBE2a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "15480928",
+    "name": "G ; 4th order Thermo (Stops Halfway); DALcm12 L m ant lat 10_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15488316",
+    "name": "contralateral in brain like A01 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15588620",
+    "name": "BF ; F3 pair; CP4 2_left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "15592096",
+    "name": "MBE4g left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "15617305",
+    "name": "MBE7b right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15668309",
+    "name": "J ; Mid DPMpl lat  (F4 pair)_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15691114",
+    "name": "KC no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15691118",
+    "name": "KC young no claw"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15691122",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15721919",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15722306",
+    "name": "KC no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15722867",
+    "name": "KC82"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15734666",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15734988",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15741782",
+    "name": "KC very young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15741865",
+    "name": "C ; DALcl12 L d 2_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15741951",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15764960",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "15766806",
+    "name": "Bridge I_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15788419",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15788431",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "15810983",
+    "name": "MBE30 left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15828093",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15861524",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15939130",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15939179",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "15995074",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16015738",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16017113",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16026042",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16039470",
+    "name": "KC14"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16053650",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16053670",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16054240",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16058860",
+    "name": "KC100"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "16145456",
+    "name": "KC101 very young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "16160495",
+    "name": "2+5 BLAd ant lat 1_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "16178283",
+    "name": "MBE26 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16210988",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16220042",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "16223537",
+    "name": "MBE18 left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "16240569",
+    "name": "MBE4g right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "16353832",
+    "name": "MBE10b right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "16427492",
+    "name": "HL; DALv23 L LAL_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16435406",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16435965",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16438190",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16440649",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16440704",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16443532",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16443536",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16443544",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16443548",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16443747",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16444327",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448926",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448930",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448934",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448954",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448967",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448971",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448979",
+    "name": "KC young no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16448983",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16464614",
+    "name": "KC young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "16475849",
+    "name": "AT ; DPMpm2 1_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16594509",
+    "name": "BJ_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "16625432",
+    "name": "KC30"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16627773",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16627838",
+    "name": "KC49?"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16627861",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16627950",
+    "name": "KC no claws"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16628000",
+    "name": "KC young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16629757",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16629788",
+    "name": "KC34"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16629931",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16630024",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16630264",
+    "name": "KC25"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16630385",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16630941",
+    "name": "KC22"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16631114",
+    "name": "KC78?"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16631222",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16631248",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16691937",
+    "name": "A ; 4th order Thermo_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16699958",
+    "name": "U ; Convergence Sibling; DALcm12 m ant lat 12_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "16720240",
+    "name": "KC72"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "16782830",
+    "name": "MBE11b left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "16797672",
+    "name": "MBE5a right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16823703",
+    "name": "AT ; DPMpm2 1_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "16846805",
+    "name": "MBE5b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "16848475",
+    "name": "Exclusive to 24; CP4 5 -left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "16850888",
+    "name": "KC73"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16856539",
+    "name": "BL4_right; CM13 med 2"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "16868923",
+    "name": "MBE24b left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "16883909",
+    "name": "MBE33 left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16939375",
+    "name": "KC67"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "16977881",
+    "name": "KC90"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "16987409",
+    "name": "DPMpl lat 4 loSMpl_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "17013073",
+    "name": "MBE24b right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "17016974",
+    "name": "MBE20 left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "C",
+    "id": "17068730",
+    "name": "Ladder (olfactory) ant."
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "17147410",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "17147698",
+    "name": "MBE11a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "17150791",
+    "name": "AB_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "17165711",
+    "name": "J ; Mid DPMpl lat  (F4 pair)_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "17177005",
+    "name": "BL 2 : Left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "17280216",
+    "name": "DALv23 L subMB 1 or 2_left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "17295912",
+    "name": "MBE10b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "17300165",
+    "name": "AR ; Putative MBE; CP4 1_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "17355757",
+    "name": "MBE7b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "17437719",
+    "name": "AE_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "17454963",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476873",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476916",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476920",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476934",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476964",
+    "name": "KC very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "17476975",
+    "name": "KC very young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "17784367",
+    "name": "EX 2 ; Right (?)"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "17854345",
+    "name": "ASB B1 right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "17980792",
+    "name": "Exclusive to 24; CP4 5 right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "18028397",
+    "name": "MBE5b right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "18035864",
+    "name": "neuron 18035865 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "18084995",
+    "name": "N6_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "2506050",
+    "name": "MBE4a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "29",
+    "name": "KC #0"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "2966602",
+    "name": "K ; DPLam med _left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "3157405",
+    "name": "AN: DPMlp Lar_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "3299214",
+    "name": "MBE2a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3347708",
+    "name": "KC2"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3347834",
+    "name": "KC3"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3497901",
+    "name": "KC4"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3522293",
+    "name": "KC5"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3565102",
+    "name": "KC6 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3587612",
+    "name": "KC7"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3605630",
+    "name": "KC8 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3664102",
+    "name": "Thermo KC B_right - mbi2 - unknown"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "3679411",
+    "name": "KC9 young"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "C",
+    "id": "3813487",
+    "name": "Ladder (olfactory) post."
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "3819157",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "3819171",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "3886356",
+    "name": "MBE4h left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "3890028",
+    "name": "MBE24a right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4022539",
+    "name": "MBE20 right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4103336",
+    "name": "MBON-F-V8;14+4 cell body close to other relays, right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4114133",
+    "name": "CP23 d 13_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4117305",
+    "name": "KC72"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4134539",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4144377",
+    "name": "DALv23 LAL 2 right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4152272",
+    "name": "DALv23 sub MB 1_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4180774",
+    "name": "HL; DALv23 L LAL_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4190567",
+    "name": "SJ: DALv23 L LAL dor pos 2_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4195012",
+    "name": "MBE13a right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4199033",
+    "name": "NK_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4201555",
+    "name": "DALv23 LAL 12 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4227304",
+    "name": "KC10"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4227544",
+    "name": "KC11"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4229950",
+    "name": "Thermo KC A_Right - Mushroom Body  Left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4230061",
+    "name": "KC12"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4230739",
+    "name": "KC13"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4230749",
+    "name": "MBE13b right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4234009",
+    "name": "MBE33 right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "4235139",
+    "name": "AVM011f right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4241192",
+    "name": "KC14"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4241237",
+    "name": "MBE6 right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4337398",
+    "name": "DALv23 sub MB 2_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "4381129",
+    "name": "MBE19 left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "4381377",
+    "name": "MBE4f left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "4401350",
+    "name": "MBE15a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "4408397",
+    "name": "NK_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4411505",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4411688",
+    "name": "M_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4412036",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4412315",
+    "name": "KC2/24"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "4414163",
+    "name": "MBE1d left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "4414184",
+    "name": "MBE1d right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4414426",
+    "name": "KC15"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4415241",
+    "name": "KC16"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4444354",
+    "name": "KC17"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4473922",
+    "name": "B ; DALcm12 m ant lat 5_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4514494",
+    "name": "BG ; Baso-anterior target neuron #2 MB PN_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "4518546",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4598109",
+    "name": "MBE34 right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "4598363",
+    "name": "MBE15a right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "4617479",
+    "name": "N_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "4884579",
+    "name": "MBE1b right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4919895",
+    "name": "KC18 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "4982172",
+    "name": "KC19"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5019924",
+    "name": "KC20"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5051342",
+    "name": "KC21"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "5091874",
+    "name": "DPLm1(D CB)3_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "5321459",
+    "name": "O ; BAmd1 v_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "5395823",
+    "name": "MBE15b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "5516552",
+    "name": "I ; Bala12 #9_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "5681132",
+    "name": "DE: CPe 1_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "5738449",
+    "name": "W_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5835799",
+    "name": "KC22"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5835815",
+    "name": "KC23"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836035",
+    "name": "KC24"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836163",
+    "name": "KC25"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836181",
+    "name": "KC26"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836197",
+    "name": "KC27"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836206",
+    "name": "KC28"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "5836387",
+    "name": "KC29"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "5870071",
+    "name": "DALv23 L LAL #2 counterpart left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "5934511",
+    "name": "BL ; CM13 med 4_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "5937084",
+    "name": "KC65;_42a left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "5966099",
+    "name": "MBE4h right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "6290724",
+    "name": "C ; DALcl12 L d 2_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "6611894",
+    "name": "MBE1c right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "6699205",
+    "name": "MBE30 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "6702830",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "6703240",
+    "name": "MBE23 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "6704232",
+    "name": "KC54"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "677717",
+    "name": "KC1"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "7026287",
+    "name": "BN ; DALcm12 L m ant lat 3_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "7055857",
+    "name": "MBE6 left"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "7057894",
+    "name": "MBE1c left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "7187384",
+    "name": "Thermo KC B_left - mbi2 - unknown"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7196392",
+    "name": "KC31"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7215582",
+    "name": "KC103 very young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "7540581",
+    "name": "I ; Bala12 #9_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "7574701",
+    "name": "DE: CPe 1_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "7594047",
+    "name": "BF ; F3 pair; CP4 2_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "7616956",
+    "name": "MBE9a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7690945",
+    "name": "KC33"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7786053",
+    "name": "KC34"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "7802210",
+    "name": "MBE5a left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7828725",
+    "name": "KC35"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7829784",
+    "name": "KC36"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7838405",
+    "name": "KC37"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7840203",
+    "name": "KC38"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "7840791",
+    "name": "MBE9b right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7868195",
+    "name": "KC39"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "7891312",
+    "name": "KC40"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "7897469",
+    "name": "MBE2as right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "7901791",
+    "name": "MBE4a left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "7910624",
+    "name": "MBE2as left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "7980369",
+    "name": "BN ; DALcm12 L m ant lat 3_right"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "7983899",
+    "name": "MBE9a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8019816",
+    "name": "BL 2 ; Right; CM13 med 1"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "8052161",
+    "name": "DALv23 L subMB 1 or 2_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8066411",
+    "name": "KC41 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8066542",
+    "name": "KC42"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8068173",
+    "name": "LON KC right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "8078096",
+    "name": "BG ; Baso-anterior target neuron #2 MB PN_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "8094859",
+    "name": "MBE11a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8118474",
+    "name": "Thermo KC A_Left   -   Mushroom Body  Right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "8118947",
+    "name": "D ; Feedback neuron from nociceptive_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8177991",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8247315",
+    "name": "KC104 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8248706",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8259179",
+    "name": "KC43 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8259192",
+    "name": "KC44 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8259199",
+    "name": "KC45 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8260011",
+    "name": "KC46 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8260935",
+    "name": "KC47 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8262302",
+    "name": "KC21"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8262372",
+    "name": "LON KC left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8262503",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8263140",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8263285",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8274902",
+    "name": "KC48"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "8297018",
+    "name": "MBE16 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8318678",
+    "name": "KC no claws"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "R",
+    "id": "8319311",
+    "name": "MBE10a right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "8338584",
+    "name": "MBE13a left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8393981",
+    "name": "KC no pair"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8413663",
+    "name": "KC49"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8419602",
+    "name": "KC50"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8427677",
+    "name": "KC51"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8504660",
+    "name": "KC52"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8509987",
+    "name": "KC53"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8513389",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8540770",
+    "name": "BAmd1 v 2 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8559607",
+    "name": "KC54"
+  },
+  {
+    "group": "MBINs",
+    "hemisphere": "L",
+    "id": "8689674",
+    "name": "MBE10a left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8712361",
+    "name": "AB_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8723397",
+    "name": "KC55 young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8752697",
+    "name": "AN: DPMlp Lar_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8761400",
+    "name": "KC56 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8764750",
+    "name": "KC57 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8765865",
+    "name": "KC58 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8766921",
+    "name": "KC59 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8773165",
+    "name": "KC60 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8773716",
+    "name": "KC61 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8773879",
+    "name": "KC62 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8792120",
+    "name": "KC63 young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8792477",
+    "name": "BL1 ; CM13 lat 1_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "8798010",
+    "name": "MBE13b left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "8814922",
+    "name": "BLAd ant lat 1_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8835968",
+    "name": "KC64"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8850802",
+    "name": "KC65;_42a right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8864096",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "8864785",
+    "name": "N_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "8865199",
+    "name": "KC no pair"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "8877158",
+    "name": "MBE7a left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8891315",
+    "name": "KC66"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "8922644",
+    "name": "MBE16 left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8924186",
+    "name": "KC67"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8957325",
+    "name": "KC68 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8978117",
+    "name": "KC69 young"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "8980589",
+    "name": "MBE18 right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "8997281",
+    "name": "KC70"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9012340",
+    "name": "KC71 young"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "9057043",
+    "name": "BY_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9062992",
+    "name": "BL1 ; CM13 lat 1_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9064208",
+    "name": "BL ; CM13 med 4_left"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "9074101",
+    "name": "MBE35 right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9083312",
+    "name": "MBE34-like_left; Left Handlebar?"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "9103732",
+    "name": "DA_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "L",
+    "id": "9109799",
+    "name": "MBE35 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9141404",
+    "name": "A ; 4th order Thermo_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9238937",
+    "name": "DA_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9251793",
+    "name": "SJ: DALv23 L LAL dor pos 2_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9252296",
+    "name": "DALv23 L LAL dor pos 3 left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "9287906",
+    "name": "DPLm1(D CB)3_right"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9423829",
+    "name": "BY_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "9457719",
+    "name": "CP23 d 5_right"
+  },
+  {
+    "group": "MBONs",
+    "hemisphere": "R",
+    "id": "9469519",
+    "name": "MBE11b right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9511772",
+    "name": "KC74 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9517477",
+    "name": "KC75 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9525492",
+    "name": "KC76"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9527333",
+    "name": "Headphone_left"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "L",
+    "id": "9527522",
+    "name": "X ; F1 pair; DALcm12 L m ant lat 9_left"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9531722",
+    "name": "KC77"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9556700",
+    "name": "KC78"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9574259",
+    "name": "KC79 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9578602",
+    "name": "KC80 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9606354",
+    "name": "KC81 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9609048",
+    "name": "KC82"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9707941",
+    "name": "KC83"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9730873",
+    "name": "KC84"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9741463",
+    "name": "KC85 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9766793",
+    "name": "KC86"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9769559",
+    "name": "KC87 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9770016",
+    "name": "KC88 very young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9782026",
+    "name": "KC89 young"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9796812",
+    "name": "KC90"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9809626",
+    "name": "KC91"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9813188",
+    "name": "KC92"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9847388",
+    "name": "KC93"
+  },
+  {
+    "group": "MB-FBNs",
+    "hemisphere": "R",
+    "id": "9848760",
+    "name": "AR ; Putative MBE; CP4 1_right"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9889095",
+    "name": "KC94"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "R",
+    "id": "9897223",
+    "name": "KC95"
+  },
+  {
+    "group": "KCs",
+    "hemisphere": "L",
+    "id": "9983191",
+    "name": "KC no pair"
+  }
+]

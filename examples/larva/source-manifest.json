@@ -1,0 +1,47 @@
+{
+  "archive_bytes": 1318494,
+  "archive_sha256": "c92177b4720d86b210ea44c10b9354fdf079c8cca88f0c0bce3b57815293c9cb",
+  "article_doi": "10.7554/eLife.83739",
+  "output_files": {
+    "annotations.json": {
+      "bytes": 41922,
+      "sha256": "46f3d105006bdf1b79a1226b61754111d4654f7ea2e8ababe537de94b6f0f136"
+    },
+    "connections.csv": {
+      "bytes": 346505,
+      "sha256": "a1914f91598a248e788783936919dd033a814f7fd3bad2a5f62e6417d1c99480"
+    },
+    "nodes.csv": {
+      "bytes": 13785,
+      "sha256": "334645e4e441db06f9dd04aacac64741b8843e405db4b835df9b66e8453a4765"
+    },
+    "provenance.json": {
+      "bytes": 1943,
+      "sha256": "26f1f43d64e6376f807545c0e999f1fb0e7702f576a90150961db93ace1d280e"
+    }
+  },
+  "schema": "connectome-source/v1",
+  "selected_edges": 18431,
+  "selected_nodes": 408,
+  "selected_self_loops": 83,
+  "selected_synapses": 63486,
+  "selection_groups": [
+    "KCs",
+    "MB-FBNs",
+    "MBINs",
+    "MBONs"
+  ],
+  "source_members": {
+    "elife/G_edgelist.txt": {
+      "bytes": 2514626,
+      "sha256": "4f1e576776a1a02d3cc103d997e1ea7fa41a1f0e47859d94ee8f83790e2ed216"
+    },
+    "elife/meta_data.csv": {
+      "bytes": 2848654,
+      "sha256": "9f393b4c481d31926aa46d031061a559db7999afe76a6ad7d740db43c6f785f4"
+    }
+  },
+  "upstream_edge_rows": 119010,
+  "upstream_metadata_rows": 3591,
+  "url": "https://cdn.elifesciences.org/articles/83739/elife-83739-fig1-data1-v2.zip"
+}

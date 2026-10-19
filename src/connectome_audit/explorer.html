@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="@@CSP@@">
+<title>Connectome · Interactive path explorer</title><style>@@STYLE@@</style></head>
+<body>
+<header><a href="#main">◎ CONNECTOME <span>/ PATH EXPLORER</span></a><span class="badge">LOCAL · OFFLINE</span></header>
+<main id="main">
+<section class="intro"><p class="eyebrow">DIRECTED CONNECTIVITY / A GRAPH EXPERIMENT</p>
+<h1>Trace a path.<br>Change the conditions.</h1>
+<p class="lede">Choose two neurons. Raise the synapse cutoff or remove intermediates. See which directed routes remain in this supplied connectome.</p>
+<p id="dataset"></p><div class="stats" id="stats"></div></section>
+<aside class="notice"><strong>Connectivity, not simulated activity.</strong> Shortest means fewest hops, not strongest transmission. This is an induced subset: omitted neurons and edges may provide other routes. Node removal is a graph operation, not a validated neuronal intervention.</aside>
+<noscript><p class="notice">JavaScript is required for interactive queries. The adjacent report.json contains the full supplied graph and provenance.</p></noscript>
+<p id="load-status" role="status">Loading the embedded graph… If this persists, no results have been computed.</p>
+<section aria-labelledby="controls-heading"><p class="eyebrow">01 / CHOOSE YOUR EXPERIMENT</p><h2 id="controls-heading">From neuron to neuron</h2>
+<div class="controls"><label>Source neuron<select id="source"></select></label><button id="swap" aria-label="Swap source and target">⇄ Swap</button><label>Target neuron<select id="target"></select></label><label>Minimum synapses per edge<input id="threshold" type="number" min="1" step="1" value="1" max="9007199254740991"></label></div>
+<p id="input-error" role="alert"></p>
+<div class="removal-controls"><label>Remove an intermediate neuron<select id="remove-node"><option value="">Choose a neuron…</option></select></label><button id="remove-button">Remove neuron</button><button id="reset">Restore all</button></div>
+<p class="hint">Remove an intermediate from a displayed path using its button, or choose any other neuron above. Multiple removals apply together. Source and target are protected.</p>
+<div id="removed" aria-label="Removed neurons"></div>
+</section>
+<section aria-labelledby="paths-heading"><p class="eyebrow">02 / FOLLOW THE DIRECTED PATH</p><h2 id="paths-heading">Before & after removal</h2>
+<p id="experiment-status" role="status" aria-live="polite"></p>
+<div class="path-panel"><h3>Baseline · all supplied neurons</h3><p id="baseline-status"></p><div id="baseline-graph" class="graph" tabindex="0" aria-label="Baseline directed path"></div><ol id="baseline-steps" class="steps"></ol></div>
+<div class="path-panel after"><h3>With your removals</h3><p id="after-status"></p><div id="after-graph" class="graph" tabindex="0" aria-label="Directed path after removals"></div><ol id="after-steps" class="steps"></ol></div>
+<p class="hint">Arrows run from source to target; numbers above arrows are aggregated synapse counts. Layout is a path diagram, not anatomy. One deterministic shortest witness is shown; other shortest paths may exist.</p>
+</section>
+<section aria-labelledby="compare-heading"><p class="eyebrow">03 / COMPARE CUTOFFS</p><h2 id="compare-heading">When does the route change?</h2>
+<div class="table-wrap"><table><caption>Same endpoints and removals, different edge cutoffs</caption><thead><tr><th>Minimum synapses</th><th>Baseline hops</th><th>After removal hops</th><th>Inspect</th></tr></thead><tbody id="comparison"></tbody></table></div>
+<button id="download">Download this experiment (JSON)</button><p class="hint">Includes selected IDs, removals, thresholds, edge witnesses, input hashes, and provenance. No network request is made.</p></section>
+<section aria-labelledby="provenance-heading"><p class="eyebrow">04 / CHECK THE SOURCE</p><h2 id="provenance-heading">Provenance & boundaries</h2><dl id="provenance"></dl><h3>Input fingerprints</h3><pre id="hashes"></pre><h3>Interpretation limits</h3><ul id="limits"></ul></section>
+</main><footer>CONNECTOME PATH AUDIT <span>Real inputs. Explicit boundaries. Reproducible paths.</span></footer>
+<script id="graph-data" type="application/json">@@DATA@@</script><script>@@SCRIPT@@</script>
+</body></html>

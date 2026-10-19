@@ -1,0 +1,97 @@
+{
+  "browser": {
+    "browser": "134.0.6998.35",
+    "experiments": 36,
+    "external_requests": [],
+    "independent_path_checks": 442,
+    "invalid_threshold_cases": 5,
+    "mobile_width": 390,
+    "page_errors": [],
+    "seed": 20261019
+  },
+  "cli_baseline_and_removal_checks": 17,
+  "deterministic_extraction_and_bundles": true,
+  "limitations": [
+    "Software and data-transformation checks, not biological validation.",
+    "Browser coverage: Linux Chromium only. Seeded queries are representative, not exhaustive."
+  ],
+  "reference": "NetworkX 3.4.2 on independently parsed original eLife ZIP; shortest lengths and every witness edge checked",
+  "schema": "connectome-real-data-verification/v1",
+  "source_edges": 18431,
+  "source_nodes": 408,
+  "source_synapses": 63486,
+  "status": "passed",
+  "verified_files": {
+    "examples/larva/NOTICE.md": "747354c12125c4cf36d0f73e9c715ed671837473c78f6324d67a84a79d4fa9a4",
+    "examples/larva/annotations.json": "46f3d105006bdf1b79a1226b61754111d4654f7ea2e8ababe537de94b6f0f136",
+    "examples/larva/connections.csv": "a1914f91598a248e788783936919dd033a814f7fd3bad2a5f62e6417d1c99480",
+    "examples/larva/nodes.csv": "334645e4e441db06f9dd04aacac64741b8843e405db4b835df9b66e8453a4765",
+    "examples/larva/provenance.json": "26f1f43d64e6376f807545c0e999f1fb0e7702f576a90150961db93ace1d280e",
+    "examples/larva/source-manifest.json": "55f77390cacf8b3dea103c813813d5eade2fffcda003b0b5e3187456387c7fc8",
+    "examples/larva/upstream/elife-83739-fig1-data1-v2.zip": "c92177b4720d86b210ea44c10b9354fdf079c8cca88f0c0bce3b57815293c9cb",
+    "results/larva-audit/COMPLETE.json": "be1b8986bfda57dd8686f63a4c45e0e993e2f314f111b6f796a87e592a20ffca",
+    "results/larva-audit/report.html": "32a327a1d65d0d0003acd8c3b7e43de5681a7333a34df04344070e773e562ca5",
+    "results/larva-audit/report.json": "1dbb66e6f48a8dbcf4a844c8b66337cbd198efcef056c8063abe71e85c5a96ca",
+    "results/larva-demo/COMPLETE.json": "66d49d2296163fe6250064287d2d02210828104c93268f365e83310d186ba2bd",
+    "results/larva-demo/report.html": "ba78ce47376369b2368b0419895ecfa67c0f93779fabd7cbde0e37aca684ffc1",
+    "results/larva-demo/report.json": "33f62edec81a97da32611f29633075b05476b04ba63a4e3cec0ffa6a3e8f2733",
+    "scripts/import_larva.py": "e0e6e1df97c5a1f84947475927d6e73ce6e9dd8d0f7c98a6973e81cd0847607b",
+    "scripts/verify_larva.py": "dff7e04364b3b9cfc763815705305cb8f2cdb9a2ca3cec94e4cedac12e27d537",
+    "src/connectome_audit/explorer.css": "ef38bbbf2ec60a0e55f51521bcf57a4975145de41c6809a40dbf807c73f430b2",
+    "src/connectome_audit/explorer.html": "5d5010ebe736db41f259959685a973708c2535cd4471413ccd54d30f891bd37d",
+    "src/connectome_audit/explorer.js": "ed8c80e8e27300b9edbeb9e4f987cbe855461b45601376b0ddac4a3903ba86b0",
+    "src/connectome_audit/explorer.py": "87c8ec49129c4b9d5360b5d08e97725f3aafcd904ef8b7ec28c828d2a0ac7b08",
+    "tests/test_explorer.py": "fc6856fff076ecbd5053000a73bffb22d72f52c73f287f82f5df59032eb4ecdc"
+  },
+  "worked_example": [
+    {
+      "baseline_hops": 2,
+      "path": [
+        "10673895",
+        "16627838",
+        "10163418"
+      ],
+      "threshold": 1
+    },
+    {
+      "baseline_hops": 2,
+      "path": [
+        "10673895",
+        "4401350",
+        "10163418"
+      ],
+      "threshold": 3
+    },
+    {
+      "baseline_hops": 5,
+      "path": [
+        "10673895",
+        "17016974",
+        "16691937",
+        "4414184",
+        "11813287",
+        "10163418"
+      ],
+      "threshold": 5
+    },
+    {
+      "baseline_hops": 7,
+      "path": [
+        "10673895",
+        "5395823",
+        "18028397",
+        "15668309",
+        "7594047",
+        "12871993",
+        "8413663",
+        "10163418"
+      ],
+      "threshold": 10
+    },
+    {
+      "baseline_hops": null,
+      "path": [],
+      "threshold": 20
+    }
+  ]
+}

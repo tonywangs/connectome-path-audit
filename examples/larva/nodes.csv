@@ -1,0 +1,409 @@
+node_id,label
+10056280,KC96 | KCs | R
+10163418,MBE7a right | MBONs | R
+10169396,KC97 | KCs | R
+10209260,AE_left | MB-FBNs | L
+10246566,KC98 young | KCs | R
+10259967,KC99 | KCs | R
+10450307,KC young | KCs | L
+10455234,KC young no claws | KCs | L
+10612094,CZ2_left | MB-FBNs | L
+10673895,MBE4f right | MBINs | R
+10682660,BL4_left | MB-FBNs | L
+10809383,O ; BAmd1 v_left | MB-FBNs | L
+11003660,BJ_left | MB-FBNs | L
+11017761,MBE26 left | MBONs | L
+11018254,G ; 4th order Thermo (Stops Halfway); DALcm12 L m ant lat 10_left | MB-FBNs | L
+11476614,neuron 11476615_left | MB-FBNs | L
+11524047,MBE15b right | MBONs | R
+11525714,MBE22 left | MBINs | L
+11528017,AF11: check if new 3rd BME  (ipsi PDL right?) neuron 11528018  | MB-FBNs | R
+11691603,KC17 | KCs | L
+11691640,KC no claws | KCs | L
+11725127,KC12 | KCs | L
+11725803,KC42 | KCs | L
+11785627,KC no pair | KCs | L
+11813287,KC100 | KCs | R
+11889676,E ; BAMD PN_right | MB-FBNs | R
+12122924,CZ2_right | MB-FBNs | R
+12217572,KC no pair | KCs | L
+12233237,AF11: ipsi PDL left | MB-FBNs | L
+12262910,W_left | MB-FBNs | L
+12398622,"MBON-F-V8;14+4 cell body close to other relays the other side, left  | MB-FBNs | L"
+12475432,MBE24a left | MBINs | L
+12704069,K ; DPLam med _right | MB-FBNs | R
+12726582,KC16 | KCs | L
+12805363,MBE22 right | MBINs | R
+12871993,MBE1b left | MBINs | L
+13210358,Headphone_right | MB-FBNs | R
+13743125,ASB B1 left | MB-FBNs | L
+13852833,CP23 d 5_left | MB-FBNs | L
+13863331,Bridge I_right | MB-FBNs | R
+14000746,U ; Convergence Sibling; DALcm12 m ant lat 12_left | MB-FBNs | L
+14077179,MBE34-like_right; Right Handlebar?_TODO | MB-FBNs | R
+14077615,D ; Feedback neuron from nociceptive_right | MB-FBNs | R
+14082322,MBE9b left | MBONs | L
+14083681,X ; F1 pair; DALcm12 L m ant lat 9_right | MB-FBNs | R
+14158399,AF12: CP23 d 1_left | MB-FBNs | L
+14255342,KC no claws | KCs | L
+14260575,DPMpl lat 4 loSMpl_left | MB-FBNs | L
+14313750,E ; BAMD PN_left | MB-FBNs | L
+14319960,KC no pair | KCs | L
+14460113,KC no pair | KCs | L
+14519048,KC no pair | KCs | L
+14522124,KC no pair | KCs | L
+14540633,B ; DALcm12 m ant lat 5_left | MB-FBNs | L
+14541927,AVM011f left | MBINs | L
+14547259,KC32 | KCs | R
+14898295,KC no pair | KCs | L
+14898816,KC13 | KCs | L
+15253921,MBE34 left | MBONs | L
+15343835,CP23 d 13_left | MB-FBNs | L
+15398730,MBE23 left | MBONs | L
+15404207,MBE19 right | MBINs | R
+15421363,MBE2a left | MBONs | L
+15480928,G ; 4th order Thermo (Stops Halfway); DALcm12 L m ant lat 10_right | MB-FBNs | R
+15488316,contralateral in brain like A01 left | MB-FBNs | L
+15588620,BF ; F3 pair; CP4 2_left | MB-FBNs | L
+15592096,MBE4g left | MBINs | L
+15617305,MBE7b right | MBONs | R
+15668309,J ; Mid DPMpl lat  (F4 pair)_left | MB-FBNs | L
+15691114,KC no claws | KCs | L
+15691118,KC young no claw | KCs | L
+15691122,KC young | KCs | L
+15721919,KC no pair | KCs | L
+15722306,KC no claws | KCs | L
+15722867,KC82 | KCs | L
+15734666,KC young | KCs | L
+15734988,KC no pair | KCs | L
+15741782,KC very young | KCs | L
+15741865,C ; DALcl12 L d 2_left | MB-FBNs | L
+15741951,KC young | KCs | L
+15764960,KC young no claws | KCs | L
+15766806,Bridge I_left | MB-FBNs | L
+15788419,KC young | KCs | L
+15788431,KC young no claws | KCs | L
+15810983,MBE30 left | MBONs | L
+15828093,KC young | KCs | L
+15861524,KC no pair | KCs | L
+15939130,KC young | KCs | L
+15939179,KC very young | KCs | L
+15995074,KC very young | KCs | L
+16015738,KC no pair | KCs | L
+16017113,KC no pair | KCs | L
+16026042,KC young | KCs | L
+16039470,KC14 | KCs | L
+16053650,KC very young | KCs | L
+16053670,KC young | KCs | L
+16054240,KC very young | KCs | L
+16058860,KC100 | KCs | L
+16145456,KC101 very young | KCs | R
+16160495,2+5 BLAd ant lat 1_left | MB-FBNs | L
+16178283,MBE26 right | MBONs | R
+16210988,KC no pair | KCs | L
+16220042,KC young no claws | KCs | L
+16223537,MBE18 left | MBONs | L
+16240569,MBE4g right | MBINs | R
+16353832,MBE10b right | MBINs | R
+16427492,HL; DALv23 L LAL_left | MB-FBNs | L
+16435406,KC young | KCs | L
+16435965,KC no pair | KCs | L
+16438190,KC no pair | KCs | L
+16440649,KC no pair | KCs | L
+16440704,KC no pair | KCs | L
+16443532,KC young | KCs | L
+16443536,KC young | KCs | L
+16443544,KC young | KCs | L
+16443548,KC very young | KCs | L
+16443747,KC very young | KCs | L
+16444327,KC no pair | KCs | L
+16448926,KC young | KCs | L
+16448930,KC young no claws | KCs | L
+16448934,KC young | KCs | L
+16448954,KC young | KCs | L
+16448967,KC young | KCs | L
+16448971,KC young no claws | KCs | L
+16448979,KC young no claws | KCs | L
+16448983,KC young | KCs | L
+16464614,KC young | KCs | L
+16475849,AT ; DPMpm2 1_left | MB-FBNs | L
+16594509,BJ_right | MB-FBNs | R
+16625432,KC30 | KCs | R
+16627773,KC no pair | KCs | L
+16627838,KC49? | KCs | L
+16627861,KC no pair | KCs | L
+16627950,KC no claws | KCs | L
+16628000,KC young | KCs | L
+16629757,KC no pair | KCs | L
+16629788,KC34 | KCs | L
+16629931,KC no pair | KCs | L
+16630024,KC no pair | KCs | L
+16630264,KC25 | KCs | L
+16630385,KC no pair | KCs | L
+16630941,KC22 | KCs | L
+16631114,KC78? | KCs | L
+16631222,KC no pair | KCs | L
+16631248,KC no pair | KCs | L
+16691937,A ; 4th order Thermo_right | MB-FBNs | R
+16699958,U ; Convergence Sibling; DALcm12 m ant lat 12_right | MB-FBNs | R
+16720240,KC72 | KCs | R
+16782830,MBE11b left | MBONs | L
+16797672,MBE5a right | MBONs | R
+16823703,AT ; DPMpm2 1_right | MB-FBNs | R
+16846805,MBE5b left | MBONs | L
+16848475,Exclusive to 24; CP4 5 -left | MB-FBNs | L
+16850888,KC73 | KCs | R
+16856539,BL4_right; CM13 med 2 | MB-FBNs | R
+16868923,MBE24b left | MBONs | L
+16883909,MBE33 left | MBONs | L
+16939375,KC67 | KCs | L
+16977881,KC90 | KCs | L
+16987409,DPMpl lat 4 loSMpl_right | MB-FBNs | R
+17013073,MBE24b right | MBONs | R
+17016974,MBE20 left | MBONs | L
+17068730,Ladder (olfactory) ant. | MBINs | C
+17147410,KC no pair | KCs | L
+17147698,MBE11a left | MBONs | L
+17150791,AB_left | MB-FBNs | L
+17165711,J ; Mid DPMpl lat  (F4 pair)_right | MB-FBNs | R
+17177005,BL 2 : Left | MB-FBNs | L
+17280216,DALv23 L subMB 1 or 2_left | MB-FBNs | L
+17295912,MBE10b left | MBINs | L
+17300165,AR ; Putative MBE; CP4 1_left | MB-FBNs | L
+17355757,MBE7b left | MBONs | L
+17437719,AE_right | MB-FBNs | R
+17454963,KC very young | KCs | L
+17476873,KC very young | KCs | R
+17476916,KC very young | KCs | R
+17476920,KC very young | KCs | R
+17476934,KC very young | KCs | R
+17476964,KC very young | KCs | R
+17476975,KC very young | KCs | R
+17784367,EX 2 ; Right (?) | MB-FBNs | R
+17854345,ASB B1 right | MB-FBNs | R
+17980792,Exclusive to 24; CP4 5 right | MB-FBNs | R
+18028397,MBE5b right | MBONs | R
+18035864,neuron 18035865 left | MB-FBNs | L
+18084995,N6_right | MB-FBNs | R
+2506050,MBE4a right | MBINs | R
+29,KC #0 | KCs | R
+2966602,K ; DPLam med _left | MB-FBNs | L
+3157405,AN: DPMlp Lar_left | MB-FBNs | L
+3299214,MBE2a right | MBONs | R
+3347708,KC2 | KCs | R
+3347834,KC3 | KCs | R
+3497901,KC4 | KCs | R
+3522293,KC5 | KCs | R
+3565102,KC6 young | KCs | R
+3587612,KC7 | KCs | R
+3605630,KC8 young | KCs | R
+3664102,Thermo KC B_right - mbi2 - unknown | KCs | R
+3679411,KC9 young | KCs | R
+3813487,Ladder (olfactory) post. | MBINs | C
+3819157,KC no pair | KCs | L
+3819171,KC no pair | KCs | L
+3886356,MBE4h left | MBINs | L
+3890028,MBE24a right | MBINs | R
+4022539,MBE20 right | MBONs | R
+4103336,"MBON-F-V8;14+4 cell body close to other relays, right | MB-FBNs | R"
+4114133,CP23 d 13_right | MB-FBNs | R
+4117305,KC72 | KCs | L
+4134539,KC no pair | KCs | L
+4144377,DALv23 LAL 2 right | MB-FBNs | R
+4152272,DALv23 sub MB 1_right | MB-FBNs | R
+4180774,HL; DALv23 L LAL_right | MB-FBNs | R
+4190567,SJ: DALv23 L LAL dor pos 2_right | MB-FBNs | R
+4195012,MBE13a right | MBONs | R
+4199033,NK_right | MB-FBNs | R
+4201555,DALv23 LAL 12 right | MB-FBNs | R
+4227304,KC10 | KCs | R
+4227544,KC11 | KCs | R
+4229950,Thermo KC A_Right - Mushroom Body  Left | KCs | R
+4230061,KC12 | KCs | R
+4230739,KC13 | KCs | R
+4230749,MBE13b right | MBONs | R
+4234009,MBE33 right | MBONs | R
+4235139,AVM011f right | MBINs | R
+4241192,KC14 | KCs | R
+4241237,MBE6 right | MBONs | R
+4337398,DALv23 sub MB 2_right | MB-FBNs | R
+4381129,MBE19 left | MBINs | L
+4381377,MBE4f left | MBINs | L
+4401350,MBE15a left | MBONs | L
+4408397,NK_left | MB-FBNs | L
+4411505,KC no pair | KCs | L
+4411688,M_right | MB-FBNs | R
+4412036,KC no pair | KCs | L
+4412315,KC2/24 | KCs | L
+4414163,MBE1d left | MBINs | L
+4414184,MBE1d right | MBINs | R
+4414426,KC15 | KCs | R
+4415241,KC16 | KCs | R
+4444354,KC17 | KCs | R
+4473922,B ; DALcm12 m ant lat 5_right | MB-FBNs | R
+4514494,BG ; Baso-anterior target neuron #2 MB PN_right | MB-FBNs | R
+4518546,KC no pair | KCs | L
+4598109,MBE34 right | MBONs | R
+4598363,MBE15a right | MBONs | R
+4617479,N_right | MB-FBNs | R
+4884579,MBE1b right | MBINs | R
+4919895,KC18 young | KCs | R
+4982172,KC19 | KCs | R
+5019924,KC20 | KCs | R
+5051342,KC21 | KCs | R
+5091874,DPLm1(D CB)3_left | MB-FBNs | L
+5321459,O ; BAmd1 v_right | MB-FBNs | R
+5395823,MBE15b left | MBONs | L
+5516552,I ; Bala12 #9_right | MB-FBNs | R
+5681132,DE: CPe 1_left | MB-FBNs | L
+5738449,W_right | MB-FBNs | R
+5835799,KC22 | KCs | R
+5835815,KC23 | KCs | R
+5836035,KC24 | KCs | R
+5836163,KC25 | KCs | R
+5836181,KC26 | KCs | R
+5836197,KC27 | KCs | R
+5836206,KC28 | KCs | R
+5836387,KC29 | KCs | R
+5870071,DALv23 L LAL #2 counterpart left | MB-FBNs | L
+5934511,BL ; CM13 med 4_right | MB-FBNs | R
+5937084,KC65;_42a left | KCs | L
+5966099,MBE4h right | MBINs | R
+6290724,C ; DALcl12 L d 2_right | MB-FBNs | R
+6611894,MBE1c right | MBINs | R
+6699205,MBE30 right | MBONs | R
+6702830,KC no pair | KCs | L
+6703240,MBE23 right | MBONs | R
+6704232,KC54 | KCs | L
+677717,KC1 | KCs | R
+7026287,BN ; DALcm12 L m ant lat 3_left | MB-FBNs | L
+7055857,MBE6 left | MBONs | L
+7057894,MBE1c left | MBINs | L
+7187384,Thermo KC B_left - mbi2 - unknown | KCs | L
+7196392,KC31 | KCs | R
+7215582,KC103 very young | KCs | R
+7540581,I ; Bala12 #9_left | MB-FBNs | L
+7574701,DE: CPe 1_right | MB-FBNs | R
+7594047,BF ; F3 pair; CP4 2_right | MB-FBNs | R
+7616956,MBE9a right | MBINs | R
+7690945,KC33 | KCs | R
+7786053,KC34 | KCs | R
+7802210,MBE5a left | MBONs | L
+7828725,KC35 | KCs | R
+7829784,KC36 | KCs | R
+7838405,KC37 | KCs | R
+7840203,KC38 | KCs | R
+7840791,MBE9b right | MBONs | R
+7868195,KC39 | KCs | R
+7891312,KC40 | KCs | R
+7897469,MBE2as right | MBONs | R
+7901791,MBE4a left | MBINs | L
+7910624,MBE2as left | MBONs | L
+7980369,BN ; DALcm12 L m ant lat 3_right | MB-FBNs | R
+7983899,MBE9a left | MBINs | L
+8019816,BL 2 ; Right; CM13 med 1 | MB-FBNs | R
+8052161,DALv23 L subMB 1 or 2_left | MB-FBNs | L
+8066411,KC41 young | KCs | R
+8066542,KC42 | KCs | R
+8068173,LON KC right | KCs | R
+8078096,BG ; Baso-anterior target neuron #2 MB PN_left | MB-FBNs | L
+8094859,MBE11a right | MBONs | R
+8118474,Thermo KC A_Left   -   Mushroom Body  Right | KCs | L
+8118947,D ; Feedback neuron from nociceptive_left | MB-FBNs | L
+8177991,KC no pair | KCs | L
+8247315,KC104 very young | KCs | R
+8248706,KC no pair | KCs | L
+8259179,KC43 very young | KCs | R
+8259192,KC44 young | KCs | R
+8259199,KC45 very young | KCs | R
+8260011,KC46 young | KCs | R
+8260935,KC47 very young | KCs | R
+8262302,KC21 | KCs | L
+8262372,LON KC left | KCs | L
+8262503,KC no pair | KCs | L
+8263140,KC no pair | KCs | L
+8263285,KC no pair | KCs | L
+8274902,KC48 | KCs | R
+8297018,MBE16 right | MBONs | R
+8318678,KC no claws | KCs | L
+8319311,MBE10a right | MBINs | R
+8338584,MBE13a left | MBONs | L
+8393981,KC no pair | KCs | L
+8413663,KC49 | KCs | R
+8419602,KC50 | KCs | R
+8427677,KC51 | KCs | R
+8504660,KC52 | KCs | R
+8509987,KC53 | KCs | R
+8513389,KC no pair | KCs | L
+8540770,BAmd1 v 2 right | MB-FBNs | R
+8559607,KC54 | KCs | R
+8689674,MBE10a left | MBINs | L
+8712361,AB_right | MB-FBNs | R
+8723397,KC55 young | KCs | R
+8752697,AN: DPMlp Lar_right | MB-FBNs | R
+8761400,KC56 young | KCs | R
+8764750,KC57 very young | KCs | R
+8765865,KC58 very young | KCs | R
+8766921,KC59 young | KCs | R
+8773165,KC60 very young | KCs | R
+8773716,KC61 very young | KCs | R
+8773879,KC62 young | KCs | R
+8792120,KC63 young | KCs | R
+8792477,BL1 ; CM13 lat 1_right | MB-FBNs | R
+8798010,MBE13b left | MBONs | L
+8814922,BLAd ant lat 1_right | MB-FBNs | R
+8835968,KC64 | KCs | R
+8850802,KC65;_42a right | KCs | R
+8864096,KC no pair | KCs | L
+8864785,N_left | MB-FBNs | L
+8865199,KC no pair | KCs | L
+8877158,MBE7a left | MBONs | L
+8891315,KC66 | KCs | R
+8922644,MBE16 left | MBONs | L
+8924186,KC67 | KCs | R
+8957325,KC68 young | KCs | R
+8978117,KC69 young | KCs | R
+8980589,MBE18 right | MBONs | R
+8997281,KC70 | KCs | R
+9012340,KC71 young | KCs | R
+9057043,BY_right | MB-FBNs | R
+9062992,BL1 ; CM13 lat 1_left | MB-FBNs | L
+9064208,BL ; CM13 med 4_left | MB-FBNs | L
+9074101,MBE35 right | MBONs | R
+9083312,MBE34-like_left; Left Handlebar? | MB-FBNs | L
+9103732,DA_right | MB-FBNs | R
+9109799,MBE35 left | MBONs | L
+9141404,A ; 4th order Thermo_left | MB-FBNs | L
+9238937,DA_left | MB-FBNs | L
+9251793,SJ: DALv23 L LAL dor pos 2_left | MB-FBNs | L
+9252296,DALv23 L LAL dor pos 3 left | MB-FBNs | L
+9287906,DPLm1(D CB)3_right | MB-FBNs | R
+9423829,BY_left | MB-FBNs | L
+9457719,CP23 d 5_right | MB-FBNs | R
+9469519,MBE11b right | MBONs | R
+9511772,KC74 young | KCs | R
+9517477,KC75 young | KCs | R
+9525492,KC76 | KCs | R
+9527333,Headphone_left | MB-FBNs | L
+9527522,X ; F1 pair; DALcm12 L m ant lat 9_left | MB-FBNs | L
+9531722,KC77 | KCs | R
+9556700,KC78 | KCs | R
+9574259,KC79 young | KCs | R
+9578602,KC80 young | KCs | R
+9606354,KC81 very young | KCs | R
+9609048,KC82 | KCs | R
+9707941,KC83 | KCs | R
+9730873,KC84 | KCs | R
+9741463,KC85 young | KCs | R
+9766793,KC86 | KCs | R
+9769559,KC87 very young | KCs | R
+9770016,KC88 very young | KCs | R
+9782026,KC89 young | KCs | R
+9796812,KC90 | KCs | R
+9809626,KC91 | KCs | R
+9813188,KC92 | KCs | R
+9847388,KC93 | KCs | R
+9848760,AR ; Putative MBE; CP4 1_right | MB-FBNs | R
+9889095,KC94 | KCs | R
+9897223,KC95 | KCs | R
+9983191,KC no pair | KCs | L

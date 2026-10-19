@@ -2,7 +2,11 @@
 
 An offline connectivity-table-to-report workflow for comparing directed reachability across synapse-count thresholds. It preserves exact neuron IDs, records source hashes and provenance, and shows a deterministic shortest witness with counts for every edge.
 
-**Try the included [interactive synthetic report](results/example/report.html)** by opening it locally in a browser. Nothing is deployed. The report needs no server, account, or network access.
+**Open the [real fruit-fly connectome explorer](results/larva-demo/report.html) locally in your browser.** Choose any of 408 neurons, change synapse thresholds, remove intermediate neurons, and inspect directed paths. No server, account, or network access is needed. Nothing is deployed.
+
+The included public larval dataset contains 18,431 directed edges and 63,486 synapses. [Launch instructions, worked experiment, screenshot, and reproducibility](docs/real-connectome.md) explain the source, CC BY 4.0 data terms, selection boundaries, and independent checks. This is a structural graph experiment, not an activity simulation or biological intervention model.
+
+The [original synthetic report](results/example/report.html) remains available as a small software semantics example.
 
 ## Run an audit
 
@@ -44,7 +48,7 @@ Connections use the exact UTF-8 CSV header `source,target,synapses`. IDs remain 
 
 Repeat `--source` and `--target` for their Cartesian product, up to 256 pairs, and select up to 12 thresholds. The CLI performs breadth-first searches; it never enumerates all paths. In the HTML, select a threshold, filter query IDs or labels, inspect a query, compare it across cutoffs, and page through its witness edges. Query and edge tables mount at most 20 rows each; every finding remains reachable. Native buttons/selects support keyboard navigation. The JSON download contains the exact adjacent JSON bytes.
 
-This tool does not fetch, normalize, or infer undocumented upstream data. Raw FlyWire exports need an explicit conversion to this contract; retain upstream selection and filtering information in provenance. Public-data acquisition was attempted but did not provide a connectivity file without account access. This release therefore includes only synthetic data; see [acquisition evidence and dependency](docs/public-data.md).
+The core auditor reads documented local files. The included `scripts/import_larva.py` explicitly converts a pinned public larval connectome archive to this contract. See [real-data acquisition and provenance](docs/public-data.md). Raw FlyWire exports still need their own documented conversion; larval skeleton IDs and adult FlyWire root IDs are different namespaces.
 
 ## Verify
 
@@ -78,7 +82,7 @@ Resource ceilings are explicit and can only be lowered. Any input error, exhaust
 
 FlyWire Codex already provides pathway exploration. This project's scope is a reproducible offline threshold audit, with no novelty claim. See [existing work and semantic differences](docs/existing-work.md).
 
-Code and synthetic fixtures: [MIT license](LICENSE).
+Code and synthetic fixtures: [MIT license](LICENSE). Included public biological data: [CC BY 4.0 attribution and terms](examples/larva/NOTICE.md).
 
 ## Audit individual connection failures
 
@@ -137,7 +141,7 @@ edge and baseline regression coverage. Current measurements and checks are in
 [node-failure-tests.txt](results/node-failure-tests.txt). `--record` refreshes only
 these new artifacts and the node example; earlier evidence and examples remain
 historical. Node deletion is a graph operation, **not a validated neuronal
-intervention**. All included examples are synthetic.
+intervention**. The examples in this section are synthetic. The [real-data workflow](docs/real-connectome.md) uses the same Python node-removal auditor on a public larval connectome subset.
 
 ## Find critical intermediates with dominators
 

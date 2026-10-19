@@ -1,6 +1,22 @@
-# Public connectome acquisition attempt
+# Public connectome acquisition
 
-This release contains **no biological connectome dataset**. Its shipped examples and measured workloads are synthetic and licensed with the project.
+## Available now: documented public larval data
+
+The project now includes a real public larval *Drosophila* connectome subset,
+acquired on 2026-10-19 from the eLife publisher's Figure 1 source-data download
+for Pedigo et al. (2023), doi:10.7554/eLife.83739, using the reconstruction of
+Winding et al. (2023), doi:10.1126/science.add9330. It requires no account or token.
+
+The original archive, deterministic extraction, original neuron IDs, CC BY 4.0
+attribution, selection rules, and SHA-256 fingerprints are preserved in
+[examples/larva](../examples/larva/NOTICE.md). The
+[interactive demo and verification workflow](real-connectome.md) use this input.
+The previous FlyWire access obstacle below does not block this larval workflow.
+
+## Historical FlyWire attempt (2026-10-15)
+
+The following records the earlier attempt, when shipped examples were synthetic.
+It is not a claim that all fruit-fly connectome data require credentials.
 
 On 2026-10-15, an unauthenticated HTTPS GET attempted to obtain the FlyWire FAFB download listing:
 
@@ -8,11 +24,11 @@ On 2026-10-15, an unauthenticated HTTPS GET attempted to obtain the FlyWire FAFB
 
 Observed result: HTTP 200, `text/html; charset=utf-8`, 30,660 bytes: a Codex landing/sign-in page, not a JSON data-product listing or connectivity CSV. The response-body SHA-256 was `0d46f2591293b67cc37962a60ca2b419ac2c812b6ac03b32e1388ac3a90ea6d9`. HTTP success alone was not treated as successful data acquisition. Session headers and page contents are not redistributed.
 
-The [primary download guidance in the Codex FAQ](https://codex.flywire.ai/faq) describes account-token access to static download resources. No credentials were sought or used. A small bounded FAFB v783 subset therefore remains an external data-access and redistribution-provenance dependency, not a prerequisite for running the local workflow.
+The [primary download guidance in the Codex FAQ](https://codex.flywire.ai/faq) describes account-token access to static download resources. No credentials were sought or used. A small bounded FAFB v783 subset remained an external data-access and redistribution-provenance dependency at that time.
 
 The intended future selection is reproducible: pin the downloaded connection-table revision and raw SHA-256; sort unique root IDs lexicographically as strings; retain the first 128 IDs and only edges with both endpoints in that set; declare all selected IDs in the nodes file; sum disjoint region counts by directed pair. Record original headers, any upstream minimum count, aggregate counts, exact selection script, attribution, source URLs, applicable data license, and output hashes. This induced subset is an arbitrary software fixture and must never be presented as a complete pathway neighborhood. A biologically motivated subset would require a separately documented selection.
 
-No upstream file, exact file revision/hash, or applicable redistribution license was acquired and validated, so none is claimed. The available v783 label is an intended snapshot, not a claim that data were downloaded. Supplying a lawfully obtained file and its attribution/license would enable this optional extension; synthetic fixtures already exercise all current workflow semantics.
+No FlyWire upstream file, exact file revision/hash, or applicable redistribution license was acquired and validated in that attempt, so none is claimed for FlyWire. The available v783 label is an intended snapshot, not a claim that data were downloaded. Supplying a lawfully obtained file and its attribution/license would enable this optional extension; synthetic fixtures already exercise all current workflow semantics.
 
 Synthetic revisions:
 

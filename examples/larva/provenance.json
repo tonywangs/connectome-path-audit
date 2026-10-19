@@ -1,0 +1,15 @@
+{
+  "attribution": "Winding et al. (2023), The connectome of an insect brain, doi:10.1126/science.add9330; source data published with Pedigo et al. (2023), doi:10.7554/eLife.83739. https://cdn.elifesciences.org/articles/83739/elife-83739-fig1-data1-v2.zip",
+  "dataset": "Larval Drosophila mushroom-body-related induced subgraph (eLife 83739 Figure 1 source data 1)",
+  "kind": "public",
+  "license": "CC BY 4.0, eLife article and Figure 1 source data; https://creativecommons.org/licenses/by/4.0/; see examples/larva/NOTICE.md",
+  "limitations": [
+    "This induced subgraph omits every neuron outside four published groups and all incident edges. It is not the complete mushroom body or whole brain. Missing paths do not establish biological disconnection.",
+    "G is the upstream sum across axon/dendrite compartment connection types. Counts are structural contacts, not signs, strengths, probabilities, delays, activity, or causal influence.",
+    "One larval specimen and a historical reconstruction/annotation snapshot; proofreading, developmental and annotation limitations remain. Labels are upstream annotations, not independently validated cell identities.",
+    "Deleting graph nodes is not a validated neuronal intervention. There is no neural dynamics simulation, physiological validation, or inference about biological function."
+  ],
+  "revision": "elife-83739-fig1-data1-v2; article version 2, 2023-03-28",
+  "schema": "connectome-provenance/v1",
+  "selection": "scripts/import_larva.py selects metadata simple_group in KCs, MB-FBNs, MBINs, MBONs, both hemispheres, and every G_edgelist edge with both endpoints selected. No count cutoff or other cell filter. Preserve original skeleton IDs as strings, self-loops and isolated selected cells; first column is source, second target, third summed synapse count. Sort IDs lexicographically. Source ZIP SHA-256: c92177b4720d86b210ea44c10b9354fdf079c8cca88f0c0bce3b57815293c9cb"
+}
